@@ -1,0 +1,311 @@
+<resources>
+    <string name="app_name">Levi</string>
+    <string name="Tit_presion">Flujo a presión</string>
+    <string name="Tit_gravedad">Flujo a \nsuperficie \nlibre</string>
+    <string name="title_activity_help">Ayuda</string>
+    <string name="title_activity_contacto">Contacto</string>
+
+    <string name="Seccion_canal">Sección</string>
+
+    <string name="adMobId">ca-app-pub-9916459118611631~2051967328</string>
+
+    <string name="UnitId">ca-app-pub-9916459118611631/8078408912</string>
+
+    <string name="Tit_seccion_Circular">Sección circular</string>
+    <string name="Tit_seccion_Rectangular">Sección rectangular</string>
+    <string name="Tit_seccion_trapecial">Sección trapecial</string>
+    <string name="Tit_seccion_irregular">Sección irregular</string>
+    <string name="Tit_seccion_portal">Sección portal</string>
+    <string name="Text_tipo_secciont_Rect">Tipo de sección</string>
+    <string name="Rect_dimensiones">Dimensiones \nBxH</string>
+    <string name="Text_fondo">Ancho de \nfondo \n(B)</string>
+    <string name="Text_altura">Altura \nlibre \n(H)</string>
+
+    <string name="Tit_ayuda">Ayuda</string>
+    <string name="Tit_Contacto">Acerca de</string>
+    <string name="Contactar">Contactar</string>
+    <string name="label_material">Material</string>
+    <string name="label_RD">RD</string>
+    <string name="label_diam">DN/Dint  \n(in/mm)</string>
+    <string name="label_calc">Calcular</string>
+    <string name="help">Ayuda</string>
+    <string name="tuberias">Calcular Tuberías</string>
+    <string name="Tit_Darcy">Flujo a presión</string>
+    <string name="Tit_Manning">Flujo a superficie libre</string>
+    <string name="Text_Pendiente">Pendiente \nm/1000m</string>
+
+    <string name="Tit_rugosidad_trapecial">Rugosidad</string>
+    <string name="Text_H_trapecial">Altura \nlibre (m)</string>
+    <string name="Text_H_portal">Altura \nHt (m)</string>
+
+    <string name="Text_B_trapecial">Ancho \ndel fondo</string>
+    <string name="Text_talud_izq">Talud \nIzq. k:1</string>
+    <string name="Text_talud_der">Talud \nDer. k:1</string>
+    <string name="Hint_altura_trap">Altura (m)</string>
+    <string name="Hint_ancho_trap">Ancho (m)</string>
+    <string name="Hint_talud">Talud</string>
+    <string name="Hint">Talud</string>
+    <string name="Text_TVRug_fondo">Fondo</string>
+    <string name="Text_TVRug_Tder">Talud \nDer.</string>
+    <string name="Text_TVRug_Tizq">Talud \nIzq.</string>
+    <string name="Hint_rugosidad">Manning</string>
+
+    <string name="Text_B_portal">Ancho (2R) \n(m)</string>
+    <string name="Text_H_muro">Altura de parted \n(m)</string>
+    <string name="Hint_techo">Techo</string>
+    <string name="Hint_Muro_izq_tramo1">n1</string>
+    <string name="Hint_Muro_izq_tramo2">n2</string>
+    <string name="Hint_Muro_der_tramo1">n1</string>
+    <string name="Hint_Muro_der_tramo2">n2</string>
+    <string name="Text_Portal_fondo">Fondo</string>
+    <string name="Text_M_izq">Muro \nIzquierdo</string>
+    <string name="Text_M_der">Muro \nDerecho</string>
+    <string name="Hint_n_techo">n Techo</string>
+
+    <string name="Hint_pendiente">Pendiente</string>
+    <string name="Hint_variable">Variable</string>
+    <string name="Tit_dim_trapecial">Dimensiones</string>
+
+    <string name="Acerca_de">Levi</string>
+    <string name="Acerca_de_Levi">Levi es una app cuyo propósito es facilitar cálculos
+        hidraulicos de flujo en conductos, utilizando información real de tuberías y sus materiales. \n \nLa
+        hemos denominado Levi en honor al Ing. Enzo Levi, un pilar en la investigación
+        hidráulica en México.</string>
+
+    <string name="Tit_creditos">Créditos</string>
+
+    <string name="Perval_SAS">Copyright (C) 2019 PERVAL Ingeniería S.A.S de C.V.\nTodos los derechos reservados.</string>
+
+    <string name="ETNumberWarn">Define un valor para realizar los cálculos</string>
+    <string name="ETPositiveWarn">Define un valor positivo para realizar los cálculos</string>
+    <string name="Gasto">Gasto (l/s)</string>
+    <string name="Velocidad">Velocidad (m/s)</string>
+    <string name="Perdidas">Pérdidas (m/km)</string>
+    <string name="Rugosidad">Rugosidad (mm)</string>
+    <string name="Reynolds">Reynolds</string>
+
+
+    <string-array name="secciones_canales">
+        <item>Circular</item>
+        <item>Trapezoidal</item>
+        <item>Rectangular</item>
+        <item>Arco de medio punto</item>
+        <item>Irregular</item>
+    </string-array>
+
+    <string-array name="material_canales">
+        <item>PVC</item>
+        <item>PEAD</item>
+        <item>Concreto</item>
+    </string-array>
+
+    <string-array name="canal_rect">
+        <item>Cajón prefabricado</item>
+        <item>Sección personalizada</item>
+    </string-array>
+
+
+    <string-array name="lista_materiales">
+        <item>PVC Serie Métrica</item>
+        <item>PVC Serie Inglesa</item>
+        <item>PEAD</item>
+        <item>PPR</item>
+        <item>Acero</item>
+    </string-array>
+
+
+    <string-array name="Tuberias_sanitarias">
+        <item>PVC Sanitario</item>
+        <item>Concreto Simple</item>
+        <item>Concreto Reforzado</item>
+        <item>PEAD Sanitario</item>
+    </string-array>
+
+
+    <string-array name="unidades">
+        <item>Q (l/s)</item>
+        <item>Vel (m/s)</item>
+        <item>Hl (m/km)</item>
+    </string-array>
+
+    <string-array name="unidades_san">
+        <item>Q (l/s)</item>
+        <item>Vel (m/s)</item>
+        <item>Tirante (m)</item>
+    </string-array>
+
+
+    <string-array name="listRD">
+        <item>7</item>
+        <item>7.3</item>
+        <item>9</item>
+        <item>11</item>
+        <item>13.5</item>
+        <item>15.5</item>
+        <item>17</item>
+        <item>21</item>
+        <item>26</item>
+        <item>32.5</item>
+        <item>41</item>
+    </string-array>
+
+    <string-array name="listPVCMetric">
+        <item>3.5</item>
+        <item>5</item>
+        <item>7</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="listPVCInglesa">
+        <item>13.5</item>
+        <item>21</item>
+        <item>26</item>
+        <item>41</item>
+    </string-array>
+
+    <string-array name="listPPR">
+        <item>16</item>
+    </string-array>
+
+
+    <string-array name="listAcero">
+        <item>5</item>
+        <item>10</item>
+        <item>10S</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>60</item>
+        <item>80</item>
+        <item>120</item>
+        <item>140</item>
+        <item>160</item>
+        <item>XS</item>
+        <item>XXS</item>
+        <item>STD</item>
+    </string-array>
+
+    <string name="Tit_MatDesc">Materiales</string>
+    <string name="MatDescription">PVC Serie Métrica - Tuberías
+        de PVC fabricadas bajo la norma NMX-E-145/1.\n \nPVC Serie
+        Inglesa - Tuberías de PVC fabricadas
+        bajo la norma ASTM D-2241 o NMX-E224.\n \nPPR  - Tuberías de
+        polipropileno fabricadas en cumplimiento con la NMX-E-226/2
+        CNCP.\n \nAcero - Tuberías de acero fabricadas bajo la norma  ASTM A 53. \n
+    </string>
+
+    <string name="Tit_Recursos">Recursos: </string>
+    <string name="LinkPVCMetric">https://www.tuberiadepvc.mx/Tuberia-Hidraulica-de-PVC-Serie-Metrica.html</string>
+    <string name="LinkPVCIng">https://www.tuberiadepvc.mx/Tuberia-Hidraulica-de-PVC-Serie-Inglesa.html</string>
+    <string name="LinkPEAD">https://www.tuberiamoreno.com/productos/hidraulico/tuberia-de-polietileno-de-alta-densidad-pead-4608-4710-rd-7-0-rd-7-3-rd-9-rd-11-dr-13-5-rd-15-5-rd-17-rd-21-rd-26-rd-32-5-rd-41</string>
+    <string name="LinkPPR">https://rotoplas.com.mx/catalogo/tuboplus-hidraulico/</string>
+    <string name="LinkAcero">http://www.covalco.mx/manuales-y-normas.html</string>
+
+    <string name="LinkPVCSan">https://www.tuberiadepvc.mx/Tuberia-de-PVC-Sanitaria-Metrica.html</string>
+    <string name="LinkPEADSan">http://www.hancor.com/pdf/es_sanitite.pdf</string>
+    <string name="LinkConcSimple">https://tubocreto.com/productos/tubos/index.html</string>
+    <string name="LinkCajon">https://tubocreto.com/productos/cajones/index.html</string>
+
+
+    <string name="Tit_Hidraulica">Hidráulica</string>
+    <string name="Subtit_presion">Flujo a presión</string>
+
+    <string name="Cont_presion1">Las pérdidas de carga en tubos a presión se calculan
+    con la ecuación de Darcy-Weisbach:</string>
+
+    <string name="Cont_presion2">donde: \nh - pérdidas de energía debidas a la fricción en tubería, m; \nv - velocidad de flujo en m/s; \ng -  aceleración
+        gravitatoria, 9.81 m/s²; \nL - longitud de la tubería, en metros; \nD - Diámetro de la tubería en metros; \nf - factor
+        de fricción de Darcy, que se obtiene con la ecuación de Swamee-Jain</string>
+    <string name="Cont_presion3">k - rugosidad del material, en metros; \nRe - Número de reynolds (Adimensional)</string>
+
+    <string name="Cont_presion4"> es la viscosidad cinemática, 0.00000104 m²/s</string>
+
+    <string name="Cont_presion5">Para obtener las pérdidas por cada kilómetro se considera L = 1,000 m.</string>
+
+
+    <string name="Formula_Swamee">$$f = \\frac{0.25}{[log_{10}(\\frac{k/D}{3.7}+
+        \\frac{5.74}{Re^{0.9}})]^2}$$</string>
+    <string name="Formula_Darcy">
+        $$h_f = f \\frac{L}{D}\\frac{v^2}{2g}$$
+    </string>
+
+    <string name="Formula_Reynolds">
+                $$Re =  \\frac{vD}{\\nu}$$
+
+    </string>
+
+
+    <string name="title_activity_flujo_apresion">FlujoAPresion</string>
+
+    <string name="title_activity_flujo_acanal">FlujoACanal</string>
+
+
+    <string name="Subtit_gravedad">Flujo a gravedad</string>
+
+    <string name="Cont_gravedad1">El flujo a gravedad se calculó con la ecuación de Manning, como se muestra a continuación</string>
+    <string name="Formula_Manning">
+                $$v =  \\frac{1}{n} R_h^{\\frac{2}{3}} S^{\\frac{1}{2}}$$
+
+    </string>
+
+    <string name="Cont_gravedad2">donde \nn - coeficiente de rugosidad de Manning; \nRh - Radio hidráulico, m;\nS - pendiente hidráulica\n</string>
+    <string name="Formula_Rh">
+                $$R_h =  \\frac{A}{Pm}$$
+
+    </string>
+    <string name="Cont_gravedad3">A - Área hidráulica - m2;\nPm - Perímetro mojado, m.</string>
+
+    <string name="Cont_gravedad_4">El número de Froude se ha calculado con la ecuación</string>
+
+    <string name="Formula_Froude">
+                $$F =  \\frac{velocidad}{(g*D)^{0.5}}$$
+    </string>
+
+    <string name="Cont_gravedad_5">Donde: \ng - constante de aceleración, 9.81 m/s2;
+        \nD - profundidad hidráulica (D=A/T); \nA- área hidráulica y \nT- el ancho libre de la superficie del agua.\n
+        Si el Número de Froude es menor a 1 el régimen será de tipo subcrítico; si es igual a 1 será de tipo crítico y si es mayor a 1 será de tipo supercrítico.
+    </string>
+
+
+    <string name="Text_Btn_Manning">Selección del coeficiente de Manning</string>
+
+
+    <string name="Calculo_fallido">La tubería, con la pendiente indicada, no tiene la capacidad para conducir el gasto deseado. Prueba con otro diámetro para garantizar flujo a superficie libre.</string>
+
+    <string name="Calculo_fallidoV">La tubería, con la pendiente indicada, no tiene la capacidad para conducir flujo con la velocidad deseada. Prueba con otras dimensiones para garantizar flujo a superficie libre.</string>
+    <string name="Calculo_fallidoH">El tirante indicado es mayor a la altura disponible.</string>
+
+    <string name="Toast_add_slope">El campo pendiente está vacío o es negativo, asignar un valor a la pendiente.</string>
+    <string name="Toast_add_values">Asigne valores a todas las variables.</string>
+    <string name="Toast_add_variable">Asignar un valor válido de calculo.</string>
+    <string name="Toast_h_mayoraD">Asignar un tirante menor al diámetro</string>
+    <string name="Toast_h_mayoraHT">Asignar un tirante menor a la altura total</string>
+
+    <string name="TextPVCMEtric">Tubería de PVC Serie Métrica</string>
+    <string name="TextPVCInglesa">Tubería de PVC Serie Inglesa</string>
+    <string name="TextPEADHid">Tubería de PEAD - hidráulica</string>
+    <string name="TextPPR">Tubería de Polipropileno (PPR)</string>
+    <string name="TextAcero">Tubería de Acero</string>
+    <string name="TextPVCSan">Tubería de PVC Sanitario</string>
+    <string name="TextPEADSan">Tubería de PEAD sanitario</string>
+    <string name="TextConcSimple">Tubería de concreto simple y reforzado</string>
+
+    <string name="TextCajones">Cajones de concreto reforzado</string>
+    <string name="TextCajonesG">Cajones de grandes dimensiones</string>
+
+    <string name="Tit_Clave_manning">Clave</string>
+    <string name="Tit_Desc_manning">Descripción</string>
+
+    <string name="Tit_table_manning">n de Manning</string>
+
+    <string name="Cont_BotonPerval">Ir a Perval</string>
+    <string name="Cont_BotonContactar">Contactar</string>
+    <string name="Cont_Resultados">Resultados</string>
+    <string name="Cont_Seccion_portal">Imagen de portal</string>
+
+    <string name="Transicion_portal">Transicion_imagen_portal</string>
+    
+    <string name="Warning_hdif">Las alturas de los muros derechos e izquierdo deben ser iguales.</string>
+
+
+</resources>

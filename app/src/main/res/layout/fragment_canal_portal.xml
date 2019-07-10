@@ -1,0 +1,569 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/TV_dim_portal"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/azul_perval"
+                android:gravity="center_horizontal"
+                android:text="@string/Tit_dim_trapecial"
+                android:layout_centerHorizontal="true" />
+
+            <RelativeLayout
+                android:id="@+id/RL_Dimensiones_Portal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_below="@+id/TV_dim_portal">
+
+
+                <ImageView
+                    android:id="@+id/Image_Seccion_portal"
+                    android:layout_width="180dp"
+                    android:layout_height="170dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginStart="4dp"
+                    android:contentDescription="@string/Cont_Seccion_portal"
+                    android:adjustViewBounds="true"
+                    android:background="@drawable/border"
+                    android:transitionName="@string/Transicion_portal"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/portal3" />
+
+
+
+                <TextView
+                    android:id="@+id/TV_B_Portal"
+                    android:layout_width="120dp"
+                    android:layout_height="48dp"
+                    android:textSize="18sp"
+                    android:layout_toRightOf="@id/Image_Seccion_portal"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginLeft="48dp"
+                    android:textColor="@color/azul_perval"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:background="@drawable/fondo_text"
+                    android:text="@string/Text_B_portal"
+                    />
+
+                <EditText
+                    android:id="@+id/ET_B_Portal"
+                    android:inputType="numberDecimal"
+                    android:layout_width="120dp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:layout_toRightOf="@+id/Image_Seccion_portal"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginLeft="48dp"
+                    android:layout_marginTop="1dp"
+                    android:textAlignment="center"
+                    android:textSize="16sp"
+                    android:layout_below="@id/TV_B_Portal"
+                    android:hint="@string/Hint_ancho_trap"
+                    android:imeOptions="actionDone"
+                    android:textColorHint="@color/Hint_Color"
+
+                    />
+
+
+
+            </RelativeLayout>
+
+
+
+            <TextView
+                android:id="@+id/TV_Rugosidad_portal"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:layout_below="@id/RL_Dimensiones_Portal"
+                android:textColor="@color/azul_perval"
+                android:gravity="center_horizontal"
+                android:text="@string/Tit_rugosidad_trapecial"
+                android:layout_centerHorizontal="true" />
+
+
+
+
+            <RelativeLayout
+                android:id="@+id/RL_Rugosidad_portal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TV_Rugosidad_portal">
+
+
+                <EditText
+                    android:id="@+id/ET_Rug_techo"
+                    android:layout_width="80dp"
+                    android:layout_height="48dp"
+                    android:layout_centerHorizontal="true"
+                    android:hint="@string/Hint_n_techo"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionDone"
+                    android:textSize="16sp"
+                    android:textColorHint="@color/Hint_Color"
+
+                    />
+
+
+
+
+
+                <!--Aquí inicia la parte del código para capturar las rugosidades y alturas del muro
+                 izquierdo-->
+
+                <TextView
+                    android:id="@+id/TV_Muro_izq"
+                    android:layout_width="116dp"
+                    android:layout_height="48dp"
+                    android:text="@string/Text_M_izq"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:background="@drawable/fondo_text"
+                    android:textColor="@color/azul_perval"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_alignParentLeft="true" />
+
+
+
+                <TextView
+                    android:id="@+id/TV_Tit_HMuro_izq"
+                    android:layout_width="40dp"
+                    android:layout_height="48dp"
+                    android:layout_below="@id/ET_Rug_techo"
+                    android:text="h"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_alignParentLeft="true" />
+
+
+
+                <TextView
+                    android:id="@+id/TV_Tit_NMuro_izq"
+                    android:layout_width="40dp"
+                    android:layout_height="48dp"
+                    android:layout_below="@id/ET_Rug_techo"
+                    android:text="n"
+                    android:gravity="center"
+                    android:textSize="18sp"
+
+                    android:textColor="@color/azul_perval"
+                    android:layout_alignRight="@id/TV_Muro_izq"
+                    android:layout_alignEnd="@id/TV_Muro_izq"
+                     />
+
+
+
+                <EditText
+                    android:id="@+id/ET_Portal_izq_h2"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_below="@id/TV_Tit_HMuro_izq"
+                    android:hint="h2"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_alignParentLeft="true"
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionDone"
+                    android:textColorHint="@color/Hint_Color"
+
+                    />
+
+                <EditText
+                    android:id="@+id/ET_Rug_izq_h2"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_below="@id/TV_Tit_HMuro_izq"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignRight="@id/TV_Muro_izq"
+                    android:layout_alignEnd="@id/TV_Muro_izq"
+                    android:hint="@string/Hint_Muro_izq_tramo2"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionDone"
+                    android:textColorHint="@color/Hint_Color"
+
+                    />
+
+
+                <EditText
+                    android:id="@+id/ET_Portal_izq_h1"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:hint="h1"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionDone"
+                    android:layout_below="@id/ET_Rug_izq_h2"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:textColorHint="@color/Hint_Color"
+
+                    android:layout_alignParentLeft="true" />
+
+                <EditText
+                    android:id="@+id/ET_Rug_izq_h1"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:hint="n1"
+                    android:layout_below="@id/ET_Rug_izq_h2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignRight="@id/TV_Muro_izq"
+                    android:layout_alignEnd="@id/TV_Muro_izq"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionDone"
+                    android:textColorHint="@color/Hint_Color"
+
+
+                    />
+
+
+                <!-- Aquí inicia la parte derecha de los widgets para capturar
+                las rugosidades derechas de la sección-->
+
+
+
+                <TextView
+                    android:id="@+id/TV_Muro_der"
+                    android:layout_width="116dp"
+                    android:layout_height="48dp"
+                    android:text="@string/Text_M_der"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:background="@drawable/fondo_text"
+                    android:textColor="@color/azul_perval"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_alignParentLeft="true" />
+
+
+
+                <TextView
+                    android:id="@+id/TV_Tit_HMuro_der"
+                    android:layout_width="40dp"
+                    android:layout_height="48dp"
+                    android:layout_below="@id/ET_Rug_techo"
+                    android:text="h"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_alignParentRight="true" />
+
+
+
+                <TextView
+                    android:id="@+id/TV_Tit_NMuro_der"
+                    android:layout_width="40dp"
+                    android:layout_height="48dp"
+                    android:layout_below="@id/ET_Rug_techo"
+                    android:text="n"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_alignLeft="@id/TV_Muro_der"
+                    android:layout_alignStart="@id/TV_Muro_der"
+
+                    />
+
+
+
+                <EditText
+                    android:id="@+id/ET_Portal_der_h2"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_below="@id/TV_Tit_HMuro_der"
+                    android:hint="h2"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionDone"
+                    android:textColorHint="@color/Hint_Color"
+
+                    />
+
+                <EditText
+                    android:id="@+id/ET_Rug_der_h2"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_below="@id/TV_Tit_NMuro_der"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignStart="@id/TV_Muro_der"
+                    android:layout_alignLeft="@id/TV_Muro_der"
+                    android:hint="@string/Hint_Muro_izq_tramo2"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionDone"
+                    android:textColorHint="@color/Hint_Color"
+
+                    />
+
+
+                <EditText
+                    android:id="@+id/ET_Portal_der_h1"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:hint="h1"
+                    android:gravity="center"
+                    android:textSize="16sp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_below="@id/ET_Portal_der_h2"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionDone"
+                    android:textColorHint="@color/Hint_Color"
+
+                    />
+
+                <EditText
+                    android:id="@+id/ET_Rug_der_h1"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:layout_below="@id/ET_Portal_der_h2"
+                    android:layout_centerHorizontal="true"
+                    android:layout_alignStart="@id/TV_Muro_der"
+                    android:layout_alignLeft="@id/TV_Muro_der"
+                    android:hint="@string/Hint_Muro_izq_tramo1"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionDone"
+                    android:textColorHint="@color/Hint_Color"
+
+                    />
+
+
+
+                <TextView
+                    android:id="@+id/TV_Portal_fondo"
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+                    android:text="@string/Text_Portal_fondo"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_above="@id/ET_Rug_der_h1"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    />
+
+                <EditText
+                    android:id="@+id/ET_Rug_fondo_portal"
+                    android:layout_width="80dp"
+                    android:layout_height="48dp"
+                    android:layout_below="@id/TV_Portal_fondo"
+                    android:layout_centerHorizontal="true"
+                    android:hint="n"
+                    android:textSize="16sp"
+                    android:gravity="center"
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionDone"
+                    android:textColorHint="@color/Hint_Color"
+
+                    />
+            </RelativeLayout>
+
+
+
+            <!-- INGRESO DE INFORMACIÓN -->
+
+            <!--Ingreso de pendiente de canal-->
+
+            <RelativeLayout
+                android:id="@+id/RLPendiente_portal"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_below="@id/RL_Rugosidad_portal"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_centerHorizontal="true"
+                android:background="@drawable/border"
+                android:textColorHint="@color/Hint_Color"
+
+
+                >
+
+                <EditText
+                    android:id="@+id/ET_Pendiente_Portal"
+                    android:inputType="numberDecimal"
+                    android:layout_width="120dp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="1dp"
+                    android:hint="@string/Hint_pendiente"
+                    android:imeOptions="actionDone"
+                    android:textColorHint="@color/Hint_Color"
+
+                    />
+
+                <TextView
+                    android:id="@+id/TVPendiente_Portal"
+                    android:text="@string/Text_Pendiente"
+
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:layout_width="match_parent"
+                    android:layout_toRightOf="@id/ET_Pendiente_Portal"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    />
+
+
+
+            </RelativeLayout>
+
+
+
+
+            <!-- Ingreso de datos de gasto/velocidad/tirante-->
+            <LinearLayout
+                android:id="@+id/LLDatos_portal"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_below="@id/RLPendiente_portal"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/border"
+
+
+                >
+
+                <EditText
+                    android:id="@+id/ET_Number_portal"
+                    android:inputType="numberDecimal"
+                    android:layout_width="120dp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="1dp"
+                    android:hint="@string/Hint_variable"
+                    android:textColorHint="@color/Hint_Color"
+
+                    android:imeOptions="actionDone"
+
+                    />
+
+                <Spinner
+                    android:id="@+id/SpinUnits_portal"
+                    android:layout_width="220dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="1dp"
+                    android:gravity="center_horizontal"
+                    android:textAlignment="center"
+                    />
+
+            </LinearLayout>
+
+            <!--BOTON DE RESULTADOS -->
+            <Button
+                android:id="@+id/Boton_portal"
+                android:text="@string/label_calc"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/roundshapebtn"
+                android:layout_below="@id/LLDatos_portal"
+                android:layout_centerHorizontal="true"
+                />
+
+
+            <!-- TEXTVIEW RESULTADOS -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/Boton_portal">
+                <TextView
+                    android:id="@+id/TVResults_portal"
+                    android:textColor="@color/azul_perval"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="18dp"
+                    android:textIsSelectable="true"
+                    android:contentDescription="@string/Cont_Resultados"
+                    android:gravity="center_horizontal"
+                    android:textAlignment="center"
+                    android:layout_below="@id/Boton_canal"
+                    android:layout_marginTop="16dp"
+                    android:layout_centerHorizontal="true"
+                    />
+
+
+            </LinearLayout>
+
+
+
+
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</RelativeLayout>

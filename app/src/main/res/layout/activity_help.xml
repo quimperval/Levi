@@ -1,0 +1,583 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Help"
+    tools:ignore="ExtraText"
+    xmlns:auto="http://schemas.android.com/apk/res-auto"
+    android:background="@color/blanco"
+    >
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_Help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        android:background="@color/azul_perval"
+        app:title="@string/app_name"
+        app:subtitle="@string/title_activity_help"
+        app:titleTextColor="@color/blanco"
+        >
+    </android.support.v7.widget.Toolbar>
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/NestedHelp"
+        android:layout_below="@id/toolbar_Help"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/LLAdViewHelp"
+        android:scrollbars="vertical"
+        android:layout_marginBottom="8dp"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/TV_Tit_Material"
+                android:layout_width="match_parent"
+                android:textSize="18sp"
+                android:layout_height="wrap_content"
+                android:text="@string/Tit_MatDesc"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textColor="@color/azul_perval"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="@string/Tit_MatDesc" />
+
+            <TextView
+                android:id="@+id/TV_Text_Material"
+                android:layout_below="@id/TV_Tit_Material"
+                android:textSize="14sp"
+                android:textColor="@color/azul_perval"
+                android:layout_width="match_parent"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_height="wrap_content"
+                android:text="@string/MatDescription"
+                tools:text="@string/MatDescription"
+                />
+
+            <TextView
+                android:id="@+id/TV_Tit_Hidraulica"
+                android:layout_width="match_parent"
+                android:textSize="18sp"
+
+                android:layout_below="@id/TV_Text_Material"
+                android:layout_height="wrap_content"
+                android:text="@string/Tit_Hidraulica"
+                android:gravity="center_horizontal"
+                android:textStyle="bold"
+                android:textColor="@color/azul_perval"
+                android:layout_marginTop="8dp"
+                tools:text="@string/Tit_Hidraulica" />
+
+            <TextView
+                android:id="@+id/Subtit_presion"
+                android:layout_width="match_parent"
+                android:textSize="16dp"
+                android:layout_below="@id/TV_Tit_Hidraulica"
+                android:layout_height="wrap_content"
+                android:text="@string/Subtit_presion"
+                android:gravity="center_horizontal"
+                android:textStyle="bold|italic"
+                android:textColor="@color/azul_perval"
+                android:layout_marginTop="2dp"
+                tools:text="@string/Subtit_presion" />
+
+
+            <TextView
+                android:id="@+id/TV_Hid_ContA"
+                android:layout_below="@id/Subtit_presion"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:textColor="@color/azul_perval"
+                android:text="@string/Cont_presion1"
+                tools:text="@string/Cont_presion1"/>
+
+
+            <io.github.kexanie.library.MathView
+                android:id="@+id/formula_one"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_below="@id/TV_Hid_ContA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:text="@string/Formula_Darcy"
+                auto:engine="KaTeX"
+                >
+            </io.github.kexanie.library.MathView>
+
+
+            <TextView
+                android:id="@+id/TV_Hid_ContB"
+                android:layout_below="@id/formula_one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:textColor="@color/azul_perval"
+                android:text="@string/Cont_presion2"
+                tools:text="@string/Cont_presion2"/>
+
+
+            <io.github.kexanie.library.MathView
+                android:id="@+id/formula_two"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_below="@id/TV_Hid_ContB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:text="@string/Formula_Swamee"
+                auto:engine="KaTeX"
+                >
+            </io.github.kexanie.library.MathView>
+
+
+            <TextView
+                android:id="@+id/TV_Hid_ContC"
+                android:layout_below="@id/formula_two"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:textColor="@color/azul_perval"
+                android:text="@string/Cont_presion3"
+                tools:text="@string/Cont_presion3"/>
+
+
+            <io.github.kexanie.library.MathView
+                android:id="@+id/formula_three"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_below="@id/TV_Hid_ContC"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:text="@string/Formula_Reynolds"
+                auto:engine="KaTeX"
+                >
+            </io.github.kexanie.library.MathView>
+
+
+            <!--A este TextView se le agrega el contenido de forma programática -->
+            <TextView
+                android:id="@+id/TV_Hid_ContD"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:textColor="@color/azul_perval"
+                android:layout_below="@id/formula_three"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                />
+
+
+            <TextView
+                android:id="@+id/TV_Hid_ContE"
+                android:layout_below="@id/TV_Hid_ContD"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="4dp"
+                android:textColor="@color/azul_perval"
+                android:textSize="14sp"
+                android:text="@string/Cont_presion5"
+                tools:text="@string/Cont_presion5"/>
+
+
+
+            <!-- AQUI INICIAN LOS TEXTOS CON RESPECTO AL FLUJO EN GRAVEDAD -->
+
+            <TextView
+                android:id="@+id/Subtit_gravedad"
+                android:layout_width="match_parent"
+                android:textSize="16dp"
+                android:layout_below="@id/TV_Hid_ContE"
+                android:layout_height="wrap_content"
+                android:text="@string/Subtit_gravedad"
+                android:gravity="center_horizontal"
+                android:textStyle="bold|italic"
+                android:textColor="@color/azul_perval"
+                android:layout_marginTop="2dp"
+                tools:text="@string/Subtit_presion" />
+
+            <TextView
+                android:id="@+id/TV_ContSan1"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:textColor="@color/azul_perval"
+                android:layout_below="@id/Subtit_gravedad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Cont_gravedad1"
+                />
+
+
+
+            <io.github.kexanie.library.MathView
+                android:id="@+id/formula_four"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_below="@id/TV_ContSan1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:text="@string/Formula_Manning"
+                auto:engine="KaTeX"
+                >
+            </io.github.kexanie.library.MathView>
+
+            <TextView
+                android:id="@+id/TV_ContSan2"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:textColor="@color/azul_perval"
+                android:layout_below="@id/formula_four"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Cont_gravedad2"
+                />
+
+            <io.github.kexanie.library.MathView
+                android:id="@+id/formula_five"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_below="@id/TV_ContSan2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:text="@string/Formula_Rh"
+                auto:engine="KaTeX"
+                >
+            </io.github.kexanie.library.MathView>
+
+            <TextView
+                android:id="@+id/TV_ContSan3"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:textColor="@color/azul_perval"
+                android:layout_below="@id/formula_five"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Cont_gravedad3"
+                />
+
+            <Button
+                android:id="@+id/Btn_select_manning"
+                android:layout_width="180dp"
+                android:layout_height="48dp"
+                android:background="@drawable/btn_blanco"
+                android:layout_below="@id/TV_ContSan3"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="8dp"
+                android:textAlignment="center"
+                android:foregroundGravity="center_horizontal"
+
+                android:layout_centerHorizontal="true"
+                android:textColor="@color/azul_perval"
+                android:text="@string/Text_Btn_Manning"
+                />
+
+
+            <TextView
+                android:id="@+id/TV_ContSan4"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_below="@id/Btn_select_manning"
+                android:layout_width="match_parent"
+                android:textColor="@color/azul_perval"
+                android:layout_height="wrap_content"
+                android:text="@string/Cont_gravedad_4"/>
+
+            <io.github.kexanie.library.MathView
+                android:id="@+id/formula_six"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_below="@id/TV_ContSan4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:text="@string/Formula_Froude"
+                auto:engine="KaTeX"
+                >
+
+
+            </io.github.kexanie.library.MathView>
+
+            <TextView
+                android:id="@+id/TV_ContSan5"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_width="match_parent"
+                android:layout_below="@id/formula_six"
+                android:textColor="@color/azul_perval"
+                android:layout_height="wrap_content"
+                android:text="@string/Cont_gravedad_5"/>
+
+            <!-- AQUI INICIA LA COLOCACIÓN DE LOS BOTONES CON LOS HIPERENLACES-->
+
+            <TextView
+                android:id="@+id/TV_Tit_recursos"
+                android:layout_below="@id/TV_ContSan5"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:layout_marginTop="12dp"
+                android:textColor="@color/azul_perval"
+                android:gravity="center_horizontal"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:text="@string/Tit_Recursos"
+                tools:text="@string/Tit_Recursos"/>
+
+            <Button
+                android:id="@+id/BtnURLPVCMetric"
+                android:layout_below="@id/TV_Tit_recursos"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:text="@string/TextPVCMEtric"
+                android:textSize="14sp"
+                android:textColor="@color/azul_perval"
+                android:onClick="GoToPVCMetric"
+                android:background="@drawable/btn_blanco"
+                android:textAlignment="center"
+                android:autoLink="all"
+                android:linksClickable="true"
+                android:focusable="true" />
+
+            <Button
+                android:id="@+id/BtnURLPVCIng"
+                android:layout_below="@id/BtnURLPVCMetric"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:text="@string/TextPVCInglesa"
+                android:textSize="14sp"
+                android:textColor="@color/azul_perval"
+                android:onClick="GoToPVCInglesa"
+                android:background="@drawable/btn_blanco"
+                android:textAlignment="center"
+                android:autoLink="all"
+                android:linksClickable="true"
+                android:focusable="true" />
+
+            <Button
+                android:id="@+id/BtnPEADHid"
+                android:layout_below="@id/BtnURLPVCIng"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:text="@string/TextPEADHid"
+                android:textSize="14sp"
+                android:textColor="@color/azul_perval"
+                android:onClick="GoToPEADHid"
+                android:background="@drawable/btn_blanco"
+                android:textAlignment="center"
+                android:autoLink="all"
+                android:linksClickable="true"
+                android:focusable="true" />
+
+            <Button
+                android:id="@+id/BtnPPRHid"
+                android:layout_below="@id/BtnPEADHid"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:text="@string/TextPPR"
+                android:textSize="14sp"
+                android:textColor="@color/azul_perval"
+                android:onClick="GoToPPR"
+                android:background="@drawable/btn_blanco"
+                android:textAlignment="center"
+                android:autoLink="all"
+                android:linksClickable="true"
+                android:focusable="true" />
+            <Button
+                android:id="@+id/BtnAcero"
+                android:layout_below="@id/BtnPPRHid"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:text="@string/TextAcero"
+                android:textSize="14sp"
+                android:textColor="@color/azul_perval"
+                android:onClick="GoToPAcero"
+                android:background="@drawable/btn_blanco"
+                android:textAlignment="center"
+                android:autoLink="all"
+                android:linksClickable="true"
+                android:focusable="true" />
+
+            <Button
+                android:id="@+id/BtnPVCSan"
+                android:layout_below="@id/BtnAcero"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:text="@string/TextPVCSan"
+                android:textSize="14sp"
+                android:textColor="@color/azul_perval"
+                android:onClick="GoToPVCSan"
+                android:background="@drawable/btn_blanco"
+                android:textAlignment="center"
+                android:autoLink="all"
+                android:linksClickable="true"
+                android:focusable="true" />
+            <Button
+                android:id="@+id/BtnPEADSan"
+                android:layout_below="@id/BtnPVCSan"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:text="@string/TextPEADSan"
+                android:textSize="14sp"
+                android:textColor="@color/azul_perval"
+                android:onClick="GoToPEADSan"
+                android:background="@drawable/btn_blanco"
+                android:textAlignment="center"
+                android:autoLink="all"
+                android:linksClickable="true"
+                android:focusable="true" />
+            <Button
+                android:id="@+id/BtnConcSimple"
+                android:layout_below="@id/BtnPEADSan"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:text="@string/TextConcSimple"
+                android:textSize="14sp"
+                android:textColor="@color/azul_perval"
+                android:onClick="GoToConcSimple"
+                android:background="@drawable/btn_blanco"
+                android:textAlignment="center"
+                android:autoLink="all"
+                android:linksClickable="true"
+                android:focusable="true" />
+
+            <Button
+                android:id="@+id/BtnCajon"
+                android:layout_below="@id/BtnConcSimple"
+                android:layout_marginTop="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_marginStart="12dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginEnd="12dp"
+                android:layout_marginRight="12dp"
+                android:text="@string/TextConcSimple"
+                android:textSize="14sp"
+                android:textColor="@color/azul_perval"
+                android:onClick="GoToCajon"
+                android:background="@drawable/btn_blanco"
+                android:textAlignment="center"
+                android:autoLink="all"
+                android:linksClickable="true"
+                android:focusable="true" />
+
+
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <LinearLayout
+        android:id="@+id/LLAdViewHelp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        >
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adViewHelp"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/UnitId"
+            ></com.google.android.gms.ads.AdView>
+    </LinearLayout>
+
+
+</RelativeLayout>

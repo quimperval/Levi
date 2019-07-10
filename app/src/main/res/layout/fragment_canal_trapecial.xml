@@ -1,0 +1,439 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v4.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginRight="8dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/TV_dim_trap"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/azul_perval"
+                android:gravity="center_horizontal"
+                android:text="@string/Tit_dim_trapecial"
+                android:layout_centerHorizontal="true" />
+
+
+            <RelativeLayout
+                android:id="@+id/RL_Dimensiones_Trap"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/TV_dim_trap"
+                android:layout_marginTop="4dp"
+                android:layout_centerHorizontal="true"
+
+                >
+
+                <TextView
+                    android:id="@+id/TV_H_Trap"
+                    android:layout_width="120dp"
+                    android:layout_height="48dp"
+                    android:textSize="18sp"
+                    android:textColor="@color/azul_perval"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:background="@drawable/fondo_text"
+                    android:text="@string/Text_H_trapecial"
+                    />
+
+                <EditText
+                    android:id="@+id/ET_H_Trap"
+                    android:inputType="numberDecimal"
+                    android:layout_width="120dp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="1dp"
+                    android:textColorHint="@color/Hint_Color"
+
+                    android:layout_below="@id/TV_H_Trap"
+                    android:hint="@string/Hint_altura_trap"
+                    android:imeOptions="actionDone"
+                    />
+
+                <TextView
+                    android:id="@+id/TV_B_Trap"
+                    android:layout_width="120dp"
+                    android:layout_height="48dp"
+                    android:textSize="18sp"
+                    android:layout_toRightOf="@id/TV_H_Trap"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginLeft="48dp"
+                    android:textColor="@color/azul_perval"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:background="@drawable/fondo_text"
+                    android:text="@string/Text_B_trapecial"
+                    />
+
+                <EditText
+                    android:id="@+id/ET_B_Trap"
+                    android:inputType="numberDecimal"
+                    android:layout_width="120dp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:layout_toRightOf="@+id/ET_H_Trap"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginLeft="48dp"
+                    android:layout_marginTop="1dp"
+                    android:textAlignment="center"
+                    android:textColorHint="@color/Hint_Color"
+
+                    android:layout_below="@id/TV_B_Trap"
+                    android:hint="@string/Hint_ancho_trap"
+                    android:imeOptions="actionDone"
+                    />
+
+
+                <TextView
+                    android:id="@+id/TV_Talud_izq"
+                    android:layout_width="120dp"
+                    android:layout_height="48dp"
+                    android:textSize="18sp"
+                    android:layout_below="@id/ET_H_Trap"
+                    android:textColor="@color/azul_perval"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:background="@drawable/fondo_text"
+                    android:text="@string/Text_talud_izq"
+                    />
+
+                <EditText
+                    android:id="@+id/ET_Talud_izq"
+                    android:inputType="numberDecimal"
+                    android:layout_width="120dp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="1dp"
+                    android:textAlignment="center"
+                    android:textColorHint="@color/Hint_Color"
+
+                    android:layout_below="@id/TV_Talud_izq"
+                    android:hint="@string/Hint_talud"
+                    android:imeOptions="actionDone"
+                    />
+
+                <TextView
+                    android:id="@+id/TV_Talud_der"
+                    android:layout_width="120dp"
+                    android:layout_height="48dp"
+                    android:textSize="18sp"
+                    android:layout_toRightOf="@id/TV_Talud_izq"
+
+                    android:layout_marginLeft="48dp"
+                    android:layout_below="@id/ET_H_Trap"
+                    android:textColor="@color/azul_perval"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:background="@drawable/fondo_text"
+                    android:text="@string/Text_talud_der"
+                    />
+
+
+                <EditText
+                    android:id="@+id/ET_Talud_der"
+                    android:inputType="numberDecimal"
+                    android:layout_width="120dp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_toRightOf="@id/ET_Talud_izq"
+                    android:layout_marginLeft="48dp"
+                    android:layout_marginStart="48dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="1dp"
+                    android:textAlignment="center"
+                    android:textColorHint="@color/Hint_Color"
+
+                    android:layout_below="@id/TV_Talud_der"
+                    android:hint="@string/Hint_talud"
+                    android:imeOptions="actionDone"
+                    />
+
+
+            </RelativeLayout>
+
+
+            <TextView
+                android:id="@+id/TV_rugosidad_trap"
+                android:layout_width="180dp"
+                android:layout_height="wrap_content"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/azul_perval"
+                android:layout_below="@id/RL_Dimensiones_Trap"
+                android:gravity="center_horizontal"
+                android:text="@string/Tit_rugosidad_trapecial"
+                android:layout_centerHorizontal="true" />
+
+
+            <!--Ingreso de la rugosidad -->
+
+            <RelativeLayout
+                android:id="@+id/RL_rugosidad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="4dp"
+                android:layout_below="@id/TV_rugosidad_trap">
+
+            <TextView
+                android:id="@+id/TV_Rug_izq"
+                android:layout_width="80dp"
+                android:layout_height="52dp"
+                android:background="@drawable/fondo_text"
+                android:text="@string/Text_TVRug_Tizq"
+                android:gravity="center_horizontal|center_vertical"
+                android:textColor="@color/azul_perval"
+                android:textSize="18sp"/>
+
+
+                <TextView
+                    android:id="@+id/TV_Rug_fondoTrap"
+                    android:layout_width="80dp"
+                    android:layout_height="52dp"
+                    android:background="@drawable/fondo_text"
+                    android:text="@string/Text_TVRug_fondo"
+                    android:layout_toRightOf="@id/TV_Rug_izq"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginLeft="48dp"
+
+                    android:gravity="center_horizontal|center_vertical"
+                    android:textColor="@color/azul_perval"
+                    android:textSize="18sp"/>
+
+                <TextView
+                android:id="@+id/TV_Rug_derTrap"
+                android:layout_width="80dp"
+                android:layout_height="52dp"
+                android:layout_toRightOf="@id/TV_Rug_fondoTrap"
+                android:layout_marginStart="48dp"
+                android:layout_marginLeft="48dp"
+                android:background="@drawable/fondo_text"
+                android:text="@string/Text_TVRug_Tizq"
+                android:gravity="center_horizontal|center_vertical"
+                android:textColor="@color/azul_perval"
+                android:textSize="18sp"/>
+
+           <EditText
+               android:id="@+id/ET_Rug_izqTrap"
+               android:layout_width="80dp"
+               android:layout_height="wrap_content"
+               android:layout_below="@id/TV_Rug_izq"
+               android:textColor="@color/azul_perval"
+               android:hint="@string/Hint_rugosidad"
+               android:inputType="numberDecimal"
+               android:imeOptions="actionDone"
+               android:textColorHint="@color/Hint_Color"
+
+               android:textAlignment="center"/>
+
+                <EditText
+                    android:id="@+id/ET_Rug_fondoTrap"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/TV_Rug_fondoTrap"
+                    android:textColor="@color/azul_perval"
+                    android:hint="@string/Hint_rugosidad"
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionDone"
+                    android:layout_toRightOf="@id/ET_Rug_izqTrap"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginLeft="48dp"
+                    android:textColorHint="@color/Hint_Color"
+
+                    android:textAlignment="center"/>
+
+
+
+
+                <EditText
+                    android:id="@+id/ET_Rug_derTrap"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/TV_Rug_derTrap"
+                    android:layout_toRightOf="@id/ET_Rug_fondoTrap"
+                    android:layout_alignStart="@id/TV_Rug_derTrap"
+                    android:layout_alignLeft="@id/TV_Rug_derTrap"
+                    android:textColor="@color/azul_perval"
+                    android:hint="@string/Hint_rugosidad"
+                    android:textColorHint="@color/Hint_Color"
+
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionDone"
+
+                    android:textAlignment="center"/>
+
+
+
+            </RelativeLayout>
+
+
+
+
+            <!-- INGRESO DE INFORMACIÓN -->
+
+            <RelativeLayout
+                android:id="@+id/RLPendiente_canal_trap"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_below="@id/RL_rugosidad"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/border"
+
+
+                >
+
+                <EditText
+                    android:id="@+id/ET_Pendiente_Trap"
+                    android:inputType="numberDecimal"
+                    android:layout_width="120dp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="1dp"
+                    android:textColorHint="@color/Hint_Color"
+
+                    android:hint="@string/Hint_pendiente"
+                    android:imeOptions="actionDone"
+
+
+                    />
+
+                <TextView
+                    android:id="@+id/TVPendiente_Circ"
+                    android:text="@string/Text_Pendiente"
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:layout_width="wrap_content"
+
+                    android:layout_toRightOf="@id/ET_Pendiente_Trap"
+
+                    android:layout_marginStart="68dp"
+                    android:layout_marginLeft="68dp"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    />
+
+
+
+            </RelativeLayout>
+
+
+
+
+
+            <!--VAriables hidráulicas -->
+            <LinearLayout
+                android:id="@+id/LL_datos_canal_trap"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_below="@id/RLPendiente_canal_trap"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+
+                android:background="@drawable/border"
+                >
+
+                <EditText
+                    android:id="@+id/ET_NumberTrap"
+                    android:inputType="numberDecimal"
+                    android:layout_width="120dp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="1dp"
+                    android:textColorHint="@color/Hint_Color"
+
+                    android:hint="@string/Hint_variable"
+                    android:imeOptions="actionDone"
+
+                    />
+
+                <Spinner
+                    android:id="@+id/SpinUnitsTrap"
+                    android:layout_width="220dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="1dp"
+                    android:gravity="center_horizontal"
+                    android:textAlignment="center"
+                    />
+
+            </LinearLayout>
+
+            <!--BOTON DE RESULTADOS -->
+            <Button
+                android:id="@+id/BtnCalc_trap"
+                android:text="@string/label_calc"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+
+                android:textColor="#FFFFFF"
+                android:background="@drawable/roundshapebtn"
+                android:layout_below="@id/LL_datos_canal_trap"
+                android:layout_centerHorizontal="true"
+                />
+
+
+
+
+
+
+            <!-- TEXTVIEW RESULTADOS -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/BtnCalc_trap">
+                <TextView
+                    android:id="@+id/TVResults_trapecial"
+                    android:textColor="@color/azul_perval"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="18dp"
+                    android:textIsSelectable="true"
+                    android:contentDescription="@string/Cont_Resultados"
+
+                    android:textAlignment="center"
+                    android:layout_below="@id/TVTipo"
+                    android:layout_marginTop="16dp"
+                    android:layout_centerHorizontal="true"
+                    />
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+</RelativeLayout>

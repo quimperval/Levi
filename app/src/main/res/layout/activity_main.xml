@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/blanco"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/azul_perval"
+        app:title="@string/app_name"
+        app:titleTextColor="@color/blanco"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        >
+    </android.support.v7.widget.Toolbar>
+
+
+
+
+
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:id="@+id/Boton_presion"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
+            android:background="@drawable/roundshapebtn"
+            android:onClick="GotoPresion"
+            android:text="@string/Tit_Darcy"
+            android:textColor="@color/blanco"
+
+            />
+
+        <Button
+            android:id="@+id/Boton_canal"
+            android:layout_toEndOf="@id/Boton_presion"
+            android:layout_marginStart="24dp"
+            android:layout_width="140dp"
+            android:layout_height="92dp"
+            android:text="@string/Tit_Manning"
+            android:textColor="@color/blanco"
+            android:background="@drawable/roundshapebtn"
+            android:onClick="GotoCanal"
+            android:layout_marginRight="24dp"
+            android:layout_toLeftOf="@id/Boton_presion"
+            android:layout_toRightOf="@id/Boton_presion"
+            tools:ignore="RtlCompat" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/LLAdView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        >
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/UnitId"
+            ></com.google.android.gms.ads.AdView>
+    </LinearLayout>
+</RelativeLayout>

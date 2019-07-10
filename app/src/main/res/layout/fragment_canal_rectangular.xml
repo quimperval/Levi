@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- SELECCIÓN DEL TIPO DE SECCIÓN - PREFABRICADA - PERSONALIZADA -->
+
+            <LinearLayout
+                android:id="@+id/LLTipo_rect"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="51dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/TVTipo"
+                        android:textSize="18dp"
+                        android:text="@string/Text_tipo_secciont_Rect"
+                        android:background="@drawable/border"
+                        android:backgroundTint="@color/Fondo_gris"
+                        android:textColor="@color/azul_perval"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1">
+
+                    <Spinner
+                        android:id="@+id/spin_tipo_rect"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="1dp"
+                        android:gravity="center"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!-- SELECCIÓN DE LAS DIMENSIONES DEL CAJÓN -->
+
+            <LinearLayout
+                android:id="@+id/LLDimensiones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_below="@id/LLTipo_rect"
+                >
+
+                <LinearLayout
+
+                    android:layout_width="120dp"
+                    android:layout_height="51dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/TVDimension"
+                        android:textSize="18sp"
+                        android:text="@string/Rect_dimensiones"
+                        android:background="@drawable/border"
+                        android:backgroundTint="@color/Fondo_gris"
+                        android:textColor="@color/azul_perval"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1">
+
+                    <Spinner
+                        android:id="@+id/spin_dimensiones"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="1dp"
+                        android:gravity="center"
+                        style="@style/Myspinner"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!-- DEFINICIÓN DE LAS SECCIONES PERSONALIZADAS -->
+
+            <RelativeLayout
+                android:id="@+id/RLPersonalizadas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:gravity="center_horizontal"
+                android:layout_below="@id/LLDimensiones"
+                >
+
+                <TextView
+                    android:id="@+id/TV_Bottom"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:text="@string/Text_fondo"
+                    android:textSize="18sp"
+                    android:background="@drawable/fondo_text"
+                    android:textColor="@color/azul_perval"/>
+
+
+                <EditText
+                    android:id="@+id/ET_Bottom"
+                    android:inputType="numberDecimal"
+                    android:layout_width="120dp"
+                    android:layout_below="@id/TV_Bottom"
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:gravity="center_horizontal"
+                    android:textColorHint="@color/Hint_Color"
+
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="1dp"
+                    android:hint="@string/Hint_ancho_trap"
+                    android:imeOptions="actionDone"
+
+                    />
+
+                <TextView
+                    android:id="@+id/TV_Height"
+                    android:layout_toRightOf="@id/TV_Bottom"
+                    android:layout_marginRight="48dp"
+                    android:layout_marginStart="48dp"
+                    android:layout_width="120dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal|center_vertical"
+                    android:text="@string/Text_altura"
+                    android:textSize="18sp"
+                    android:background="@drawable/fondo_text"
+                    android:textColor="@color/azul_perval"
+                    android:layout_marginLeft="48dp" />
+
+                <EditText
+                    android:id="@+id/ET_Height"
+                    android:inputType="numberDecimal"
+                    android:layout_width="120dp"
+                    android:layout_toRightOf="@id/ET_Bottom"
+                    android:layout_below="@id/TV_Bottom"
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginTop="1dp"
+                    android:textColorHint="@color/Hint_Color"
+
+                    android:hint="@string/Hint_altura_trap"
+                    android:imeOptions="actionDone"
+                    android:layout_marginRight="48dp"
+                    android:layout_marginStart="48dp"
+                    android:layout_marginLeft="48dp"
+
+                    />
+
+            </RelativeLayout>
+
+            <!-- INGRESO DE INFORMACIÓN -->
+
+            <RelativeLayout
+                android:id="@+id/RLPendiente_canal_rect"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_below="@id/RLPersonalizadas"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:background="@drawable/border"
+                >
+
+                <EditText
+                    android:id="@+id/ET_Pendiente_rect"
+                    android:inputType="numberDecimal"
+                    android:layout_width="120dp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:textColorHint="@color/Hint_Color"
+
+                    android:layout_marginTop="1dp"
+                    android:hint="@string/Hint_pendiente"
+                    android:imeOptions="actionDone"
+
+                    />
+
+                <TextView
+                    android:id="@+id/TVPendiente_rect"
+                    android:text="@string/Text_Pendiente"
+
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:layout_width="match_parent"
+                    android:layout_toRightOf="@id/ET_Pendiente_rect"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    />
+
+
+
+            </RelativeLayout>
+
+
+
+            <!--VAriables hidráulicas -->
+            <LinearLayout
+                android:id="@+id/LL_datos_canal"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_below="@id/RLPendiente_canal_rect"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+
+                android:background="@drawable/border"
+                >
+
+                <EditText
+                    android:id="@+id/ET_Number_rect"
+                    android:inputType="numberDecimal"
+                    android:layout_width="120dp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:textColorHint="@color/Hint_Color"
+
+                    android:layout_marginTop="1dp"
+                    android:hint="@string/Hint_variable"
+                    android:imeOptions="actionDone"
+
+                    />
+
+                <Spinner
+                    android:id="@+id/SpinUnits_rect"
+                    android:layout_width="220dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="1dp"
+                    android:gravity="center_horizontal"
+                    android:textAlignment="center"
+                    />
+
+            </LinearLayout>
+
+            <!--BOTON DE RESULTADOS -->
+            <Button
+                android:id="@+id/BtnCalc_rect"
+                android:text="@string/label_calc"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+
+                android:textColor="#FFFFFF"
+                android:background="@drawable/roundshapebtn"
+                android:layout_below="@id/LL_datos_canal"
+                android:layout_centerHorizontal="true"
+                />
+
+
+
+
+
+
+            <!-- TEXTVIEW RESULTADOS -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/BtnCalc_rect">
+                <TextView
+                    android:id="@+id/TVResults_rect"
+                    android:textColor="@color/azul_perval"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="18dp"
+                    android:layout_below="@id/TVTipo"
+                    android:layout_marginTop="16dp"
+                    android:textAlignment="center"
+                    android:textIsSelectable="true"
+                    android:contentDescription="@string/Cont_Resultados"
+
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center_horizontal"
+                    />
+
+
+            </LinearLayout>
+
+
+
+        </RelativeLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+
+</RelativeLayout>

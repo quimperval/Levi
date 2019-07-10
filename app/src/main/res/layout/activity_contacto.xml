@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/blanco"
+    android:layout_height="match_parent"
+    xmlns:auto="http://schemas.android.com/apk/res-auto"
+    tools:context=".Contacto">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_Cont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/azul_perval"
+        app:title="@string/Tit_Contacto"
+        app:titleTextColor="#fff"
+        >
+    </android.support.v7.widget.Toolbar>
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar_Cont"
+        android:foregroundGravity="center_horizontal"
+        android:layout_above="@id/LLAdViewCont">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center_horizontal"
+            >
+
+
+            <TextView
+                android:id="@+id/TV_Tit_acerca"
+                android:layout_marginTop="16dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:gravity="start"
+                android:textColor="@color/azul_perval"
+                android:textSize="18sp"
+                android:text="@string/Acerca_de"
+                style="bold"/>
+
+            <TextView
+                android:id="@+id/TV_Levi"
+                android:layout_below="@id/TV_Tit_acerca"
+                android:layout_marginTop="8dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Acerca_de_Levi"
+                android:textSize="14sp"
+                android:textColor="@color/azul_perval"
+                android:gravity="start"
+                />
+
+            <TextView
+                android:id="@+id/Tit_Creditos"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/TV_Levi"
+                android:layout_marginTop="16dp"
+                android:textColor="@color/azul_perval"
+                android:textSize="18sp"
+                android:text="@string/Tit_creditos"
+                />
+
+            <TextView
+                android:id="@+id/TX_PERVAL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/Tit_Creditos"
+                android:layout_marginTop="2dp"
+                android:textSize="14sp"
+                android:textColor="@color/azul_perval"
+                android:text="@string/Perval_SAS"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                />
+
+            <Button
+                android:id="@+id/ContactBut"
+                android:text="@string/Contactar"
+                android:layout_below="@id/TX_PERVAL"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="48dp"
+                android:gravity="center_horizontal|center_vertical"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/roundshapebtn"
+                android:layout_centerHorizontal="true"
+                android:onClick="SendEmail"
+                />
+
+
+            <ImageView
+                android:id="@+id/imageperval"
+                android:layout_below="@id/ContactBut"
+                android:layout_width="160dp"
+                android:layout_centerHorizontal="true"
+                android:layout_height="90dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/perval"
+                />
+
+
+        </RelativeLayout>
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <LinearLayout
+        android:id="@+id/LLAdViewCont"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        >
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adViewCont"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/UnitId"
+            ></com.google.android.gms.ads.AdView>
+    </LinearLayout>
+</RelativeLayout>

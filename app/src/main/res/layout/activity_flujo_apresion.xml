@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/blanco"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/Tb_Flujo_presion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/azul_perval"
+        app:title="@string/app_name"
+        app:subtitle="@string/Tit_Darcy"
+        app:titleTextColor="@color/blanco"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/Theme.AppCompat.Light"
+        >
+    </android.support.v7.widget.Toolbar>
+
+
+
+       <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_below="@id/Tb_Flujo_presion"
+        android:layout_height="wrap_content"
+           android:layout_above="@id/LLAdView_FlujoPresion"
+           >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+            <LinearLayout
+                android:id="@+id/LLMat"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/border"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="51dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/TVMaterial"
+                        android:textSize="18dp"
+                        android:text="Material"
+                        android:background="@drawable/border"
+                        android:backgroundTint="@color/Fondo_gris"
+                        android:textColor="@color/azul_perval"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1">
+
+                    <Spinner
+                        android:id="@+id/spin_material"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="12dp"
+                        android:layout_marginStart="12dp"
+                        android:layout_marginTop="1dp"
+                        android:gravity="center"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- TEXTO CON MATERIAL  -->
+
+
+            <LinearLayout
+                android:id="@+id/LLRD"
+                android:layout_width="match_parent"
+                android:layout_alignLeft="@+id/LLMat"
+                android:layout_height="52dp"
+                android:layout_below="@id/LLMat"
+                android:layout_marginTop="11.5dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/border"
+                >
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="51dp"
+                    android:orientation="horizontal"
+                    >
+                    <TextView
+                        android:id="@+id/TVRD"
+                        android:layout_width="120dp"
+                        android:layout_height="48dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="1.5dp"
+                        android:text="@string/label_RD"
+                        android:textSize="18sp"
+                        android:gravity="center"
+                        android:background="@color/Fondo_gris"
+                        android:textColor="@color/azul_perval"
+                        />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1">
+                    <Spinner
+                        android:id="@+id/spin_RD"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="1dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!--Para las versiones de 17 debe ponerse también alignleft, además de alignstart-->
+            <!--Align left y margin start deben tener el mismo valor. -->
+
+            <!-- TEXTVIEW Y SPINER CO RD-->
+
+
+
+            <!-- TEXTO Y SPINNER CON DIÁMETROS -->
+
+            <LinearLayout
+                android:id="@+id/LLDiam"
+                android:layout_below="@id/LLRD"
+                android:layout_alignLeft="@+id/LLMat"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="11.5dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/border">
+
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="51dp"
+                    android:orientation="horizontal"
+
+                    >
+                    <TextView
+                        android:id="@+id/TVDiam"
+                        android:text="@string/label_diam"
+                        android:background="@color/Fondo_gris"
+                        android:textColor="@color/azul_perval"
+                        android:layout_height="48dp"
+                        android:layout_width="match_parent"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="1.5dp"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1">
+                    <Spinner
+                        android:id="@+id/spin_Diam"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="1dp"
+                        style="@style/Theme.AppCompat.Light.NoActionBar"
+
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!-- INGRESO DE INFORMACIÓN -->
+
+            <LinearLayout
+                android:id="@+id/LLDatos"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_below="@id/LLDiam"
+                android:layout_marginTop="8dp"
+                android:layout_alignLeft="@id/LLMat"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+
+                android:background="@drawable/border"
+                >
+
+                <EditText
+                    android:id="@+id/ET_Number"
+                    android:inputType="numberDecimal"
+                    android:imeOptions="actionDone"
+                    android:layout_width="120dp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:textColorHint="@color/Hint_Color"
+                    android:gravity="center_horizontal"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="1dp"
+                    android:hint="@string/Hint_variable"
+
+
+                    />
+
+                <Spinner
+                    android:id="@+id/SpinUnits"
+                    android:layout_width="220dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="1dp"
+                    android:gravity="center_horizontal"
+                    android:textAlignment="center"
+                    />
+
+            </LinearLayout>
+
+            <!--BOTON DE RESULTADOS -->
+            <Button
+                android:id="@+id/CalcButton"
+                android:text="@string/label_calc"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+
+                android:textColor="#FFFFFF"
+                android:background="@drawable/roundshapebtn"
+                android:layout_below="@id/LLDatos"
+                android:layout_centerHorizontal="true"
+                />
+
+
+
+
+
+
+            <!-- TEXTVIEW RESULTADOS -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/CalcButton">
+                <TextView
+                    android:id="@+id/TVResults"
+                    android:textColor="@color/azul_perval"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:textSize="18dp"
+                    android:contentDescription="@string/Cont_Resultados"
+
+                    android:layout_below="@id/CalcButton"
+                    android:layout_marginTop="16dp"
+                    android:layout_centerHorizontal="true"
+                    />
+
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+
+
+    <LinearLayout
+        android:id="@+id/LLAdView_FlujoPresion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        >
+
+        <com.google.android.gms.ads.AdView
+            xmlns:ads="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/adView_Flujo_presion"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            ads:adSize="BANNER"
+            ads:adUnitId="@string/UnitId"
+            ></com.google.android.gms.ads.AdView>
+    </LinearLayout>
+</RelativeLayout>

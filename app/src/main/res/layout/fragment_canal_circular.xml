@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- SELECCIÓN DEL MATERIAL -->
+
+            <LinearLayout
+                android:id="@+id/LLMat_canal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginEnd="8dp"
+                >
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="51dp"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:id="@+id/TVMaterial"
+                        android:textSize="18dp"
+                        android:text="Material"
+                        android:background="@drawable/border"
+                        android:backgroundTint="@color/Fondo_gris"
+                        android:textColor="@color/azul_perval"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="1.5dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="center"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1">
+
+                    <Spinner
+                        android:id="@+id/spin_materialCirc"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginTop="1dp"
+                        android:gravity="center"
+                        android:textAlignment="center" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!-- SELECCIÓN DEL DIÁMETRO -->
+
+            <LinearLayout
+                android:id="@+id/LLDiam_canal"
+                android:layout_below="@id/LLMat_canal"
+                android:layout_alignLeft="@+id/LLMat_canal"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_marginTop="11.5dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/border">
+
+
+                <LinearLayout
+                    android:layout_width="120dp"
+                    android:layout_height="51dp"
+                    android:orientation="horizontal"
+
+                    >
+                    <TextView
+                        android:id="@+id/TVDiam_san"
+                        android:text="@string/label_diam"
+                        android:background="@color/Fondo_gris"
+                        android:textColor="@color/azul_perval"
+                        android:layout_height="48dp"
+                        android:layout_width="match_parent"
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:layout_marginTop="1.5dp"
+                        android:gravity="center"
+                        android:textSize="18sp"
+                        />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:layout_weight="1">
+                    <Spinner
+                        android:id="@+id/spin_Diam_san"
+                        android:layout_width="match_parent"
+                        android:layout_height="48dp"
+                        android:layout_marginTop="1dp"
+
+                        style="@style/Theme.AppCompat.Light.NoActionBar"
+
+                        android:layout_marginStart="2dp"
+                        android:layout_marginLeft="2dp"
+                        android:gravity="center"
+                        android:textAlignment="center"
+                        />
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+            <!-- INGRESO DE INFORMACIÓN -->
+
+            <!--Ingreso de pendiente de canal-->
+
+            <RelativeLayout
+                android:id="@+id/LLPendiente_canal_circ"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_below="@id/LLDiam_canal"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/border"
+                android:layout_alignLeft="@+id/LLDiam_canal"
+
+                >
+
+                <EditText
+                    android:id="@+id/ET_Pendiente_Circ"
+                    android:inputType="numberDecimal"
+                    android:layout_width="120dp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginStart="0dp"
+                    android:textColorHint="@color/Hint_Color"
+
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="1dp"
+                    android:hint="@string/Hint_pendiente"
+                    android:imeOptions="actionDone"
+
+                    />
+
+                <TextView
+                    android:id="@+id/TVPendiente_Circ"
+                    android:text="@string/Text_Pendiente"
+
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:layout_width="match_parent"
+                    android:layout_toRightOf="@id/ET_Pendiente_Circ"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    />
+
+
+
+            </RelativeLayout>
+
+
+
+
+            <!-- Ingreso de datos de gasto/velocidad/tirante-->
+            <LinearLayout
+                android:id="@+id/LLDatos_canal"
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="52dp"
+                android:layout_below="@id/LLPendiente_canal_circ"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:background="@drawable/border"
+                android:layout_alignLeft="@+id/LLDiam_canal"
+
+                >
+
+                <EditText
+                    android:id="@+id/ET_Number_san"
+                    android:inputType="numberDecimal"
+                    android:layout_width="120dp"
+                    android:textColor="@color/azul_perval"
+                    android:layout_height="48dp"
+                    android:gravity="center_horizontal"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginLeft="0dp"
+                    android:layout_marginTop="1dp"
+                    android:textColorHint="@color/Hint_Color"
+
+                    android:hint="@string/Hint_variable"
+                    android:imeOptions="actionDone"
+
+                    />
+
+                <Spinner
+                    android:id="@+id/SpinUnits_san"
+                    android:layout_width="220dp"
+                    android:layout_height="48dp"
+                    android:layout_weight="1"
+
+                    android:layout_marginStart="12dp"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginTop="1dp"
+                    android:gravity="center_horizontal"
+                    android:textAlignment="center"
+                    />
+
+            </LinearLayout>
+
+            <!--BOTON DE RESULTADOS -->
+            <Button
+                android:id="@+id/Boton_canal_circ"
+                android:text="@string/label_calc"
+                android:layout_width="wrap_content"
+                android:layout_height="48dp"
+                android:layout_marginTop="8dp"
+                android:textColor="#FFFFFF"
+                android:background="@drawable/roundshapebtn"
+                android:layout_below="@id/LLDatos_canal"
+                android:layout_centerHorizontal="true"
+                />
+
+
+            <!-- TEXTVIEW RESULTADOS -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/Boton_canal_circ">
+                <TextView
+                    android:id="@+id/TVResults_circular"
+                    android:textColor="@color/azul_perval"
+                    android:contentDescription="@string/Cont_Resultados"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center_horizontal"
+                    android:textSize="18dp"
+                    android:textAlignment="center"
+                    android:textIsSelectable="true"
+                    android:layout_below="@id/Boton_canal"
+                    android:layout_marginTop="16dp"
+                    android:layout_centerHorizontal="true"
+                    />
+
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+
+
+
+</RelativeLayout>

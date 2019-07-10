@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="azul_perval">#040431</color>
+    <color name="azul_perval2">#06062d</color>
+    <color name="blanco">#FFFFFF</color>
+    <color name="selected_color">#fff700</color>
+    <color name="Fondo_gris">#BDBDBD</color>
+    <color name="Gris_2">#6ebdbdbd</color>
+    <color name="Hint_Color">#3c3c3d</color>
+
+
+</resources>
