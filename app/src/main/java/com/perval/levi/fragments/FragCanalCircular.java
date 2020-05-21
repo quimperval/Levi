@@ -1,7 +1,7 @@
-package com.perval.levi;
+package com.perval.levi.fragments;
 
-import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,11 +14,17 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+
+import com.perval.levi.PipeProvider;
+import com.perval.levi.R;
+import com.perval.levi.TuberiaSanitaria;
+
 import java.util.ArrayList;
 
 import io.github.kexanie.library.MathView;
 
-public class FragCanalCircular extends Fragment{
+public class FragCanalCircular extends Fragment {
     private Spinner spin_mat_san, spin_diam_san, spin_unidades_san;
     ArrayAdapter<CharSequence> adapter_mat_san;
 
@@ -55,16 +61,18 @@ public class FragCanalCircular extends Fragment{
     //1 - Concreto simple
     //2 - Concreto reforzado
     //3 - PEAD sanitario
-    int Material;
+    //4 - Duro Maxx
+    //5 - Ultraflo 12
+    //6 - Ultraflo 14
+    //7 - Ultraflo 16
+    private int Material;
 
 
-
-
-
-
+    private PipeProvider providerOfPipeInformation = null;
 
     public FragCanalCircular(){
 
+        providerOfPipeInformation = new PipeProvider();
 
     }
 
@@ -111,288 +119,135 @@ public class FragCanalCircular extends Fragment{
                 ETSlope.setText("");
 
                 switch (i){
-
                     case 0:
                         //PVC Sanitario
                         Material = 0;
-                        setRugosidad(Material);
-                        TXResults_san.setText("");
-                        ETSlope.setText("");
-
-
-                        lista1 = TubSan.getPVCSanitario();
-
-                        //String cadena = lista1.length];
-
-                        int n = lista1.length;
-
-                        cadena.clear();
-
-                        for (int k1 = 0; k1 < n; k1++) {
-                            String diam = lista1[k1][0] + "in - " + lista1[k1][3] + "mm";
-                            cadena.add(diam);
-                        }
-
-                        AdapterDiam_san = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, cadena);
-                        AdapterDiam_san.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-
-                        spin_diam_san.setAdapter(AdapterDiam_san);
-
-
-
-
-
-                        spin_diam_san.setVisibility(View.VISIBLE);
-                        spin_unidades_san.setVisibility(View.VISIBLE);
-
-                        spin_diam_san.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                            @Override
-                            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                                TXResults_san.setText("");
-                                ETNumber.setText("");
-
-                                DiamPos = spin_diam_san.getSelectedItemPosition();
-                                DSan_mm = Double.parseDouble(lista1[DiamPos][3]);
-                            }
-
-                            @Override
-                            public void onNothingSelected(AdapterView<?> adapterView) {
-
-                            }
-                        });
-
-                        adapterUnits_san = ArrayAdapter.createFromResource(getContext(), R.array.unidades_san, android.R.layout.simple_spinner_item);
-
-                        adapterUnits_san.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        spin_unidades_san.setAdapter(adapterUnits_san);
-
-                        spin_unidades_san.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                            @Override
-                            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                                //ETNumber.setText("");
-                                StrUnidades = spin_unidades_san.getSelectedItem().toString();
-                                IntUnidades = spin_unidades_san.getSelectedItemPosition();
-
-                            }
-
-                            @Override
-                            public void onNothingSelected(AdapterView<?> adapterView) {
-
-                            }
-                        });
-
+                        lista1 = providerOfPipeInformation.getPipeList(PipeProvider.PVC_SANITARIO);
                         break;
                     case 1:
                         //Concreto Simple
                         Material = 1;
-                        setRugosidad(Material);
-                        TXResults_san.setText("");
-                        ETSlope.setText("");
-
-
-
-                        lista1 = TubSan.getConcretoSimple();
-
-                        //String cadena = lista1.length];
-
-                        n = lista1.length;
-
-                        cadena.clear();
-
-                        for (int k1 = 0; k1 < n; k1++) {
-                            String diam = lista1[k1][0] + "in - " + lista1[k1][3] + "mm";
-                            cadena.add(diam);
-                        }
-
-                        AdapterDiam_san = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, cadena);
-                        AdapterDiam_san.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        spin_diam_san.setAdapter(AdapterDiam_san);
-
-
-                        spin_diam_san.setVisibility(View.VISIBLE);
-                        spin_unidades_san.setVisibility(View.VISIBLE);
-
-                        spin_diam_san.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                            @Override
-                            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                                TXResults_san.setText("");
-                                ETNumber.setText("");
-
-                                DiamPos = spin_diam_san.getSelectedItemPosition();
-                                DSan_mm = Double.parseDouble(lista1[DiamPos][3]);
-                            }
-
-                            @Override
-                            public void onNothingSelected(AdapterView<?> adapterView) {
-
-                            }
-                        });
-
-                        adapterUnits_san = ArrayAdapter.createFromResource(getContext(), R.array.unidades_san, android.R.layout.simple_spinner_item);
-
-                        adapterUnits_san.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        spin_unidades_san.setAdapter(adapterUnits_san);
-
-                        spin_unidades_san.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                            @Override
-                            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                                //ETNumber.setText("");
-                                StrUnidades = spin_unidades_san.getSelectedItem().toString();
-                                IntUnidades = spin_unidades_san.getSelectedItemPosition();
-
-                            }
-
-                            @Override
-                            public void onNothingSelected(AdapterView<?> adapterView) {
-
-                            }
-                        });
-
-
-
-
+                        lista1 = providerOfPipeInformation.getPipeList(PipeProvider.CONCRETO_SIMPLE);
                         break;
+
                     case 2:
                         //Concreto reforzado
-
+                        lista1 = providerOfPipeInformation.getPipeList(PipeProvider.CONCRETO_REFORZADO);
                         Material = 2;
-                        setRugosidad(Material);
-                        TXResults_san.setText("");
-                        ETSlope.setText("");
-
-
-
-                        lista1 = TubSan.getConcretoReforzado();
-
-                        //String cadena = lista1.length];
-
-                        n = lista1.length;
-
-                        cadena.clear();
-
-                        for (int k1 = 0; k1 < n; k1++) {
-                            String diam = lista1[k1][0] + "in - " + lista1[k1][3] + "mm";
-                            cadena.add(diam);
-                        }
-
-                        AdapterDiam_san = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, cadena);
-                        AdapterDiam_san.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        spin_diam_san.setAdapter(AdapterDiam_san);
-
-
-                        spin_diam_san.setVisibility(View.VISIBLE);
-                        spin_unidades_san.setVisibility(View.VISIBLE);
-
-                        spin_diam_san.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                            @Override
-                            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                                TXResults_san.setText("");
-                                ETNumber.setText("");
-
-                                DiamPos = spin_diam_san.getSelectedItemPosition();
-                                DSan_mm = Double.parseDouble(lista1[DiamPos][3]);
-                            }
-
-                            @Override
-                            public void onNothingSelected(AdapterView<?> adapterView) {
-
-                            }
-                        });
-
-                        adapterUnits_san = ArrayAdapter.createFromResource(getContext(), R.array.unidades_san, android.R.layout.simple_spinner_item);
-
-                        adapterUnits_san.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        spin_unidades_san.setAdapter(adapterUnits_san);
-
-                        spin_unidades_san.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                            @Override
-                            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                                //ETNumber.setText("");
-                                StrUnidades = spin_unidades_san.getSelectedItem().toString();
-                                IntUnidades = spin_unidades_san.getSelectedItemPosition();
-                                TXResults_san.setText("");
-                            }
-
-                            @Override
-                            public void onNothingSelected(AdapterView<?> adapterView) {
-
-                            }
-                        });
                         break;
+
                     case 3:
                         //PEAD Sanitario
+                        lista1 = providerOfPipeInformation.getPipeList(PipeProvider.PAD_SANITARIO);
                         Material = 3;
-                        setRugosidad(Material);
-                        TXResults_san.setText("");
-                        ETSlope.setText("");
-
-
-
-                        lista1 = TubSan.getPADSanitario();
-
-                        //String cadena = lista1.length];
-
-                        n = lista1.length;
-
-                        cadena.clear();
-
-                        for (int k1 = 0; k1 < n; k1++) {
-                            String diam = lista1[k1][0] + "in - " + lista1[k1][3] + "mm";
-                            cadena.add(diam);
-                        }
-
-                        AdapterDiam_san = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, cadena);
-                        AdapterDiam_san.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        spin_diam_san.setAdapter(AdapterDiam_san);
-
-
-                        spin_diam_san.setVisibility(View.VISIBLE);
-                        spin_unidades_san.setVisibility(View.VISIBLE);
-
-                        spin_diam_san.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                            @Override
-                            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                                TXResults_san.setText("");
-                                ETNumber.setText("");
-
-                                DiamPos = spin_diam_san.getSelectedItemPosition();
-                                DSan_mm = Double.parseDouble(lista1[DiamPos][3]);
-                            }
-
-                            @Override
-                            public void onNothingSelected(AdapterView<?> adapterView) {
-
-                            }
-                        });
-
-                        adapterUnits_san = ArrayAdapter.createFromResource(getContext(), R.array.unidades_san, android.R.layout.simple_spinner_item);
-
-                        adapterUnits_san.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-                        spin_unidades_san.setAdapter(adapterUnits_san);
-
-                        spin_unidades_san.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                            @Override
-                            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                                //ETNumber.setText("");
-                                StrUnidades = spin_unidades_san.getSelectedItem().toString();
-                                IntUnidades = spin_unidades_san.getSelectedItemPosition();
-
-                                TXResults_san.setText("");
-                            }
-
-                            @Override
-                            public void onNothingSelected(AdapterView<?> adapterView) {
-
-                            }
-                        });
-
                         break;
 
-                    default:
+                    case 4:
+                        //4 - Duro Maxx
+                        lista1 = providerOfPipeInformation.getPipeList(PipeProvider.DURO_MAXX);
+                        Material = 4;
                         break;
 
+                    case 5:
+                        //5 - Ultraflo 12
+                        lista1 = providerOfPipeInformation.getPipeList(PipeProvider.ULTRA_FLO12);
+                        Material = 5;
+                        break;
+
+                    case 6:
+                        //6 - Ultraflo 14
+                        lista1 = providerOfPipeInformation.getPipeList(PipeProvider.ULTRA_FLO14);
+                        Material = 6;
+                        break;
+
+                    case 7:
+                        //7 - Ultraflo 16
+                        lista1 = providerOfPipeInformation.getPipeList(PipeProvider.ULTRA_FLO16);
+                        Material = 7;
+                        break;
+                    case 8:
+                        //7 - Ultraflo 10 Alum
+                        lista1 = providerOfPipeInformation.getPipeList(PipeProvider.ULTRA_FLO10_AL);
+                        Material = 8;
+                        break;
+                    case 9:
+                        //7 - Ultraflo 12 Alum
+                        lista1 = providerOfPipeInformation.getPipeList(PipeProvider.ULTRA_FLO12_AL);
+                        Material = 9;
+                        break;
+                    case 10:
+                        //7 - Ultraflo 14 Alum
+                        lista1 = providerOfPipeInformation.getPipeList(PipeProvider.ULTRA_FLO14_AL);
+                        Material = 10;
+                        break;
+                    case 11:
+                        //7 - Ultraflo 16 Alum
+                        lista1 = providerOfPipeInformation.getPipeList(PipeProvider.ULTRA_FLO16_AL);
+                        Material = 11;
+                        break;
                 }
+
+                setRugosidad(Material);
+                TXResults_san.setText("");
+                ETSlope.setText("");
+
+                int n = lista1.length;
+
+                cadena.clear();
+
+                for (int k1 = 0; k1 < n; k1++) {
+                    String diam = lista1[k1][0] + "in - " + lista1[k1][3] + "mm";
+                    cadena.add(diam);
+                }
+
+                AdapterDiam_san = new ArrayAdapter<String>(getContext(), android.R.layout.simple_list_item_1, cadena);
+                AdapterDiam_san.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+
+                spin_diam_san.setAdapter(AdapterDiam_san);
+
+                spin_diam_san.setVisibility(View.VISIBLE);
+                spin_unidades_san.setVisibility(View.VISIBLE);
+
+                spin_diam_san.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        TXResults_san.setText("");
+                        ETNumber.setText("");
+
+                        DiamPos = spin_diam_san.getSelectedItemPosition();
+                        Log.i("DiamPos", "DiamPos: " +  DiamPos);
+                        Log.i("DiamPos", "Value: " + lista1[DiamPos][3]);
+                        DSan_mm = Double.parseDouble(lista1[DiamPos][3]);
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+
+                adapterUnits_san = ArrayAdapter.createFromResource(getContext(), R.array.unidades_san, android.R.layout.simple_spinner_item);
+
+                adapterUnits_san.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                spin_unidades_san.setAdapter(adapterUnits_san);
+
+                spin_unidades_san.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                        //ETNumber.setText("");
+                        StrUnidades = spin_unidades_san.getSelectedItem().toString();
+                        IntUnidades = spin_unidades_san.getSelectedItemPosition();
+
+                    }
+
+                    @Override
+                    public void onNothingSelected(AdapterView<?> adapterView) {
+
+                    }
+                });
+
+
 
             }
 
@@ -594,6 +449,38 @@ public class FragCanalCircular extends Fragment{
             case 3:
                 //PEAD Sanitario
                 this.Rugosidad = 0.009;
+                break;
+            case 4:
+                //4 - Duro Maxx
+                this.Rugosidad = 0.012;
+                break;
+            case 5:
+                //5 - Ultraflo 12
+                this.Rugosidad = 0.012;
+                break;
+            case 6:
+                //6 - Ultraflo 14
+                this.Rugosidad = 0.012;
+                break;
+            case 7:
+                //7 - Ultraflo 16
+                this.Rugosidad = 0.012;
+                break;
+            case 8:
+                //7 - Ultraflo 10 Alum
+                this.Rugosidad = 0.012;
+                break;
+            case 9:
+                //7 - Ultraflo 12 Alum
+                this.Rugosidad = 0.012;
+                break;
+            case 10:
+                //7 - Ultraflo 14 Alum
+                this.Rugosidad = 0.012;
+                break;
+            case 11:
+                //7 - Ultraflo 16 Alum
+                this.Rugosidad = 0.012;
                 break;
             default:
                 break;

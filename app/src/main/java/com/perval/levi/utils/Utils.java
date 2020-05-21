@@ -1,4 +1,4 @@
-package com.perval.levi;
+package com.perval.levi.utils;
 
 public class Utils {
 

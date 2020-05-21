@@ -1,12 +1,7 @@
-package com.perval.levi;
+package com.perval.levi.fragments;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Build;
+
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,23 +10,23 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.view.ViewGroup.LayoutParams;
 
+import androidx.fragment.app.Fragment;
+
+import com.perval.levi.CanalTrapecial;
+import com.perval.levi.R;
 
 import java.util.ArrayList;
 
 import io.github.kexanie.library.MathView;
 
-public class FragCanalTrapecial extends Fragment{
+public class FragCanalTrapecial extends Fragment {
     private Spinner spin_unit_trap;
-    ArrayAdapter<CharSequence>  adapter_units_trap;
+    ArrayAdapter<CharSequence> adapter_units_trap;
 
 
     private RelativeLayout mRelativeLayout;

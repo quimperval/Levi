@@ -3,4 +3,5 @@
     >
     <item android:id="@+id/ayuda" android:title="Ayuda"></item>
     <item android:id="@+id/contacto" android:title="Acerca de"></item>
+    <item android:id="@+id/licencia" android:title="Licencia"></item>
 </menu>

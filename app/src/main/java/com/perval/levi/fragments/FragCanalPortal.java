@@ -1,20 +1,9 @@
-package com.perval.levi;
+package com.perval.levi.fragments;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Rect;
-import android.graphics.drawable.ColorDrawable;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewCompat;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,19 +11,22 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.PopupWindow;
-import android.view.ViewGroup.LayoutParams;
+import androidx.core.view.ViewCompat;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.core.app.ActivityOptionsCompat;
+
+import com.perval.levi.Portal;
+import com.perval.levi.R;
+import com.perval.levi.imgPortal;
+import com.perval.levi.utils.Utils;
 
 
-
-public class FragCanalPortal extends Fragment{
+public class FragCanalPortal extends Fragment {
 
 
 

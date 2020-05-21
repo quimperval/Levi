@@ -1,26 +1,19 @@
 package com.perval.levi;
 
-import android.animation.Animator;
+
+
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.Rect;
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.transition.TransitionInflater;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
-import android.view.Window;
-import android.view.animation.AnimationSet;
 import android.widget.ImageView;
-import android.widget.Toast;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.perval.levi.utils.Utils;
 
 public class imgPortal extends AppCompatActivity {
 

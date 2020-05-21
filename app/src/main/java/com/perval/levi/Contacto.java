@@ -1,26 +1,22 @@
 package com.perval.levi;
 
+
+
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 
 public class Contacto extends AppCompatActivity {
 
 
-    private ImageView mImageView;
-    private AdView mAdViewCont;
+    private Button githubButton;
 
 
     @Override
@@ -32,25 +28,10 @@ public class Contacto extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
 
-        mImageView = (ImageView) findViewById(R.id.imageperval);
+        githubButton = (Button) findViewById(R.id.buttonGitHub);
 
-        mImageView.setOnClickListener(new ClickenImagen());
+        githubButton.setOnClickListener(new ClickenImagen());
 
-
-        MobileAds.initialize(this,getResources().getString(R.string.adMobId));
-
-        mAdViewCont = findViewById(R.id.adViewCont);
-
-        AdRequest adRequestHelp = new AdRequest.Builder().build();
-        mAdViewCont.loadAd(adRequestHelp);
-
-
-    }
-
-
-
-    public void GoToPerval (View view){
-        goToUrl("http://www.per-val.com");
     }
 
     private void goToUrl (String url){
@@ -63,7 +44,7 @@ public class Contacto extends AppCompatActivity {
     public void SendEmail(View view){
 
         Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                "mailto","hikra@per-val.com", null));
+                "mailto","joaquinperezvalera@gmail.com", null));
         emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Suggestions and comments");
         emailIntent.putExtra(Intent.EXTRA_TEXT, " ");
         startActivity(Intent.createChooser(emailIntent, " "));
@@ -85,7 +66,7 @@ public class Contacto extends AppCompatActivity {
         @Override
         public void onClick(View v){
 
-            goToUrl("http://www.per-val.com");
+            goToUrl("https://github.com/quimperval/Levi");
         }
     }
 

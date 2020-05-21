@@ -1,8 +1,14 @@
 package com.perval.levi;
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
+
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentStatePagerAdapter;
+
+import com.perval.levi.fragments.FragCanalCircular;
+import com.perval.levi.fragments.FragCanalPortal;
+import com.perval.levi.fragments.FragCanalRectangular;
+import com.perval.levi.fragments.FragCanalTrapecial;
 
 public class PagerAdapter extends FragmentStatePagerAdapter {
 
@@ -26,7 +32,7 @@ public class PagerAdapter extends FragmentStatePagerAdapter {
                 return tab1;
 
             case 2:
-                FragCanalTrapecial  tab2 = new FragCanalTrapecial();
+                FragCanalTrapecial tab2 = new FragCanalTrapecial();
                 return tab2;
             case 3:
                 FragCanalPortal tab3 = new FragCanalPortal();

@@ -6,144 +6,10 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.math.*;
-
+import java.util.HashMap;
 
 
 public class TuberiaSanitaria {
-
-    //Columna 0 Diámetro nominal
-    //Columna 1 Diámetro exterior
-    //Columna 2 Espesor
-    //Columna 3 Diámetro interior.
-    private String PVCSanitario[][] = {
-            {"1 1/2","40.3","1.8","36.7"},
-            {"2","50.3","1.8","46.7"},
-            {"3","75.3","1.8","71.7"},
-            {"4","110.4","2.3","105.8"},
-            {"5","160.5","3.3","153.9"},
-            {"8","200.6","4","192.6"}
-    };
-
-    //Columna 0 Diámetro nominal
-    //Columna 1 Diámetro exterior
-    //Columna 2 Espesor
-    //Columna 3 Diámetro interior.
-    //Columna 4 Peso por metro
-    private String ConcretoSimple[][] = {
-            {"6","198","24","150","38"},
-            {"8","256","28","200","54"},
-            {"10","316","33","250","85"},
-            {"12","386","43","300","119"},
-            {"15","486","53","380","388"},
-            {"18","564","57","450","480"},
-            {"24","762","76","610","817"}
-            };
-
-    //Columna 0 Diámetro nominal
-    //Columna 1 Diámetro exterior
-    //Columna 2 Espesor
-    //Columna 3 Diámetro interior.
-    //Columna 4 Peso por metro
-    private String ConcretoReforzado[][] = {
-            {"12","386","43","300","119"},
-            {"15","486","53","380","388"},
-            {"18","564","57","450","480"},
-            {"24","762","76","610","817"},
-            {"30","938","89","760","1200"},
-            {"36","1112","101","910","1683"},
-            {"42","1298","114","1070","2237"},
-            {"48","1474","127","1220","2400"},
-            {"60","1824","152","1520","4636"},
-            {"72","2186","178","1830","6215"},
-            {"84","2550","210","2130","8640"},
-            {"96","2900","230","2440","11060"}
-    };
-    //Columna 0 Diámetro nominal
-    //Columna 1 Diámetro exterior
-    //Columna 2 Espesor
-    //Columna 3 Diámetro interior.
-    //Columna 4 Peso por metro
-    private String PADSanitario[][] = {
-            {"4","121","","100",""},
-            {"6","176","","145",""},
-            {"8","232","","195",""},
-            {"10","288","","245",""},
-            {"12","359","","294",""},
-            {"15","448","","369",""},
-            {"18","545","","450",""},
-            {"24","716","","588",""},
-            {"30","891","","751",""},
-            {"36","1041","","902",""},
-            {"42","1222","","1051",""},
-            {"48","1380","","1185",""},
-            {"60","1690","","1501",""}
-    };
-
-    //Columna 0  diámetro nominal - in
-    //Columna 1 - Diámetro exterior mm
-    //Columna 2 - espesor mm
-    //Columna 3 - Diámetro interior mm
-    //Columna 4 - peso kg/m
-    //Duromax Tubo de polietileno reforzado de acero
-    private String DuroMaxx[][] = {
-            {"30","785","","749","27.98"},
-            {"36","942","","354","35.12"},
-            {"42","1097","","413","40.18"},
-            {"48","1257","","472","45.84"},
-            {"54","1410","","532","53.72"},
-            {"60","1600","","591","63.84"},
-            {"66","1722","","650","84.68"},
-            {"72","1872","","709","97.63"},
-            {"84","2182","","827","113.55"},
-            {"96","2484","","945","129.47"},
-            {"108","2827","","1080","138.37"},
-            {"120","3096","","1181","162.22"}
-    };
-
-    //Columna 0  diámetro nominal - in
-    //Columna 1 - Diámetro exterior mm
-    //Columna 2 - espesor mm
-    //Columna 3 - Diámetro interior mm
-    //Columna 4 - peso kg/m
-    //Ultraflo acero aluminizado tipo 2 y acero galvanizado
-    //Calibre 16 (1.625 mm)
-    private String Ultrafo16[][] = {
-            {"18","450","22.34","",""},
-            {"21","540","26.81","",""},
-            {"24","610","29.78","",""},
-            {"30","760","37.22","",""},
-            {"36","910","44.67","",""},
-            {"42","1070","52.12","",""},
-            {"48","1200","59.56","",""},
-            {"54","1370","67.00","",""},
-            {"60","1520","74.45","",""}
-    };
-
-    private String Ultraflo14[][]={
-            {"36","910","55.09","",""},
-            {"42","1070","64.03","",""},
-            {"48","1200","72.96","",""},
-            {"54","1370","81.89","",""},
-            {"60","1520","90.83","",""},
-            {"66","1680","99.76","",""},
-            {"72","1830","108.7","",""},
-            {"78","1980","119.12","",""}
-
-    };
-
-    private String Ultraflo12[][]={
-            {"42","1070","87.85","",""},
-            {"48","1200","99.76","",""},
-            {"54","1370","111.67","",""},
-            {"60","1520","123.59","",""},
-            {"66","1680","139.99","",""},
-            {"72","1830","148.9","",""},
-            {"78","1980","160.81","",""},
-            {"84","2130","172.72","",""},
-            {"90","2290","186.13","",""},
-            {"96","2440","194.08","",""},
-            {"102","2600","208.46","",""}
-    };
 
 
     private double CrossArea;
@@ -656,21 +522,7 @@ public class TuberiaSanitaria {
 
 
 
-    public String[][] getPVCSanitario(){
-        return PVCSanitario;
-    }
 
-    public String[][] getConcretoSimple() {
-        return ConcretoSimple;
-    }
-
-    public String[][] getConcretoReforzado() {
-        return ConcretoReforzado;
-    }
-
-    public String[][] getPADSanitario() {
-        return PADSanitario;
-    }
 
     public String getCalcNoDone() {
         return CalcNoDone;

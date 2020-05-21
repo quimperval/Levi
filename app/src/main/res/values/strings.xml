@@ -119,6 +119,14 @@
         <item>Concreto Simple</item>
         <item>Concreto Reforzado</item>
         <item>PEAD Sanitario</item>
+        <item>Duromaxx</item>
+        <item>Ultraflo 12 Galv</item>
+        <item>Ultraflo 14 Galv</item>
+        <item>Ultraflo 16 Galv</item>
+        <item>Ultraflo 10 Alum</item>
+        <item>Ultraflo 12 Alum</item>
+        <item>Ultraflo 14 Alum</item>
+        <item>Ultraflo 16 Alum</item>
     </string-array>
 
 
@@ -205,6 +213,7 @@
     <string name="LinkPEADSan">http://www.hancor.com/pdf/es_sanitite.pdf</string>
     <string name="LinkConcSimple">https://tubocreto.com/productos/tubos/index.html</string>
     <string name="LinkCajon">https://tubocreto.com/productos/cajones/index.html</string>
+    <string name="LinkUltraFlo">https://www.firheg.com</string>
 
 
     <string name="Tit_Hidraulica">Hidráulica</string>
@@ -304,7 +313,7 @@
     <string name="Cont_Seccion_portal">Imagen de portal</string>
 
     <string name="Transicion_portal">Transicion_imagen_portal</string>
-    
+
     <string name="Warning_hdif">Las alturas de los muros derechos e izquierdo deben ser iguales.</string>
 
 

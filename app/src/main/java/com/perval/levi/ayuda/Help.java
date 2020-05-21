@@ -1,16 +1,12 @@
-package com.perval.levi;
+package com.perval.levi.ayuda;
+
+
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.text.Html;
-import android.text.method.LinkMovementMethod;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -21,16 +17,17 @@ import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import com.google.android.gms.ads.AdRequest;
-import com.google.android.gms.ads.AdView;
-import com.google.android.gms.ads.MobileAds;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.perval.levi.NManning;
+import com.perval.levi.R;
 
 import org.w3c.dom.Text;
 
 import java.net.URL;
 
 public class Help extends AppCompatActivity {
-    private AdView mAdViewHelp;
 
     private TextView Formula_3;
     private String texto1;
@@ -47,12 +44,9 @@ public class Help extends AppCompatActivity {
 
         botonmanning = (Button) findViewById(R.id.Btn_select_manning);
 
-        MobileAds.initialize(this,getResources().getString(R.string.adMobId));
 
-        mAdViewHelp = findViewById(R.id.adViewHelp);
 
-        AdRequest adRequestHelp = new AdRequest.Builder().build();
-        mAdViewHelp.loadAd(adRequestHelp);
+
 
         Formula_3 = findViewById(R.id.TV_Hid_ContD);
         texto1 = "&#x3BD; -"+ getString(R.string.Cont_presion4);
@@ -119,6 +113,7 @@ public class Help extends AppCompatActivity {
         goToUrl(getResources().getString(R.string.LinkCajon));
     }
 
+    public void GoToUltraFlo(View view ){goToUrl(getResources().getString(R.string.LinkUltraFlo));}
 
 
     public void showPopupWindow(View anchorView){

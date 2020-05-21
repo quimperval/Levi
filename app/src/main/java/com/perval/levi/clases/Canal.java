@@ -1,4 +1,4 @@
-package com.perval.levi;
+package com.perval.levi.clases;
 
 import java.util.ArrayList;
 import java.util.List;

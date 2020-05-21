@@ -2,11 +2,6 @@ package com.perval.levi;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -20,6 +15,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
+import com.perval.levi.ayuda.EulaActivity;
+import com.perval.levi.ayuda.Help;
+import com.perval.levi.tuberias.Pead;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
@@ -852,6 +855,12 @@ public class FlujoAPresion extends AppCompatActivity {
                 startActivity(Cont_Intent);
                 overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
 
+                return true;
+
+            case R.id.licencia:
+                Intent Eula_Intent = new Intent(this, EulaActivity.class );
+                startActivity(Eula_Intent);
+                overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

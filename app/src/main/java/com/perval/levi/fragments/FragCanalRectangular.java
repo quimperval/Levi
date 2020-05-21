@@ -1,8 +1,8 @@
-package com.perval.levi;
+package com.perval.levi.fragments;
+
+
 
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,11 +16,16 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.fragment.app.Fragment;
+
+import com.perval.levi.CanalRectangular;
+import com.perval.levi.R;
+
 import java.util.ArrayList;
 
 import io.github.kexanie.library.MathView;
 
-public class FragCanalRectangular extends Fragment{
+public class FragCanalRectangular extends Fragment {
     private Spinner spin_tipo, spin_dimensiones, spin_unit_rect;
     ArrayAdapter<CharSequence> adapter_tipo, adapter_units;
 
