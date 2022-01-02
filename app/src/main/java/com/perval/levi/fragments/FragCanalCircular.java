@@ -1,5 +1,6 @@
 package com.perval.levi.fragments;
 
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -16,9 +17,9 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.perval.levi.PipeProvider;
+import com.perval.levi.tuberias.PipeProvider;
 import com.perval.levi.R;
-import com.perval.levi.TuberiaSanitaria;
+import com.perval.levi.tuberias.TuberiaSanitaria;
 
 import java.util.ArrayList;
 
@@ -33,20 +34,20 @@ public class FragCanalCircular extends Fragment {
     TextView TXDiam_san, TXResults_san;
     Button BtnCirc;
 
-    TuberiaSanitaria TubSan = new TuberiaSanitaria();
+    TuberiaSanitaria TubSan;
 
     ArrayList<String> cadena = new ArrayList<>();
     String lista1[][];
 
     private double Rugosidad;
-    EditText ETNumber, ETSlope;
-    Button Calcular;
-    String StrUnidades;
-    double DSan_mm;
+    private EditText ETNumber, ETSlope;
+    private Button Calcular;
+    private String StrUnidades;
+    private double DSan_mm;
 
     //DiamPos se corresponde a la posición del diámetro seleccionado para hacer los cálculos.
     //IntUnidades se corrsponde a las unidades del valor base para realizar los cálculos, l/s, m/s, m/km
-    int IntUnidades, DiamPos;
+    private int IntUnidades, DiamPos;
 
 
     double flow, velocity, headloss;
@@ -67,7 +68,7 @@ public class FragCanalCircular extends Fragment {
     //7 - Ultraflo 16
     private int Material;
 
-
+    private Resources resources;
     private PipeProvider providerOfPipeInformation = null;
 
     public FragCanalCircular(){
@@ -86,7 +87,11 @@ public class FragCanalCircular extends Fragment {
 
 
         View v = inflater.inflate(R.layout.fragment_canal_circular,container,false);
+        TubSan = new TuberiaSanitaria(getActivity().getResources());
 
+        if(getActivity().getResources()==null){
+           Log.i("LogTest", "resources is null");
+        }
 
 
         spin_mat_san = v.findViewById(R.id.spin_materialCirc);
@@ -278,13 +283,13 @@ public class FragCanalCircular extends Fragment {
 
 
                     } else {
-
+                        boolean hasResults = false;
                         switch (IntUnidades){
 
                             case 0:
-                                Toast.makeText(getContext(), "Cálculo con el gasto", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getContext(), "Cálculo con el gasto", Toast.LENGTH_SHORT).show();
 
-                                TubSan.setGasto(Double.parseDouble(ETNumber.getText().toString()));
+                                TubSan.setGastoLPS(Double.parseDouble(ETNumber.getText().toString()));
                                 TubSan.setDiametro(DSan_mm/1000);
                                 TubSan.setRugosidad(Rugosidad);
                                 TubSan.setSlope(Double.parseDouble(ETSlope.getText().toString()));
@@ -299,32 +304,14 @@ public class FragCanalCircular extends Fragment {
                                     //Toast.makeText(getContext(), R.string.Calculo_fallido, Toast.LENGTH_SHORT).show();
 
                                     String res1 = getResources().getString(R.string.Calculo_fallido);
-                                    TXResults_san.setText(res1+"\n\n"+"El gasto máximo posible es: " + String.format("%.2f",TubSan.getQMAX()) + " m3/s");
+                                    String maxFlow = getResources().getString(R.string.maxflowText);
+                                    TXResults_san.setText(res1+"\n\n"+maxFlow + String.format("%.2f",TubSan.getQMAX()) + " m3/s");
                                     //Toast.makeText(getContext(), "El gasto máximo posible es: " + String.format("%.2f",TubSan.getQMAX()) + " m3/s", Toast.LENGTH_SHORT).show();
 
 
                                 } else {
+                                    hasResults = true;
 
-                                    //Mostrar los resultados
-
-                                    String Resultados;
-
-                                    String StrGasto, StrVel, Strh, StrRug, StrArea, StrFroude, StrFlujo, StrQmax1, StrQmax2;
-
-                                    StrGasto = "Gasto (l/s): " + String.format("%.2f", TubSan.getGasto()*1000) + " \n";
-                                    StrVel = "Velocidad (m/s): " + String.format("%.3f", TubSan.getVelocity()) + " \n";
-                                    Strh = "Tirante (m): "+  String.format("%.3f", TubSan.getTirante()) + " \n";
-                                    StrRug = "n Manning: " + String.format("%.3f", TubSan.getRugosidad()) + " \n";
-                                    StrArea = "Area (m2): "+ String.format("%.3f", TubSan.getArea()) + " \n";
-                                    StrFroude = "Froude: "+ String.format("%.3f", TubSan.getFroude()) + " \n";
-                                    StrFlujo = "Tipo de flujo: " + TubSan.getTipoFlujo()+" \n";
-
-                                    StrQmax1 = "Qmax a tubo lleno (l/s): "  + String.format("%.2f", TubSan.getQmax1()*1000) + " \n";
-                                    StrQmax2 = "Q con tirante = 0.8D (l/s): "  + String.format("%.2f", TubSan.getQmax2()*1000) + " \n";
-                                    Resultados = StrGasto + StrVel + StrArea+  Strh + StrRug + StrFroude + StrFlujo +StrQmax1 + StrQmax2;
-
-                                   // Toast.makeText(getContext(), "El gasto máximo es: " + TubSan.getQMAX(), Toast.LENGTH_SHORT).show();
-                                    TXResults_san.setText(Resultados);
 
                                 }
 
@@ -333,7 +320,7 @@ public class FragCanalCircular extends Fragment {
 
                             case 1:
 
-                                Toast.makeText(getContext(), "Cálculo con la velocidad", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getContext(), "Cálculo con la velocidad", Toast.LENGTH_SHORT).show();
 
                                 TubSan.setVelocity(Double.parseDouble(ETNumber.getText().toString()));
                                 TubSan.setDiametro(DSan_mm/1000);
@@ -348,25 +335,8 @@ public class FragCanalCircular extends Fragment {
                                     //TXResults_san.setText(R.string.Calculo_fallidoV);
 
                                 } else {
+                                    hasResults = true;
 
-                                    //Mostrar los resultados
-
-                                    String Resultados;
-
-                                    String StrGasto, StrVel, Strh, StrRug, StrArea, StrFroude, StrFlujo, StrQmax1, StrQmax2;
-
-                                    StrGasto = "Gasto (l/s): " + String.format("%.2f", TubSan.getGasto()*1000) + " \n";
-                                    StrVel = "Velocidad (m/s) :" + String.format("%.3f", TubSan.getVelocity()) + " \n";
-                                    Strh = "Tirante (m): "+  String.format("%.3f", TubSan.getTirante()) + " \n";
-                                    StrRug = "n Manning: " + String.format("%.3f", TubSan.getRugosidad()) + " \n";
-                                    StrArea = "Area (m2): "+ String.format("%.3f", TubSan.getArea()) + " \n";
-                                    StrFroude = "Froude: "+ String.format("%.3f", TubSan.getFroude()) + " \n";
-                                    StrFlujo = "Tipo de flujo: " + TubSan.getTipoFlujo()+" \n";
-                                    StrQmax1 = "Qmax a tubo lleno (l/s): "  + String.format("%.2f", TubSan.getQmax1()*1000) + " \n";
-                                    StrQmax2 = "Q con tirante = 0.8D (l/s): "  + String.format("%.2f", TubSan.getQmax2()*1000) + " \n";
-                                    Resultados = StrGasto + StrVel + StrArea+  Strh + StrRug + StrFroude + StrFlujo +StrQmax1 + StrQmax2;
-
-                                    TXResults_san.setText(Resultados);
 
                                 }
 
@@ -374,7 +344,7 @@ public class FragCanalCircular extends Fragment {
 
                             case 2:
 
-                                Toast.makeText(getContext(), "Cálculo con el tirante", Toast.LENGTH_SHORT).show();
+                                //Toast.makeText(getContext(), "Cálculo con el tirante", Toast.LENGTH_SHORT).show();
 
                                 if(Double.parseDouble(ETNumber.getText().toString())>(DSan_mm/1000)){
                                     Toast.makeText(getContext(), getResources().getString(R.string.Toast_h_mayoraD), Toast.LENGTH_SHORT).show();
@@ -388,23 +358,8 @@ public class FragCanalCircular extends Fragment {
                                     TubSan.setTirante(Double.parseDouble(ETNumber.getText().toString()));
                                     TubSan.CalcfromH();
                                     //Mostrar los resultados
+                                    hasResults = true;
 
-                                    String Resultados;
-                                    String StrGasto, StrVel, Strh, StrRug, StrArea, StrFroude, StrFlujo, StrQmax1, StrQmax2;
-
-                                    StrGasto = "Gasto (l/s): " + String.format("%.2f", TubSan.getGasto()*1000) + " \n";
-                                    StrVel = "Velocidad (m/s) :" + String.format("%.3f", TubSan.getVelocity()) + " \n";
-                                    Strh = "Tirante (m): "+  String.format("%.3f", TubSan.getTirante()) + " \n";
-                                    StrRug = "n Manning: " + String.format("%.3f", TubSan.getRugosidad()) + " \n";
-                                    StrArea = "Area (m2): "+ String.format("%.3f", TubSan.getArea()) + " \n";
-                                    StrFroude = "Froude: "+ String.format("%.3f", TubSan.getFroude()) + " \n";
-                                    StrFlujo = "Tipo de flujo: " + TubSan.getTipoFlujo()+" \n";
-
-                                    StrQmax1 = "Qmax a tubo lleno (l/s) "  + String.format("%.2f", TubSan.getQmax1()*1000) + " \n";
-                                    StrQmax2 = "Q con tirante = 0.8D (l/s) "  + String.format("%.2f", TubSan.getQmax2()*1000) + " \n";
-
-                                    Resultados = StrGasto + StrVel + StrArea+  Strh + StrRug + StrFroude + StrFlujo +StrQmax1 + StrQmax2;
-                                    TXResults_san.setText(Resultados);
 
 
 
@@ -417,12 +372,27 @@ public class FragCanalCircular extends Fragment {
 
                         }
 
+                        //Print results to TextView
+                        if(hasResults){
+                            String Resultados;
+                            String StrGasto, StrVel, Strh, StrRug, StrArea, StrFroude, StrFlujo, StrQmax1, StrQmax2;
 
+                            StrGasto = getResources().getString(R.string.res_flow) + String.format("%.2f", TubSan.getGasto()*1000) + " \n";
+                            StrVel = getResources().getString(R.string.res_vel) + String.format("%.3f", TubSan.getVelocity()) + " \n";
+                            Strh = getResources().getString(R.string.res_tirante)+  String.format("%.3f", TubSan.getTirante()) + " \n";
+                            StrRug = getResources().getString(R.string.res_manning) + String.format("%.3f", TubSan.getRugosidad()) + " \n";
+                            StrArea = getResources().getString(R.string.res_area)+ String.format("%.3f", TubSan.getArea()) + " \n";
+                            StrFroude = getResources().getString(R.string.res_froude)+ String.format("%.3f", TubSan.getFroude()) + " \n";
+                            StrFlujo = getResources().getString(R.string.res_tipo_flujo) + TubSan.getTipoFlujo()+" \n";
+
+                            StrQmax1 = getResources().getString(R.string.res_qmax_full)  + String.format("%.2f", TubSan.getQmax1()*1000) + " \n";
+                            StrQmax2 = getResources().getString(R.string.res_q_0_8D)  + String.format("%.2f", TubSan.getQmax2()*1000) + " \n";
+
+                            Resultados = StrGasto + StrVel + StrArea+  Strh + StrRug + StrFroude + StrFlujo +StrQmax1 + StrQmax2;
+                            TXResults_san.setText(Resultados);
+                        }
                     }
-
                 }
-
-
             }
         });
 
@@ -490,11 +460,5 @@ public class FragCanalCircular extends Fragment {
     public double getRugosidad(){
         return this.Rugosidad;
     };
-
-    public void calcularAtarjeas(View view){
-
-        Toast.makeText(getContext(), "Cálculo de atarjeas", Toast.LENGTH_SHORT).show();
-
-    }
 
 }

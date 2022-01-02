@@ -1,6 +1,9 @@
-package com.perval.levi;
+package com.perval.levi.sections;
 
+import android.content.res.Resources;
 import android.util.Log;
+
+import com.perval.levi.R;
 
 public class CanalRectangular {
 
@@ -62,22 +65,33 @@ public class CanalRectangular {
     private double Froude;
     private String tipoFlujo;
 
+    private boolean isTest= false;
 
-
+    private Resources resources;
     private boolean Success = false;
 
-    public void CanalRectangular(){
+    public  CanalRectangular(Resources resources){
+        this.resources = resources;
+    }
+
+    public CanalRectangular(){
 
     }
+
+    public CanalRectangular(boolean isTest){
+        this.isTest = isTest;
+    }
+
+
 
     public void setTirante(double tirante){
     this.tirantehidraulico = tirante;
     }
-    public void setHrec(double Hrect){
+    public void setHrecAsMeter(double Hrect){
         this.Hrect = Hrect;
     }
 
-    public void setBrect(double Brect){
+    public void setBrectAsMeter(double Brect){
         this.Brect = Brect;
     }
 
@@ -106,7 +120,7 @@ public class CanalRectangular {
         this.sloperect = slope/1000;
     }
 
-    public void setgasto(double gasto){
+    public void setGastoLPS(double gasto){
         this.gastorect = gasto/((double)1000);
     }
 
@@ -213,6 +227,12 @@ public class CanalRectangular {
         double tirante0 = (double) 0.0001;
         double tirante1 = (Hrect-(double)0.0001);
 
+        if(Hrect==0 || Brect==0 || gastorect ==0 ){
+            Success = false;
+            Log.i("LogTest", "Calculation failed, a required parameter is zero");
+            return;
+        }
+
         double diferencia;
 
         double Fx0, Fx1;
@@ -245,7 +265,7 @@ public class CanalRectangular {
         if(tirante1>Hrect){
             Success = false;
         } else {
-
+            Log.i("LogTest", "Success calculating hydraulic variables.");
             Success = true;
             tirantehidraulico = tirante1;
             Area = calcAH(tirante1);
@@ -257,7 +277,10 @@ public class CanalRectangular {
             BLibre = Hrect-tirantehidraulico;
             RelTH = tirantehidraulico/Hrect;
             Froude = calcFroude(Vrect,Brect, Area);
-            calcFlujo(Froude);
+            if(isTest==false){
+                calcFlujo(Froude);
+            }
+
 
 
         }
@@ -334,7 +357,10 @@ public class CanalRectangular {
             RelTH = tirantehidraulico/Hrect;
             BLibre = Hrect-tirantehidraulico;
             Froude = calcFroude(Vrect,Brect,Area);
-            calcFlujo(Froude);
+            if(isTest==false){
+                calcFlujo(Froude);
+            }
+
         }
 
 
@@ -357,7 +383,9 @@ public class CanalRectangular {
             BLibre = Hrect-tirantehidraulico;
             RelTH = tirantehidraulico/Hrect;
             Froude = calcFroude(Vrect,Brect,Area);
-            calcFlujo(Froude);
+            if(isTest==false){
+                calcFlujo(Froude);
+            }
             Success = true;
         }
 
@@ -388,14 +416,14 @@ public class CanalRectangular {
 
         if(Froudex ==1){
 
-            tipoFlujo = "Crítico";
+            tipoFlujo = resources.getString(R.string.critico);
         } else {
 
             if(Froudex<1){
-                tipoFlujo = "Subcrítico";
+                tipoFlujo = resources.getString(R.string.subcritico);
             } else {
 
-                tipoFlujo = "Supercrítico";
+                tipoFlujo = resources.getString(R.string.supercritico);
             }
         }
 

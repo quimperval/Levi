@@ -1,0 +1,644 @@
+<resources>
+    <string name="app_name">Levi</string>
+    <string name="Tit_presion">Flujo a presión</string>
+    <string name="Tit_gravedad">Flujo a \nsuperficie \nlibre</string>
+    <string name="title_activity_help">Ayuda</string>
+    <string name="title_activity_contacto">Contacto</string>
+
+    <string name="Seccion_canal">Sección</string>
+
+    <string name="adMobId">ca-app-pub-9916459118611631~2051967328</string>
+
+    <string name="UnitId">ca-app-pub-9916459118611631/8078408912</string>
+
+    <string name="Tit_seccion_Circular">Sección circular</string>
+    <string name="Tit_seccion_Rectangular">Sección rectangular</string>
+    <string name="Tit_seccion_trapecial">Sección trapecial</string>
+    <string name="Tit_seccion_irregular">Sección irregular</string>
+    <string name="Tit_seccion_portal">Sección portal</string>
+    <string name="Text_tipo_secciont_Rect">Tipo de sección</string>
+    <string name="Rect_dimensiones">Dimensiones \nBxH</string>
+    <string name="Text_fondo">Ancho de \nfondo \n(B)</string>
+    <string name="Text_altura">Altura \nlibre \n(H)</string>
+    <string name="menu_ayuda">Ayuda</string>
+    <string name="menu_ejemplo">Ejemplo</string>
+    <string name="menu_licencia">Licencia</string>
+    <string name="Tit_ayuda">Ayuda</string>
+    <string name="Tit_Contacto">Acerca de</string>
+    <string name="Contactar">Contactar</string>
+    <string name="label_material">Material</string>
+    <string name="label_RD">RD</string>
+    <string name="label_Cedula">Cédula</string>
+    <string name="label_diam">DN/Dint</string>
+    <string name="menu_simbologia">Simbología</string>
+    <string name="label_calc">Calcular</string>
+    <string name="help">Ayuda</string>
+    <string name="tuberias">Calcular Tuberías</string>
+    <string name="Tit_Darcy">Flujo a presión</string>
+    <string name="Tit_Manning">Flujo a superficie libre</string>
+    <string name="Text_Pendiente">Pendiente \nm/1000m</string>
+    <string name="Text_Freeboard">Bordo libre</string>
+    <string name="Text_MannRug">Rugosidae de Manning</string>
+    <string name="Tit_rugosidad_trapecial">Rugosidad</string>
+    <string name="Text_H_trapecial">Altura \nlibre (m)</string>
+    <string name="Text_H_portal">Altura \nHt (m)</string>
+    <string name="Text_Regimen">Tipo de flujo: </string>
+    <string name="Text_B_trapecial">Fondo</string>
+    <string name="Text_talud_izq">Talud \nIzq. k:1</string>
+    <string name="Text_talud_der">Talud \nDer. k:1</string>
+    <string name="Hint_altura_trap">Altura (m)</string>
+    <string name="Hint_ancho_trap">Ancho (m)</string>
+    <string name="Hint_talud">Talud</string>
+    <string name="Hint">Talud</string>
+    <string name="Text_TVRug_fondo">Fondo</string>
+    <string name="Text_TVRug_Tder">Talud \nDer.</string>
+    <string name="Text_TVRug_Tizq">Talud \nIzq.</string>
+    <string name="Hint_rugosidad">Manning</string>
+
+    <string name="Text_B_portal">Ancho (2R) \n(m)</string>
+    <string name="Text_H_muro">Altura de parted \n(m)</string>
+    <string name="Hint_techo">Techo</string>
+    <string name="Hint_Muro_izq_tramo1">n1</string>
+    <string name="Hint_Muro_izq_tramo2">n2</string>
+    <string name="Hint_Muro_der_tramo1">n1</string>
+    <string name="Hint_Muro_der_tramo2">n2</string>
+    <string name="Text_Portal_fondo">Fondo</string>
+    <string name="Text_M_izq">Muro \nIzquierdo</string>
+    <string name="Text_M_der">Muro \nDerecho</string>
+    <string name="Portal_top" >Arco</string>
+    <string name="Hint_n_base" >nf</string>
+    <string name="Hint_pendiente">Pendiente</string>
+    <string name="Hint_variable">Variable</string>
+    <string name="Tit_dim_trapecial">Dimensiones</string>
+
+    <string name="Acerca_de">Levi</string>
+    <string name="Acerca_de_Levi">Levi es una app cuyo propósito es facilitar cálculos
+        hidraulicos de flujo en conductos, utilizando información real de tuberías y sus materiales. \n \nLa
+        hemos denominado Levi en honor al Ing. Enzo Levi, un pilar en la investigación
+        hidráulica en México.</string>
+
+    <string name="Tit_creditos">Créditos</string>
+
+
+
+    <string name="ETNumberWarn">Define un valor para realizar los cálculos</string>
+    <string name="ETPositiveWarn">Define un valor positivo para realizar los cálculos</string>
+    <string name="Gasto">Gasto (l/s)</string>
+    <string name="Velocidad">Velocidad (m/s)</string>
+    <string name="Perdidas">Pérdidas (m/km)</string>
+    <string name="Rugosidad">Rugosidad (mm)</string>
+    <string name="Reynolds">Reynolds</string>
+
+
+    <string-array name="secciones_canales">
+        <item>Circular</item>
+        <item>Trapezoidal</item>
+        <item>Rectangular</item>
+        <item>Arco de medio punto</item>
+        <item>Irregular</item>
+    </string-array>
+
+    <string-array name="material_canales">
+        <item>PVC</item>
+        <item>PEAD</item>
+        <item>Concreto</item>
+    </string-array>
+
+    <string-array name="canal_rect">
+        <item>Cajón prefabricado</item>
+        <item>Sección personalizada</item>
+    </string-array>
+
+
+    <string-array name="lista_materiales">
+        <item>PVC Serie Métrica</item>
+        <item>PVC Serie Inglesa</item>
+        <item>PEAD</item>
+        <item>PPR</item>
+        <item>Acero</item>
+    </string-array>
+
+
+    <string-array name="Tuberias_sanitarias">
+        <item>PVC Sanitario</item>
+        <item>Concreto Simple</item>
+        <item>Concreto Reforzado</item>
+        <item>PEAD Sanitario</item>
+        <item>Duromaxx</item>
+        <item>Ultraflo 12 Galv</item>
+        <item>Ultraflo 14 Galv</item>
+        <item>Ultraflo 16 Galv</item>
+        <item>Ultraflo 10 Alum</item>
+        <item>Ultraflo 12 Alum</item>
+        <item>Ultraflo 14 Alum</item>
+        <item>Ultraflo 16 Alum</item>
+    </string-array>
+
+
+    <string-array name="unidades">
+        <item>Q (l/s)</item>
+        <item>Vel (m/s)</item>
+        <item>Hl (m/km)</item>
+    </string-array>
+
+    <string-array name="unidades_san">
+        <item>Q (l/s)</item>
+        <item>Vel (m/s)</item>
+        <item>Tirante (m)</item>
+    </string-array>
+
+
+    <string-array name="listRD">
+        <item>7</item>
+        <item>7.3</item>
+        <item>9</item>
+        <item>11</item>
+        <item>13.5</item>
+        <item>15.5</item>
+        <item>17</item>
+        <item>21</item>
+        <item>26</item>
+        <item>32.5</item>
+        <item>41</item>
+    </string-array>
+
+    <string-array name="listPVCMetric">
+        <item>3.5</item>
+        <item>5</item>
+        <item>7</item>
+        <item>10</item>
+    </string-array>
+
+    <string-array name="listPVCInglesa">
+        <item>13.5</item>
+        <item>21</item>
+        <item>26</item>
+        <item>41</item>
+    </string-array>
+
+    <string-array name="listPPR">
+        <item>16</item>
+    </string-array>
+
+
+    <string-array name="listAcero">
+        <item>5</item>
+        <item>10</item>
+        <item>10S</item>
+        <item>20</item>
+        <item>30</item>
+        <item>40</item>
+        <item>60</item>
+        <item>80</item>
+        <item>120</item>
+        <item>140</item>
+        <item>160</item>
+        <item>XS</item>
+        <item>XXS</item>
+        <item>STD</item>
+    </string-array>
+
+    <string name="Tit_MatDesc">Materiales</string>
+    <string name="MatDescription">PVC Serie Métrica - Tuberías
+        de PVC fabricadas bajo la norma NMX-E-145/1.\n \nPVC Serie
+        Inglesa - Tuberías de PVC fabricadas
+        bajo la norma ASTM D-2241 o NMX-E224.\n \nPPR  - Tuberías de
+        polipropileno fabricadas en cumplimiento con la NMX-E-226/2
+        CNCP.\n \nAcero - Tuberías de acero fabricadas bajo la norma  ASTM A 53. \n
+    </string>
+
+    <string name="Tit_Recursos">Recursos: </string>
+    <string name="LinkPVCMetric">https://www.tuberiadepvc.mx/Tuberia-Hidraulica-de-PVC-Serie-Metrica.html</string>
+    <string name="LinkPVCIng">https://www.tuberiadepvc.mx/Tuberia-Hidraulica-de-PVC-Serie-Inglesa.html</string>
+    <string name="LinkPEAD">https://www.tuberiamoreno.com/productos/hidraulico/tuberia-de-polietileno-de-alta-densidad-pead-4608-4710-rd-7-0-rd-7-3-rd-9-rd-11-dr-13-5-rd-15-5-rd-17-rd-21-rd-26-rd-32-5-rd-41</string>
+    <string name="LinkPPR">https://rotoplas.com.mx/catalogo/tuboplus-hidraulico/</string>
+    <string name="LinkAcero">http://www.covalco.mx/manuales-y-normas.html</string>
+
+    <string name="LinkPVCSan">https://www.tuberiadepvc.mx/Tuberia-de-PVC-Sanitaria-Metrica.html</string>
+    <string name="LinkPEADSan">http://www.hancor.com/pdf/es_sanitite.pdf</string>
+    <string name="LinkConcSimple">https://tubocreto.com/productos/tubos/index.html</string>
+    <string name="LinkCajon">https://tubocreto.com/productos/cajones/index.html</string>
+    <string name="LinkUltraFlo">https://www.firheg.com</string>
+
+
+    <string name="Tit_Hidraulica">Hidráulica</string>
+    <string name="Subtit_presion">Flujo a presión</string>
+
+    <string name="Cont_presion1">Las pérdidas de carga en tubos a presión se calculan
+    con la ecuación de Darcy-Weisbach:</string>
+
+    <string name="Cont_presion2">donde: \nh - pérdidas de energía debidas a la fricción en tubería, m; \nv - velocidad de flujo en m/s; \ng -  aceleración
+        gravitatoria, 9.81 m/s²; \nL - longitud de la tubería, en metros; \nD - Diámetro de la tubería en metros; \nf - factor
+        de fricción de Darcy, que se obtiene con la ecuación de Swamee-Jain</string>
+    <string name="Cont_presion3">k - rugosidad del material, en metros; \nRe - Número de reynolds (Adimensional)</string>
+
+    <string name="Cont_presion4"> es la viscosidad cinemática, 0.00000104 m²/s</string>
+
+    <string name="Cont_presion5">Para obtener las pérdidas por cada kilómetro se considera L = 1,000 m.</string>
+
+
+    <string name="Formula_Swamee">$$f = \\frac{0.25}{[log_{10}(\\frac{k/D}{3.7}+
+        \\frac{5.74}{Re^{0.9}})]^2}$$</string>
+    <string name="Formula_Darcy">
+        $$h_f = f \\frac{L}{D}\\frac{v^2}{2g}$$
+    </string>
+
+    <string name="Formula_Reynolds">
+                $$Re =  \\frac{vD}{\\nu}$$
+
+    </string>
+
+
+    <string name="title_activity_flujo_apresion">FlujoAPresion</string>
+
+    <string name="title_activity_flujo_acanal">FlujoACanal</string>
+
+
+    <string name="Subtit_gravedad">Flujo a gravedad</string>
+
+    <string name="Cont_gravedad1">El flujo a gravedad se calculó con la ecuación de Manning, como se muestra a continuación</string>
+    <string name="Formula_Manning">
+                $$v =  \\frac{1}{n} R_h^{\\frac{2}{3}} S^{\\frac{1}{2}}$$
+
+    </string>
+
+    <string name="Cont_gravedad2">donde \nn - coeficiente de rugosidad de Manning; \nRh - Radio hidráulico, m;\nS - pendiente hidráulica\n</string>
+    <string name="Formula_Rh">
+                $$R_h =  \\frac{A}{Pm}$$
+
+    </string>
+    <string name="Cont_gravedad3">A - Área hidráulica - m2;\nPm - Perímetro mojado, m.</string>
+
+    <string name="Cont_gravedad_4">El número de Froude se ha calculado con la ecuación</string>
+
+    <string name="Formula_Froude">
+                $$F =  \\frac{velocidad}{(g*D)^{0.5}}$$
+    </string>
+
+    <string name="Cont_gravedad_5">Donde: \ng - constante de aceleración, 9.81 m/s2;
+        \nD - profundidad hidráulica (D=A/T); \nA- área hidráulica y \nT- el ancho libre de la superficie del agua.\n
+        Si el Número de Froude es menor a 1 el régimen será de tipo subcrítico; si es igual a 1 será de tipo crítico y si es mayor a 1 será de tipo supercrítico.
+    </string>
+
+
+    <string name="Text_Btn_Manning">Selección del coeficiente de Manning</string>
+
+
+    <string name="Calculo_fallido">La tubería, con la pendiente indicada, no tiene la capacidad para conducir el gasto deseado. Prueba con otro diámetro para garantizar flujo a superficie libre.</string>
+
+    <string name="Calculo_fallidoV">La tubería, con la pendiente indicada, no tiene la capacidad para conducir flujo con la velocidad deseada. Prueba con otras dimensiones para garantizar flujo a superficie libre.</string>
+    <string name="Calculo_fallidoH">El tirante indicado es mayor a la altura disponible.</string>
+
+    <string name="Toast_add_slope">El campo pendiente está vacío o es negativo, asignar un valor a la pendiente.</string>
+    <string name="Toast_add_values">Asigne valores a todas las variables.</string>
+    <string name="Toast_add_variable">Asignar un valor válido de calculo.</string>
+    <string name="Toast_h_mayoraD">Asignar un tirante menor al diámetro</string>
+    <string name="Toast_h_mayoraHT">Asignar un tirante menor a la altura total</string>
+
+    <string name="TextPVCMEtric">Tubería de PVC Serie Métrica</string>
+    <string name="TextPVCInglesa">Tubería de PVC Serie Inglesa</string>
+    <string name="TextPEADHid">Tubería de PEAD - hidráulica</string>
+    <string name="TextPPR">Tubería de Polipropileno (PPR)</string>
+    <string name="TextAcero">Tubería de Acero</string>
+    <string name="TextPVCSan">Tubería de PVC Sanitario</string>
+    <string name="TextPEADSan">Tubería de PEAD sanitario</string>
+    <string name="TextConcSimple">Tubería de concreto simple y reforzado</string>
+
+    <string name="TextCajones">Cajones de concreto reforzado</string>
+    <string name="TextCajonesG">Cajones de grandes dimensiones</string>
+
+    <string name="Tit_Clave_manning">Clave</string>
+    <string name="Tit_Desc_manning">Descripción</string>
+
+    <string name="Tit_table_manning">n de Manning</string>
+
+
+    <string name="Cont_BotonContactar">Contactar</string>
+    <string name="Cont_Resultados">Resultados</string>
+    <string name="Cont_Seccion_portal">Imagen de portal</string>
+
+    <string name="Transicion_portal">Transicion_imagen_portal</string>
+
+    <string name="Warning_hdif">Las alturas de los muros derechos e izquierdo deben ser iguales.</string>
+    <string name="maxflowText" >The maximum flow is: </string>
+    <string name="subcritico">Subcrítico</string>
+    <string name="critico">Crítico</string>
+    <string name="supercritico">Supercrítico</string>
+
+
+    <!-- RESULTS DATA -->
+
+    <string name="res_flow" >Gasto (l/s): </string>
+    <string name="res_vel" >Velocidad (m/s): </string>
+    <string name="res_tirante" >Tirante (m): </string>
+    <string name="res_manning" >n Manning: </string>
+    <string name="res_area" >Área (m2): </string>
+    <string name="res_froude" >Froude: : </string>
+    <string name="res_tipo_flujo" >Tipo de flujo: </string>
+    <string name="res_qmax_full" >Qmax a tubo lleno (l/s): </string>
+    <string name="res_q_0.8D" >Q con tirante = 0.8D (l/s): </string>
+
+    <!--SIMBOLOGIA PRESION-->
+    <string name="symbol_RD" >RD - Relación dimensional</string>
+    <string name="symbol_DN" >DN - Diámetro nominal</string>
+    <string name="symbol_Dint" >Dint - Diámetro nominal</string>
+    <string name="symbol_Q" >Q - Gasto</string>
+    <string name="symbol_Vel" >Vel - Velocidad</string>
+    <string name="symbol_Hl" >Hl - Pérdida de carga</string>
+    <string name="symbol_ls" >l/s - litros por segundo</string>
+    <string name="symbol_ms" >m/s - metros por segundo</string>
+    <string name="symbol_PPR" >PPR - Polipropileno</string>
+    <string name="symbol_in" >in - Pulgadas</string>
+
+    <!--SIMBOLOGIA RECTANGULAR-->
+    <string name="symbol_Rect_B" >B - Ancho interior, en m</string>
+    <string name="symbol_Rect_H" >H - Altura interior, en m</string>
+    <!--SIMBOLOGIA TRAPECIAL-->
+    <string name="symbol_Trap_k" >k:1 - Pendiente, horizontal:vertical</string>
+    <string name="symbol_Trap_Base" >Base - Ancho de la base, en m</string>
+
+    <!--EJEMPLOS DE USO-->
+    <!--CIRCULAR-->
+    <string name="tit_ejemplo_uso" >Ejemplo de uso</string>
+    <string name="uso_circular1" >Para realizar cálculos con tuberías circulares, por ejemplo si conoces el diámetro
+        , 60 in para una tubería de PEAD, con un diámetro interno de 1501 mm, el gasto (en litros por segundo, l/s)
+        y la pendiente del canal, 1 metro por cada kilómetro (1000 m). \n\n
+        Los pasos serían los siguientes:\n
+        \nPrimero: Seleccionar el material, PEAD, y después seleccionar el diámetro de 60in -1501mm.
+        \nSegundo: Definir el gasto como 250, en el campo especificado para ello.
+        \nTercero: Definir las unidades como l/s.
+        \nCuarto: Establecer el valor de la pendiente, en este caso ingresar sólo 1, ya que es un metro por cada kilómetro.
+        Internamente la app realizará la conversión a 0.001 para utilizar el valor en la ecuación de Manning.\n\n
+        Los resultados serán los siguientes:\n
+        \nGasto (m3/s): 0.250
+        \nRugosidad: 0.009
+        \nPendiente: 1.0 (0.001)
+        \nÁrea (m2): 0.2307
+        \nVelocidad (m/s): 1.08
+        \nTirante (m): 0.282\n
+    </string>
+
+    <string name="uso_rectangular" >
+        Por ejemplo, para calcular las variables hidráulicas conociendo
+        la pendiente del canal  (2 metros cada 1000 metros) y el gasto  (2000 l/s),
+        para un cajón prefabricado de 2m de ancho por 1m de alto:\n
+
+        \nPrimero:  seleccione la opción Cajón prefabricado,
+        \nSegundo: seleccione las dimensiones, 2000mmx1000mm
+        \nTercero: defina la pendiente como 2, ya que son 2m por cada 1000m. Internamente la aplicación hará la conversión a 0.002 para su utilización en la ecuación de Manning.
+        \nCuarto: definir el gasto como 2000.
+        \nQuinto: seleccionar las unidades como l/s.\n
+
+        \nLos resultados serán los siguientes:\n
+        \nGasto (m3/s): 2.000
+        \nVelocidad (m/s): 1.752
+        \nÁrea hidráulica (m2): 1.142
+        \nTirante (m): 0.571
+        \nNúmero de Froude: 0.74
+        \nTipo de flujo: Subcrítico
+    </string>
+
+    <string name="uso_trapecial">
+        Por ejemplo, para un canal trapecial con un ancho de 1 metro, taludes 1:1 a ambos lados, con una rugosidad de Manning de 0.013 en el fondo
+        y en los taludes, con un gasto de 1000 l/s los pasos para realizar los cálculos y obtener las variables hidráulicas serían: \n
+        \nPrimero:  Definir la altura disponible del canal en la caja correspondiente, en este caso 1.
+        \nSeguno: Definir el ancho del canal, en la caja correspondiente, en este caso 1.
+        \nTercero: Definir la pendiente en los taludes derecho e izquierdo. En ambos lados será 1.
+        \nCuarto: Definir la n de Manning para el fondo y ambos taludes como 0.013.
+        \nQuinto: Definir el gasto como 1000.
+        \nSexto: Definir las unidades como l/s.
+        \nLos resultados serían los siguientes:
+        \nGasto (m3/s): 1.000
+        \nVelocidad (m/s): 1.63
+        \nÁrea hidráulica (m2): 0.854
+        \nTirante hidráulico (m): 0.55
+        \nNúmero de Froude: 0.59
+        \nRégimen: Subcritical
+    </string>
+
+    <!--SIMBOLOGIA PORTAL-->
+    <string name="symbol_PORTAL_R">R - Radio del techo del túnel, en metros</string>
+    <string name="symbol_PORTAL_H" >H - Altura de la porción rectangular del tunel, en metros. </string>
+    <string name="symbol_PORTAL_H1" >h1 - Altura de la porción inferior de la pared del túnel con un coeficiente de rugosidad de Manning n1.</string>
+    <string name="symbol_PORTAL_H2" >h2 - Altura de la porción inferior de la pared del túnel con un coeficiente de rugosidad de Manning n2.</string>
+    <string name="symbol_PORTAL_n1" >n1 - Rugosidad de Manning asociada a la altura de pared h1</string>
+    <string name="symbol_PORTAL_n2" >n2 - Rugosidad de Manning asociada a la altura de pared h2</string>
+    <string name="symbol_PORTAL_nteto" >na - Rugosidad de Manning asociada al techo (arco) del túnel.</string>
+    <string name="symbol_PORTAL_nb" >nb - Rugosidad de Manning del fondo del túnel.</string>
+
+
+    <string name="uso_tunnel" >
+        Ejemplo de uso de un túnel funcionando como canal,
+        con una base de 5m de ancho, 5 metros de altura en la sección rectangular
+        y el radio del arco del techo de Radio=2.5m (D=5m). La pendiente considerada será de 1m
+        por cada 1000 m. \n
+        \nConsideraciones:
+        \na) La rugosidad del fondo será de 0.013.
+        \nb) Los 2m inferiores de las paredes tendrán una rugosidad de 0.013
+        \nc) Los 3 metros superiores de las paredes, a partir de los 2m de altura,
+        las paredes tendrán una rugosidad de 0.017
+        \nc) El techo, en arco, tendrá una rugosidad de 0.025.
+
+        \n\nLos pasos para definir la geometría son los siguientes:
+
+        \nPrimero: Establecer el ancho del fondo como 5m (el radio del arco será definido automáticamente como 2.5m).
+        \nSegundo: Establecer la rugosidad del fondo como 0.013.
+        \nTercero: Establecer la rugosidad para la porción inferior (2m inferiores) de los muros, izquierdo y derecho.
+        En este caso la variable h1 para ambos muros será 2 (en metros), y la variable n1 será 0.013 en ambos lados.
+
+        \nCuarto: Establecer la rugosidad para la parte superior de los muros, desde 2m hasta 5m, es decir 3 m,
+        para los muros derecho e izquierdo.
+        En este caso el valor para h2 será 3 (en metros) y n2 será de 0.017 para ambos lados.
+        \nQuinto: Establecer la rugosidad para el arco, 0.025.
+        \nSexto: Establecer la pendiente como 1, internamente la app convertirá la pendiente a 0.001 para ser
+        usada en la ecuación de Manning.
+        \n\nLa aplicación calculará la rugosidad ponderada en función del tirante hidráulico
+        y el perímetro mojado:
+        \nn = sum(ni*li)/lt
+        \ndonde ni será la rugosidad de Manning asociada a una longitud i de los muros o base, lt - longitud total.
+
+        \n\nPor ejemplo, para un gasto de 5000 l/s se tendrán los siguientes resultados:
+        \nGasto (m3/s): 5.000
+        \nVelocidad (m/s): 1.56
+        \nRugosidad: 0.013
+        \nÁrea hidráulica (m2): 3.214
+        \nTirante hidráulico (m): 0.643
+        \nNúmero de Froude: 0.619
+
+        \n\nPor ejemplo, para un gasto de 30000 l/s se tendrán los siguientes resultados:
+        \nGasto (m3/s): 30.000
+        \nVelocidad (m/s): 2.68
+        \nRugosidad: 0.0132
+        \nÁrea hidráulicaa (m2): 11.206
+        \nNúmero de Froude: 0.571
+
+        \n\nPor ejemplo, para un gasto de 80000 l/s se tendrán los siguientes resultados:
+        \nGasto (m3/s): 80.000
+        \nVelocidad (m/s): 2.99
+        \nRugosidad: 0.0151
+        \nÁrea hidráulica (m2): 26.716
+        \nTirante hidráulico (m): 5.344
+        \nNúmero de Froude: 0.412
+
+        \n\nPor ejemplo, para un gasto de 85000 l/s se tendrán los siguientes resultados:
+        \nGasto (m3/s): 85.000
+        \nVelocidad (m/s): 2.92
+        \nRugosidad: 0.0157
+        \nÁrea hidráulica (m2): 29.065
+        \nTirante hidráulico (m): 5.828
+        \nNúmero de Froude: 0.376
+
+    </string>
+
+    <string-array name="manning_values">
+        <item>A|Conductos cerrados que fluyen parcialmente llenos|_|_|_</item>
+        <item>A-1.|Metal|_|_|_</item>
+        <item>a.|Latón liso|0.009|0.010|0.013</item>
+        <item>b.|Acero |_|_|_</item>
+    <item>1|Estriado y soldado|0.010|0.012|0.014</item>
+    <item>2|Riveteado y en espiral|0.013|0.016|0.017</item>
+    <item>c. |Hierro fundido|_|_|_</item>
+    <item>1|Recubierto|0.010|0.013|0.014</item>
+    <item>2|No recubirto|0.011|0.014|0.016</item>
+    <item>d. |Hierro forjado|_|_|_</item>
+    <item>1|Negro|0.012|0.014|0.015</item>
+    <item>2|Galvanizado|0.013|0.016|0.017</item>
+    <item>e.|Metal corrugado|_|_|_</item>
+    <item>1|Subdrenaje|0.017|0.019|0.021</item>
+    <item>2|Drenaje de aguas de lluvias|0.021|0.024|0.03</item>
+    <item>A-2|No metal|_|_|_</item>
+    <item>a.|Lucita|0.008|0.009|0.010</item>
+    <item>b.|Vidrio|0.009|0.01|0.013</item>
+    <item>c. |Cemento|_|_|_</item>
+    <item>1|Superficie pulida|0.010|0.011|0.013</item>
+    <item>2|Mortero|0.011|0.013|0.015</item>
+    <item>d. |Concreto|_|_|_</item>
+    <item>1|Alcantarilla, recta y libre de basuras|0.010|0.011|0.013</item>
+    <item>2|Alcantarilla con curvas, conexiones y algo de basuras|0.011|0.013|0.014</item>
+    <item>3|Bien terminado|0.011|0.012|0.014</item>
+    <item>4|Alcantarillado de aguas residuales con pozos de inspección, entradas, etc. recto|0.013|0.015|0.017</item>
+    <item>5|Sin pulir, formaleta o encofrado metálico|0.012|0.013|0.014</item>
+    <item>6|Sin pulir, formaleta o encofrado en madera lisa|0.012|0.014|0.016</item>
+    <item>7|Sin pulir, formaleta o encofrado en madera rugosa|0.015|0.017|0.02</item>
+    <item>e. |Madera|_|_|_</item>
+    <item>1|Machihembrada|0.010|0.012|0.014</item>
+    <item>2|Lámina, tratada|0.015|0.017|0.020</item>
+    <item>f. |Arcilla|_|_|_</item>
+    <item>1|Canaleta común de baldosas|0.011|0.013|0.017</item>
+    <item>2|Alcantarilla vitrificada|0.011|0.014|0.017</item>
+    <item>3|Alcantarilla vitrificada con pozos de inspección, entradas, etc. |0.013|0.015|0.017</item>
+    <item>4|Subdrenaje vitrificado con juntas abiertas|0.014|0.016|0.018</item>
+    <item>g. |Mampostería en ladrillo|_|_|_</item>
+    <item>1|Barnizada o lacada|0.011|0.013|0.015</item>
+    <item>2|Revestida con mortero de cemento|0.012|0.015|0.017</item>
+    <item>h. |Alcantarillados sanitarios recubiertos con limos y babas de aguas residuales, con curvas y conexiones|0.012|0.013|0.016</item>
+    <item>i|Alcantarillado con batea pavimentada, con fondo liso|0.016|0.019|0.020</item>
+    <item>j.|Mampostería de piedra, cementada|0.018|0.025|0.03</item>
+    <item>B|Canales revestidos o desarmables|_|_|_</item>
+    <item>B-1|Metal|_|_|_</item>
+    <item>a.|Superficie lisa de acero|_|_|_</item>
+    <item>1|Sin pintar|0.011|0.012|0.014</item>
+    <item>2|Pintada|0.012|0.013|0.017</item>
+    <item>b|Corrugado|0.021|0.025|0.03</item>
+    <item>B-2|No metal|_|_|_</item>
+    <item>a.|Cemento|_|_|_</item>
+    <item>1|Superficie pulida|0.010|0.011|0.013</item>
+    <item>2|Mortero|0.011|0.013|0.015</item>
+    <item>b|Madera|_|_|_</item>
+    <item>1|Cepillada, sin tratar|0.010|0.012|0.014</item>
+    <item>2|Cepillada, creosotada|0.011|0.012|0.015</item>
+    <item>3|Sin cepillar|0.011|0.013|0.015</item>
+    <item>4|Láminas con listones|0.012|0.015|0.018</item>
+    <item>5|Forrada con papel impermeabilizante|0.010|0.014|0.017</item>
+    <item>c. |Concreto|_|_|_</item>
+    <item>1|Terminado con llana metálica (palustre)|0.011|0.013|0.015</item>
+    <item>2|Terminado con llana de madera|0.013|0.015|0.016</item>
+    <item>3|Pulido, con gravas en el fondo|0.015|0.017|0.02</item>
+    <item>4|Sin pulir|0.014|0.017|0.020</item>
+    <item>5|Lanzado, sección buena. |0.016|0.019|0.023</item>
+    <item>6|Lanzado, sección ondulada|0.018|0.022|0.025</item>
+    <item>7|Sobre roca bien excavacada|0.017|0.020|_</item>
+    <item>8|Sobre roca irregularmente excavada|0.022|0.027|_</item>
+    <item>d. |Fondo de concreto terminado con llana de madera y con lados de|_|_|_</item>
+    <item>1|Piedra labrada, en mortero|0.015|0.017|0.020</item>
+    <item>2|Piedra sin seleccionar, sobre mortero|0.017|0.020|0.024</item>
+    <item>3|Mampostería de piedra cementada, recubierta|0.016|0.020|0.024</item>
+    <item>4|Mampostería de piedra cementada|0.020|0.025|0.030</item>
+    <item>5|Piedra suelta o riprap|0.023|0.030|0.035</item>
+    <item>e.|Fondo de gravas con lados de |_|_|_</item>
+    <item>1|Concreto encofrado|0.017|0.020|0.025</item>
+    <item>2|Piedra sin seleccionar, sobre mortero|0.020|0.023|0.026</item>
+    <item>3|Piedra suelta o riprap|0.023|0.033|0.036</item>
+    <item>f. |Ladrillo|_|_|_</item>
+    <item>1|Barnizado o lacado|0.011|0.013|0.015</item>
+    <item>2|En mortero de cemento|0.012|0.015|0.018</item>
+    <item>g. |Mampostería|_|_|_</item>
+    <item>1|Piedra partida cementada|0.017|0.025|0.030</item>
+    <item>2|Piedra suelta|0.023|0.032|0.035</item>
+    <item>h. |Bloques de piedra labrados|0.013|0.015|0.017</item>
+    <item>i. |Asfalto|_|_|_</item>
+    <item>1|Liso|0.013|0.013|_</item>
+    <item>2|Rugoso|0.016|0.016|_</item>
+    <item>j. |Revestimiento vegetal|0.030|...|0.500</item>
+    <item>C|Excavado o dragado|_|_|_</item>
+    <item>a.|En tierra, recto y uniforme|0.016|0.018|0.02</item>
+    <item>1|Limpio, después de exposición a la intemperie|0.018|0.022|0.025</item>
+    <item>2|Con gravas, sección uniforme, limpio|0.022|0.025|0.03</item>
+    <item>3|Con pastos cortos, algunas malezas|0.022|0.027|0.033</item>
+    <item>b|En tierra, serpenteante y lento|_|_|_</item>
+    <item>1|Sin vegetación|0.023|0.025|0.030</item>
+    <item>2|Pastos, algunas malezas|0.025|0.030|0.033</item>
+    <item>3|Malezas densas o plantas acuáticas en canales profundos|0.030|0.035|0.040</item>
+    <item>4|Fondo en tierra con lados en piedra|0.028|0.030|0.035</item>
+    <item>5|Fondo pedregoso y bancas con malezas|0.025|0.035|0.040</item>
+    <item>6|Fondo en cantos rodados y lados limpios|0.030|0.040|0.050</item>
+    <item>c|Excavado con pala o dragado|_|_|_</item>
+    <item>1|Sin vegetación|0.025|0.028|0.033</item>
+    <item>2|Matorrales ligeros en las bancas|0.035|0.050|0.06</item>
+    <item>d.|Cortes en roca|_|_|_</item>
+    <item>1|Lisos y uniformes|0.025|0.035|0.040</item>
+    <item>2|Afilados e irregulares|0.035|0.040|0.050</item>
+    <item>e.|Canales sin mantenimiento, malezas y matorrales sin cortar|_|_|_</item>
+    <item>1|Malezas densas, tan altas como la profundidad de flujo|0.050|0.08|0.12</item>
+    <item>2|Fondo limpio, matorrales en los lados|0.040|0.050|0.08</item>
+    <item>3|Igual al nivel máximo de flujo|0.045|0.070|0.110</item>
+    <item>4|Matorrales densos, nivel alto|0.080|0.100|0.140</item>
+    <item>D. |Corrientes naturales|_|_|_</item>
+    <item>D-1|Corrientes menores (ancho superficial en nivel creciente &lt; 100 pies)|_|_|_</item>
+    <item>a.|Corrientes en planicies|_|_|_</item>
+    <item>1|Limpias, rectas, máximo nivel, sin montículos ni pozos profundos|0.025|0.030|0.033</item>
+    <item>2|Igual que el anterior, pero con más piedras y malezas|0.030|0.035|0.040</item>
+    <item>3|Limpio, serpenteante, algunos pozos y bancos de arena.|0.033|0.040|0.045</item>
+    <item>4|Igual que el anterior, pero con algunos matorrales y piedras|0.035|0.045|0.05</item>
+    <item>5|Igual al anterior, niveles bajos, pendientes y secciones más ineficaces. |0.040|0.048|0.055</item>
+    <item>6|Igual al 4 pero con más piedras|0.045|0.050|0.06</item>
+    <item>7|Tramos lentos, con malezas y pozos profundos|0.050|0.070|0.08</item>
+    <item>8|Tramos con muchas malezas, pozos profundos o canales de crecientes con muchos árboles con matorrales bajos|0.075|0.1|0.15</item>
+    <item>b.|Corrientes montañosas, sin vegetación en el canal, bancas usualmente empinadas, árboles y matorrales a lo largo de las bancas sumergidas en niveles altos.|_|_|_</item>
+    <item>1|Fondo: gravas, cantos rodados y algunas rocas|0.030|0.040|0.050</item>
+    <item>2|Fondo: cantos rodados con rocas grandes|0.040|0.050|0.070</item>
+    <item>D-2|Planicies de inundación|_|_|_</item>
+    <item>a.|Pastizales, sin matorrales|_|_|_</item>
+    <item>1|Pasto corto|0.025|0.030|0.035</item>
+    <item>2|Pasto alto|0.030|0.035|0.050</item>
+    <item>b|Áreas cultivadas|_|_|_</item>
+    <item>1|Sin cultivo|0.020|0.030|0.040</item>
+    <item>2|Cultivos en línea maduros|0.025|0.035|0.045</item>
+    <item>3|Campos de cultivo maduros|0.030|0.040|0.050</item>
+    <item>c|Matorrales|_|_|_</item>
+    <item>1|Matorrales dispersos, mucha maleza|0.035|0.050|0.070</item>
+    <item>2|Pocos matorrales y árboles, en invierno|0.035|0.050|0.060</item>
+    <item>3|Pocos matorrales y árboles, en verano|0.040|0.060|0.080</item>
+    <item>4|Matorrales medios a densos, en invierno|0.045|0.070|0.110</item>
+    <item>5|Matorrales medios a densos, en verano|0.070|0.100|0.160</item>
+    <item>d. |Árboles|_|_|_</item>
+    <item>1|Sauces densos, rectos y en verano|0.110|0.150|0.200</item>
+    <item>2|Terreno limpino, con troncos sin retoños|0.030|0.040|0.050</item>
+    <item>3|Igual que el anterior, pero con una gran cantidad de retoños|0.050|0.060|0.080</item>
+    <item>4|Gran cantidad de árboles, algunos troncos caídos, con poco crecimiento de matorrales, nivel del agua por debajo de las ramas|0.08|0.1|0.12</item>
+    <item>5|Igual que el anterior, pero con nivel de creciente por encima de las ramas. |0.100|0.120|0.160</item>
+    <item>D-3|Corientes mayores (ancho superficial en nivel de creciente &gt; 100 pies). El valor de n es menor que el correspondiente a corrientes menores con descripción similar, debido a que las bancas ofrecen resistencia menos efectiva.|_|_|_</item>
+    <item>a.|Sección regular, sin cantos rodados ni matorrales. |0.025|...|0.060</item>
+    <item>b.|Sección irregular y rugosa.|0.035|...|0.100</item>
+</string-array>
+</resources>

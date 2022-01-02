@@ -1,7 +1,9 @@
 package com.perval.levi.fragments;
 
 
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +19,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.perval.levi.CanalTrapecial;
+import com.perval.levi.sections.CanalTrapecial;
 import com.perval.levi.R;
 
 import java.util.ArrayList;
@@ -40,7 +42,7 @@ public class FragCanalTrapecial extends Fragment {
 
 
 
-    CanalTrapecial CanalTrap = new CanalTrapecial();
+    CanalTrapecial CanalTrap;
 
     ArrayList<String> cadena = new ArrayList<>();
 
@@ -67,6 +69,9 @@ public class FragCanalTrapecial extends Fragment {
 
     }
 
+    public FragCanalTrapecial(Resources resources) {
+    }
+
     @Override
     public void onCreate(Bundle savedInstaceState){
         super.onCreate(savedInstaceState);
@@ -76,7 +81,10 @@ public class FragCanalTrapecial extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
         View v = inflater.inflate(R.layout.fragment_canal_trapecial,container, false);;
-
+        CanalTrap = new CanalTrapecial(getActivity().getResources());
+        if(getActivity().getResources()==null){
+            Log.i("LogTest", "resources is null");
+        }
         spin_unit_trap = v.findViewById(R.id.SpinUnitsTrap);
 
         ETAltura = v.findViewById(R.id.ET_H_Trap);
@@ -161,22 +169,7 @@ public class FragCanalTrapecial extends Fragment {
                         CanalTrap.calcfromQ();
 
                         if (CanalTrap.isSuccess()) {
-                            String Resultados;
-
-                            String StrGasto, StrArea, StrVel, Strh, StrRug, StrBLibre, StrFroude, StrFlujo;
-
-                            StrGasto = "Gasto (l/s): " + String.format("%.2f", CanalTrap.getgasto() * 1000) + " \n";
-                            StrArea = "Área (m2): " + String.format("%.3f", CanalTrap.getAtotal()) + " \n";
-
-                            StrVel = "Velocidad (m/s): " + String.format("%.2f", CanalTrap.getVrect()) + " \n";
-                            Strh = "Tirante (m): " + String.format("%.3f", CanalTrap.getTirante()) + " \n";
-                            StrRug = "n Manning ponderado: " + String.format("%.3f", CanalTrap.getRugpond()) + " \n";
-                            StrBLibre = "Bordo Libre: "+String.format("%.2f", CanalTrap.getBLibre()) + " \n";
-                            StrFroude = "Froude: " + String.format("%.2f", CanalTrap.getFroude()) + " \n";
-                            StrFlujo = "Tipo de flujo: " + CanalTrap.getTipoFlujo() + " \n";
-                            Resultados = StrGasto  +StrVel + StrArea + Strh + StrRug + StrBLibre + StrFroude + StrFlujo;
-
-                            TXResults_trap.setText(Resultados);
+                            setResultsToTextView();
 
                         } else {
                             //FALSE
@@ -196,21 +189,7 @@ public class FragCanalTrapecial extends Fragment {
                         CanalTrap.calcfromV();
 
                         if (CanalTrap.isSuccess()) {
-                            String Resultados;
-
-                            String StrGasto, StrArea, StrVel, Strh, StrRug, StrBLibre, StrFroude, StrFlujo;
-
-                            StrGasto = "Gasto (l/s): " + String.format("%.2f", CanalTrap.getgasto() * 1000) + " \n";
-                            StrArea = "Área (m2): " + String.format("%.3f", CanalTrap.getAtotal()) + " \n";
-
-                            StrVel = "Velocidad (m/s): " + String.format("%.2f", CanalTrap.getVrect()) + " \n";
-                            Strh = "Tirante (m): " + String.format("%.3f", CanalTrap.getTirante()) + " \n";
-                            StrRug = "n Manning ponderado: " + String.format("%.3f", CanalTrap.getRugpond()) + " \n";
-                            StrBLibre = "Bordo Libre: "+String.format("%.2f", CanalTrap.getBLibre()) + " \n";
-                            StrFroude = "Froude: " + String.format("%.2f", CanalTrap.getFroude()) + " \n";
-                            StrFlujo = "Tipo de flujo: " + CanalTrap.getTipoFlujo() + " \n";
-                            Resultados = StrGasto  +StrVel + StrArea + Strh + StrRug + StrBLibre + StrFroude + StrFlujo;
-                            TXResults_trap.setText(Resultados);
+                            setResultsToTextView();
 
                         } else {
                             //FALSE
@@ -236,20 +215,7 @@ public class FragCanalTrapecial extends Fragment {
 
 
                             if (CanalTrap.isSuccess()) {
-                                String Resultados;
-                                String StrGasto, StrArea, StrVel, Strh, StrRug, StrBLibre, StrFroude, StrFlujo;
-
-                                StrGasto = "Gasto (l/s): " + String.format("%.2f", CanalTrap.getgasto() * 1000) + " \n";
-                                StrArea = "Área (m2): " + String.format("%.3f", CanalTrap.getAtotal()) + " \n";
-
-                                StrVel = "Velocidad (m/s): " + String.format("%.2f", CanalTrap.getVrect()) + " \n";
-                                Strh = "Tirante (m): " + String.format("%.3f", CanalTrap.getTirante()) + " \n";
-                                StrRug = "n Manning ponderado: " + String.format("%.3f", CanalTrap.getRugpond()) + " \n";
-                                StrBLibre = "Bordo Libre: "+String.format("%.2f", CanalTrap.getBLibre()) + " \n";
-                                StrFroude = "Froude: " + String.format("%.2f", CanalTrap.getFroude()) + " \n";
-                                StrFlujo = "Tipo de flujo: " + CanalTrap.getTipoFlujo() + " \n";
-                                Resultados = StrGasto  +StrVel + StrArea + Strh + StrRug + StrBLibre + StrFroude + StrFlujo;
-                                TXResults_trap.setText(Resultados);
+                                setResultsToTextView();
 
                             } else {
                                 //FALSE
@@ -278,6 +244,24 @@ public class FragCanalTrapecial extends Fragment {
         return v;
     }
 
+
+    private void setResultsToTextView(){
+        String Resultados;
+        String StrGasto, StrArea, StrVel, Strh, StrRug, StrBLibre, StrFroude, StrFlujo;
+        TXResults_trap.setText("");
+        StrGasto = getResources().getString(R.string.res_flow)  +" "+ String.format("%.2f", CanalTrap.getgasto() * 1000) + " \n";
+        StrArea = getResources().getString(R.string.res_area) +" " + String.format("%.3f", CanalTrap.getAtotal()) + " \n";
+
+        StrVel = getResources().getString(R.string.res_vel)  +" "+ String.format("%.2f", CanalTrap.getVrect()) + " \n";
+        Strh = getResources().getString(R.string.res_tirante) +" " + String.format("%.3f", CanalTrap.getTirante()) + " \n";
+        StrRug = getResources().getString(R.string.Text_MannRug) +" " + String.format("%.3f", CanalTrap.getRugpond()) + " \n";
+        StrBLibre = getResources().getString(R.string.Text_Freeboard) +" "+String.format("%.2f", CanalTrap.getBLibre()) + " \n";
+        StrFroude = "Froude: " + String.format("%.2f", CanalTrap.getFroude()) + " \n";
+        StrFlujo = getResources().getString(R.string.Text_Regimen) +" " + CanalTrap.getTipoFlujo() + " \n";
+        Resultados = StrGasto  +StrVel + StrArea + Strh + StrRug + StrBLibre + StrFroude + StrFlujo;
+        TXResults_trap.setText(Resultados);
+
+    }
 
 
 }

@@ -23,102 +23,95 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/toolbar_Cont"
-        android:foregroundGravity="center_horizontal"
-        >
+        android:foregroundGravity="center_horizontal">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            >
+            android:gravity="center_horizontal">
 
 
             <TextView
                 android:id="@+id/TV_Tit_acerca"
-                android:layout_marginTop="16dp"
+                style="bold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
+                android:layout_marginTop="16dp"
                 android:gravity="start"
-                android:textColor="@color/azul_perval"
-                android:textSize="18sp"
                 android:text="@string/Acerca_de"
-                style="bold"/>
+                android:textColor="@color/azul_perval"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/TV_Levi"
-                android:layout_below="@id/TV_Tit_acerca"
-                android:layout_marginTop="8dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Acerca_de_Levi"
-                android:textSize="14sp"
-                android:textColor="@color/azul_perval"
+                android:layout_below="@id/TV_Tit_acerca"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:gravity="start"
-                />
+                android:text="@string/Acerca_de_Levi"
+                android:textColor="@color/azul_perval"
+                android:textSize="14sp" />
 
             <TextView
                 android:id="@+id/Tit_Creditos"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/TV_Levi"
+                android:layout_marginStart="8dp"
+                android:layout_marginLeft="8dp"
                 android:layout_marginTop="16dp"
-                android:textColor="@color/azul_perval"
-                android:textSize="18sp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
                 android:text="@string/Tit_creditos"
-                />
+                android:textColor="@color/azul_perval"
+                android:textSize="18sp" />
 
             <TextView
                 android:id="@+id/TX_PERVAL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/Tit_Creditos"
-                android:layout_marginTop="2dp"
-                android:textSize="14sp"
-                android:textColor="@color/azul_perval"
-                android:text="@string/Perval_SAS"
                 android:layout_marginStart="8dp"
                 android:layout_marginLeft="8dp"
+                android:layout_marginTop="2dp"
                 android:layout_marginEnd="8dp"
                 android:layout_marginRight="8dp"
-                />
+                android:text="@string/my_credits"
+                android:textColor="@color/azul_perval"
+                android:textSize="14sp" />
 
             <Button
                 android:id="@+id/ContactBut"
-                android:text="@string/Contactar"
-                android:layout_below="@id/TX_PERVAL"
                 android:layout_width="wrap_content"
                 android:layout_height="48dp"
-                android:layout_marginTop="48dp"
-                android:gravity="center_horizontal|center_vertical"
-                android:textColor="#FFFFFF"
-                android:background="@drawable/roundshapebtn"
+                android:layout_below="@id/TX_PERVAL"
                 android:layout_centerHorizontal="true"
+                android:layout_marginTop="48dp"
+                android:background="@drawable/roundshapebtn"
+                android:gravity="center_horizontal|center_vertical"
                 android:onClick="SendEmail"
-                />
+                android:text="@string/Contactar"
+                android:textColor="#FFFFFF" />
 
 
             <Button
                 android:id="@+id/buttonGitHub"
-                android:layout_below="@id/ContactBut"
                 android:layout_width="160dp"
-                android:layout_centerHorizontal="true"
                 android:layout_height="48dp"
+                android:layout_below="@id/ContactBut"
+                android:layout_centerHorizontal="true"
                 android:layout_marginTop="20dp"
                 android:background="@color/azul_perval"
                 android:text="GitHub"
-                android:textSize="18sp"
                 android:textColor="@android:color/white"
-                />
+                android:textSize="18sp" />
 
 
         </RelativeLayout>

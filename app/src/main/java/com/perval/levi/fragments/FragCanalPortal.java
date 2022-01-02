@@ -2,8 +2,10 @@ package com.perval.levi.fragments;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,7 +22,7 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.core.app.ActivityOptionsCompat;
 
-import com.perval.levi.Portal;
+import com.perval.levi.sections.Portal;
 import com.perval.levi.R;
 import com.perval.levi.imgPortal;
 import com.perval.levi.utils.Utils;
@@ -30,7 +32,7 @@ public class FragCanalPortal extends Fragment {
 
 
 
-    private Portal secPortal = new Portal();
+    private Portal secPortal ;
 
     private EditText ETAlt_portal, ETBottom_portal, ETh1der_portal, ETh2der_portal, ETh1izq_portal, ETh2izq_portal;
     private EditText Slope_portal, ValorX;
@@ -60,6 +62,9 @@ public class FragCanalPortal extends Fragment {
     public FragCanalPortal(){
 
 
+    }
+
+    public FragCanalPortal(Resources resources) {
     }
 
     public static FragCanalPortal newInstance(){
@@ -95,6 +100,7 @@ public class FragCanalPortal extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
+        secPortal = new Portal(getActivity().getResources());
 
         View v  =  inflater.inflate(R.layout.fragment_canal_portal,container, false);
         spin_units_portal = v.findViewById(R.id.SpinUnits_portal);
@@ -167,9 +173,7 @@ public class FragCanalPortal extends Fragment {
                         ETn1der_portal.getText().toString().isEmpty() || (Double.parseDouble(ETn1der_portal.getText().toString()) < 0)||
                         ETn2der_portal.getText().toString().isEmpty() || (Double.parseDouble(ETn2der_portal.getText().toString()) < 0)||
                         ETn1izq_portal.getText().toString().isEmpty() || (Double.parseDouble(ETn1izq_portal.getText().toString()) < 0)||
-                        ETn2izq_portal.getText().toString().isEmpty() || (Double.parseDouble(ETn2izq_portal.getText().toString()) < 0)||
-                                ETnbottom_portal.getText().toString().isEmpty() || (Double.parseDouble(ETnbottom_portal.getText().toString()) < 0)||
-
+                        ETn2izq_portal.getText().toString().isEmpty() || (Double.parseDouble(ETn2izq_portal.getText().toString()) < 0)|| ETnbottom_portal.getText().toString().isEmpty() || (Double.parseDouble(ETnbottom_portal.getText().toString()) < 0)||
                         ETntop_portal.getText().toString().isEmpty() || (Double.parseDouble(ETntop_portal.getText().toString()) < 0)
 
                         ){
@@ -207,31 +211,17 @@ public class FragCanalPortal extends Fragment {
                         } else {
                             switch (IntUnidades){
                                 case 0:
-                                    secPortal.setgasto(Valor);
-                                    secPortal.calcfromQ(Valor/1000);
+                                    secPortal.setGastoAsLPS(Valor);
+                                    secPortal.calcFromQLimitSearch(Valor/1000);
                                     if(secPortal.isSuccess()){
-                                        //Si hubo éxito.
 
-                                        String Resultados;
-                                        String StrGasto, StrVel, StrArea, Strh, StrRug, StrFroude, StrFlujo;
-
-                                        StrGasto = "Gasto (l/s): " + String.format("%.2f", secPortal.getGasto() * 1000) + " \n";
-                                        StrVel = "Velocidad (m/s): " + String.format("%.2f", secPortal.getVel()) + " \n";
-                                        StrArea = "Área (m2): " + String.format("%.3f", secPortal.getArea()) + "\n";
-                                        Strh = "Tirante (m): " + String.format("%.3f", secPortal.getTirante()) + " \n";
-                                        StrRug = "n Manning compuesta: " + String.format("%.3f", secPortal.getRougpond()) + " \n";
-                                        StrFroude = "Froude: " +  String.format("%.3f", secPortal.getFroude()) + " \n";
-                                        StrFlujo = "Tipo de flujo: " + secPortal.getTipoFlujo() + " \n";
-
-                                        Resultados = StrGasto + StrVel + StrArea + Strh + StrRug + StrFroude + StrFlujo;
-                                        Results_portal.setText(Resultados);
+                                        setResultsToTextView();
 
 
                                     } else {
-                                        //Si no hubo éxito.
-                                        Toast.makeText(getContext(), R.string.Calculo_fallidoV, Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(getContext(), R.string.Calculo_fallidoV, Toast.LENGTH_SHORT).show();
                                         Results_portal.setText("");
-                                        //Results_portal.setText(R.string.Calculo_fallidoV);
+                                        Results_portal.setText(R.string.Calculo_fallidoV);
 
                                     }
 
@@ -244,24 +234,12 @@ public class FragCanalPortal extends Fragment {
                                     if(secPortal.isSuccess()) {
                                         //Si hubo éxito.
 
-                                        String Resultados;
-                                        String StrGasto, StrVel, StrArea, Strh, StrRug, StrFroude, StrFlujo;
-
-                                        StrGasto = "Gasto (l/s): " + String.format("%.2f", secPortal.getGasto() * 1000) + " \n";
-                                        StrVel = "Velocidad (m/s): " + String.format("%.2f", secPortal.getVel()) + " \n";
-                                        StrArea = "Área (m2): " + String.format("%.3f", secPortal.getArea()) + "\n";
-                                        Strh = "Tirante (m): " + String.format("%.3f", secPortal.getTirante()) + " \n";
-                                        StrRug = "n Manning compuesta: " + String.format("%.3f", secPortal.getRougpond()) + " \n";
-                                        StrFroude = "Froude: " +  String.format("%.3f", secPortal.getFroude()) + " \n";
-                                        StrFlujo = "Tipo de flujo: " + secPortal.getTipoFlujo() + " \n";
-
-                                        Resultados = StrGasto + StrVel + StrArea + Strh + StrRug + StrFroude + StrFlujo;
-                                        Results_portal.setText(Resultados);
+                                        setResultsToTextView();
                                     } else {
                                         //NADA
-                                        Toast.makeText(getContext(), R.string.Calculo_fallidoV, Toast.LENGTH_SHORT).show();
+                                        //Toast.makeText(getContext(), R.string.Calculo_fallidoV, Toast.LENGTH_SHORT).show();
                                         Results_portal.setText("");
-                                        // Results_portal.setText(R.string.Calculo_fallidoV);
+                                        Results_portal.setText(R.string.Calculo_fallidoV);
                                     }
 
                                     break;
@@ -277,28 +255,16 @@ public class FragCanalPortal extends Fragment {
 
                                         secPortal.setTirante(Valor);
 
-                                        secPortal.calcfromV(Valor);
+                                        secPortal.calcfromH(Valor);
                                         if(secPortal.isSuccess()) {
                                             //Si hubo éxito.
 
-                                            String Resultados;
-                                            String StrGasto, StrVel, StrArea, Strh, StrRug, StrFroude, StrFlujo;
-
-                                            StrGasto = "Gasto (l/s): " + String.format("%.2f", secPortal.getGasto() * 1000) + " \n";
-                                            StrVel = "Velocidad (m/s): " + String.format("%.2f", secPortal.getVel()) + " \n";
-                                            StrArea = "Área (m2): " + String.format("%.3f", secPortal.getArea()) + "\n";
-                                            Strh = "Tirante (m): " + String.format("%.3f", secPortal.getTirante()) + " \n";
-                                            StrRug = "n Manning compuesta: " + String.format("%.3f", secPortal.getRougpond()) + " \n";
-                                            StrFroude = "Froude: " +  String.format("%.3f", secPortal.getFroude()) + " \n";
-                                            StrFlujo = "Tipo de flujo: " + secPortal.getTipoFlujo() + " \n";
-
-                                            Resultados = StrGasto + StrVel + StrArea + Strh + StrRug + StrFroude + StrFlujo;
-                                            Results_portal.setText(Resultados);
+                                            setResultsToTextView();
                                         } else {
                                             //NADA
-                                            Toast.makeText(getContext(), R.string.Calculo_fallidoH, Toast.LENGTH_SHORT).show();
+                                            //Toast.makeText(getContext(), R.string.Calculo_fallidoH, Toast.LENGTH_SHORT).show();
                                             Results_portal.setText("");
-                                            //Results_portal.setText(R.string.Calculo_fallidoV);
+                                            Results_portal.setText(R.string.Calculo_fallidoV);
                                         }
                                     }
                                     break;
@@ -318,6 +284,23 @@ public class FragCanalPortal extends Fragment {
 
 
         return v;
+    }
+
+    private void setResultsToTextView(){
+        String Resultados;
+        String StrGasto, StrVel, StrArea, Strh, StrRug, StrFroude, StrFlujo;
+
+        Results_portal.setText("");
+        StrGasto = getResources().getString(R.string.res_flow) + " " + String.format("%.2f", secPortal.getGasto() * 1000) + " \n";
+        StrVel = getResources().getString(R.string.res_vel)+ " " + String.format("%.2f", secPortal.getVel()) + " \n";
+        StrArea = getResources().getString(R.string.res_area) + " " + String.format("%.3f", secPortal.getArea()) + "\n";
+        Strh = getResources().getString(R.string.res_tirante)  +" " + String.format("%.3f", secPortal.getTirante()) + " \n";
+        StrRug = getResources().getString(R.string.res_manning) + " " + String.format("%.4f", secPortal.getRougpond()) + " \n";
+        StrFroude = "Froude: " +  String.format("%.3f", secPortal.getFroude()) + " \n";
+        StrFlujo = getResources().getString(R.string.res_tipo_flujo)+ " " + secPortal.getTipoFlujo() + " \n";
+
+        Resultados = StrGasto + StrVel + StrArea + Strh + StrRug + StrFroude + StrFlujo;
+        Results_portal.setText(Resultados);
     }
 
 

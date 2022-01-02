@@ -2,7 +2,9 @@ package com.perval.levi.fragments;
 
 
 
+import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +20,7 @@ import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
-import com.perval.levi.CanalRectangular;
+import com.perval.levi.sections.CanalRectangular;
 import com.perval.levi.R;
 
 import java.util.ArrayList;
@@ -41,7 +43,7 @@ public class FragCanalRectangular extends Fragment {
 
     Button BtnRect;
 
-    CanalRectangular CanalRect = new CanalRectangular();
+    CanalRectangular CanalRect;
 
     ArrayList<String> cadena = new ArrayList<>();
     String lista1[][];
@@ -76,6 +78,9 @@ public class FragCanalRectangular extends Fragment {
 
     }
 
+    public FragCanalRectangular(Resources resources) {
+    }
+
     @Override
     public void onCreate(Bundle savedInstaceState){
         super.onCreate(savedInstaceState);
@@ -85,7 +90,10 @@ public class FragCanalRectangular extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState){
 
         View v = inflater.inflate(R.layout.fragment_canal_rectangular,container, false);
-
+        CanalRect = new CanalRectangular(getActivity().getResources());
+        if(getActivity().getResources()==null){
+            Log.i("LogTest", "resources is null");
+        }
         spin_tipo = v.findViewById(R.id.spin_tipo_rect);
 
         spin_dimensiones = v.findViewById(R.id.spin_dimensiones);
@@ -260,13 +268,13 @@ public class FragCanalRectangular extends Fragment {
                             switch (IntUnidades) {
 
                                 case 0:
-                                    Toast.makeText(getContext(), "Cálculo con el gasto", Toast.LENGTH_SHORT).show();
+                                   // Toast.makeText(getContext(), "Cálculo con el gasto", Toast.LENGTH_SHORT).show();
 
 
 
-                                    CanalRect.setgasto(Double.parseDouble(ETNumberRect.getText().toString()));
-                                    CanalRect.setBrect(Brect / 1000);
-                                    CanalRect.setHrec(Hrect / 1000);
+                                    CanalRect.setGastoLPS(Double.parseDouble(ETNumberRect.getText().toString()));
+                                    CanalRect.setBrectAsMeter(Brect / 1000);
+                                    CanalRect.setHrecAsMeter(Hrect / 1000);
                                     CanalRect.setslope(Double.parseDouble(ETSlope.getText().toString()));
 
 
@@ -275,19 +283,7 @@ public class FragCanalRectangular extends Fragment {
 
 
                                     if (CanalRect.isSuccess()) {
-                                        String Resultados;
-                                        String StrGasto, StrVel, Strh, StrRug, StrTH, StrArea, StrFroude, StrFlujo;
-
-                                        StrGasto = "Gasto (l/s): " + String.format("%.2f", CanalRect.getgasto() * 1000) + " \n";
-                                        StrVel = "Velocidad (m/s): " + String.format("%.2f", CanalRect.getVrect()) + " \n";
-                                        Strh = "Tirante (m): " + String.format("%.3f", CanalRect.getTirante()) + " \n";
-                                        StrRug = "n Manning: " + String.format("%.3f", CanalRect.getRugRect()) + " \n";
-                                        StrTH = "Relación tirante/H: "+String.format("%.2f", CanalRect.getRelTH()) + " \n";
-                                        StrArea = "Area (m2): " + String.format("%.3f", CanalRect.getArea()) + " \n";
-                                        StrFroude = "Froude: " + String.format("%.3f", CanalRect.getFroude()) + " \n";
-                                        StrFlujo = "Tipo de flujo: " + CanalRect.getTipoFlujo() + " \n";
-                                        Resultados = StrGasto + StrVel + StrArea + Strh + StrRug+StrTH + StrFroude + StrFlujo;
-                                        TXResults_rect.setText(Resultados);
+                                        setResultsToTextView();
 
                                     } else {
                                         //FALSE
@@ -298,13 +294,13 @@ public class FragCanalRectangular extends Fragment {
 
                                     break;
                                 case 1:
-                                    Toast.makeText(getContext(), "Cálculo con la velocidad", Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(getContext(), "Cálculo con la velocidad", Toast.LENGTH_SHORT).show();
 
 
 
                                     CanalRect.setVrect(Double.parseDouble(ETNumberRect.getText().toString()));
-                                    CanalRect.setBrect(Brect / 1000);
-                                    CanalRect.setHrec(Hrect / 1000);
+                                    CanalRect.setBrectAsMeter(Brect / 1000);
+                                    CanalRect.setHrecAsMeter(Hrect / 1000);
                                     CanalRect.setslope(Double.parseDouble(ETSlope.getText().toString()));
 
 
@@ -312,19 +308,7 @@ public class FragCanalRectangular extends Fragment {
                                     CanalRect.calcfromV();
 
                                     if (CanalRect.isSuccess()) {
-                                        String Resultados;
-                                        String StrGasto, StrVel, Strh, StrRug, StrTH, StrArea, StrFroude, StrFlujo;
-
-                                        StrGasto = "Gasto (l/s): " + String.format("%.2f", CanalRect.getgasto() * 1000) + " \n";
-                                        StrVel = "Velocidad (m/s): " + String.format("%.2f", CanalRect.getVrect()) + " \n";
-                                        Strh = "Tirante (m): " + String.format("%.3f", CanalRect.getTirante()) + " \n";
-                                        StrRug = "n Manning: " + String.format("%.3f", CanalRect.getRugRect()) + " \n";
-                                        StrTH = "Relación tirante/H: "+String.format("%.2f", CanalRect.getRelTH()) + " \n";
-                                        StrArea = "Area (m2): " + String.format("%.3f", CanalRect.getArea()) + " \n";
-                                        StrFroude = "Froude: " + String.format("%.3f", CanalRect.getFroude()) + " \n";
-                                        StrFlujo = "Tipo de flujo: " + CanalRect.getTipoFlujo() + " \n";
-                                        Resultados = StrGasto + StrVel + StrArea + Strh + StrRug+StrTH + StrFroude + StrFlujo;
-                                        TXResults_rect.setText(Resultados);
+                                        setResultsToTextView();
 
                                     } else {
                                         //FALSE
@@ -336,31 +320,19 @@ public class FragCanalRectangular extends Fragment {
                                     break;
 
                                 case 2:
-                                    Toast.makeText(getContext(), "Cálculo con el tirante", Toast.LENGTH_SHORT).show();
+                                    //Toast.makeText(getContext(), "Cálculo con el tirante", Toast.LENGTH_SHORT).show();
 
 
                                     CanalRect.setTirante(Double.parseDouble(ETNumberRect.getText().toString()));
-                                    CanalRect.setBrect(Brect / 1000);
-                                    CanalRect.setHrec(Hrect / 1000);
+                                    CanalRect.setBrectAsMeter(Brect / 1000);
+                                    CanalRect.setHrecAsMeter(Hrect / 1000);
                                     CanalRect.setslope(Double.parseDouble(ETSlope.getText().toString()));
                                     CanalRect.setRugRect(Rugosidad);
                                     CanalRect.calcfromH();
 
 
                                     if (CanalRect.isSuccess()) {
-                                        String Resultados;
-                                        String StrGasto, StrVel, Strh, StrRug, StrTH, StrArea, StrFroude, StrFlujo;
-
-                                        StrGasto = "Gasto (l/s): " + String.format("%.2f", CanalRect.getgasto() * 1000) + " \n";
-                                        StrVel = "Velocidad (m/s): " + String.format("%.2f", CanalRect.getVrect()) + " \n";
-                                        Strh = "Tirante (m): " + String.format("%.3f", CanalRect.getTirante()) + " \n";
-                                        StrRug = "n Manning: " + String.format("%.3f", CanalRect.getRugRect()) + " \n";
-                                        StrTH = "Relación tirante/H: "+String.format("%.2f", CanalRect.getRelTH()) + " \n";
-                                        StrArea = "Area (m2): " + String.format("%.3f", CanalRect.getArea()) + " \n";
-                                        StrFroude = "Froude: " + String.format("%.3f", CanalRect.getFroude()) + " \n";
-                                        StrFlujo = "Tipo de flujo: " + CanalRect.getTipoFlujo() + " \n";
-                                        Resultados = StrGasto + StrVel + StrArea + Strh + StrRug+StrTH + StrFroude + StrFlujo;
-                                        TXResults_rect.setText(Resultados);
+                                        setResultsToTextView();
 
                                     } else {
                                         //FALSE
@@ -393,38 +365,19 @@ public class FragCanalRectangular extends Fragment {
                         } else {
 
 
-                            CanalRect.setBrect(Double.parseDouble(ETFondo.getText().toString()));
-                            CanalRect.setHrec(Double.parseDouble(ETAltura.getText().toString()));
+                            CanalRect.setBrectAsMeter(Double.parseDouble(ETFondo.getText().toString()));
+                            CanalRect.setHrecAsMeter(Double.parseDouble(ETAltura.getText().toString()));
                             double valorX = (Double.parseDouble(ETNumberRect.getText().toString()));
                             CanalRect.setslope(Double.parseDouble(ETSlope.getText().toString()));
                             CanalRect.setRugRect(Rugosidad);
 
                             switch (IntUnidades) {
                                 case 0:
-                                    Toast.makeText(getContext(), "Cálculo con el gasto", Toast.LENGTH_SHORT).show();
-
-
-
-                                    CanalRect.setgasto(valorX);
-
-
+                                    //Toast.makeText(getContext(), "Cálculo con el gasto", Toast.LENGTH_SHORT).show();
+                                    CanalRect.setGastoLPS(valorX);
                                     CanalRect.calcfromQ();
-
                                     if (CanalRect.isSuccess()) {
-                                        String Resultados;
-
-                                        String StrGasto, StrVel, Strh, StrRug, StrBLibre, StrArea, StrFroude, StrFlujo;
-
-                                        StrGasto = "Gasto (l/s): " + String.format("%.2f", CanalRect.getgasto() * 1000) + " \n";
-                                        StrVel = "Velocidad (m/s): " + String.format("%.2f", CanalRect.getVrect()) + " \n";
-                                        Strh = "Tirante (m): " + String.format("%.3f", CanalRect.getTirante()) + " \n";
-                                        StrRug = "n Manning: " + String.format("%.3f", CanalRect.getRugRect()) + " \n";
-                                        StrBLibre = "Bordo Libre: "+String.format("%.2f", CanalRect.getBLibre()) + " \n";
-                                        StrArea = "Area (m2): " + String.format("%.3f", CanalRect.getArea()) + " \n";
-                                        StrFroude = "Froude: " + String.format("%.3f", CanalRect.getFroude()) + " \n";
-                                        StrFlujo = "Tipo de flujo: " + CanalRect.getTipoFlujo() + " \n";
-                                        Resultados = StrGasto + StrVel + StrArea + Strh + StrRug + StrBLibre + StrFroude + StrFlujo;
-                                        TXResults_rect.setText(Resultados);
+                                        setResultsToTextView();
 
                                     } else {
                                         //FALSE
@@ -432,83 +385,32 @@ public class FragCanalRectangular extends Fragment {
 
                                         TXResults_rect.setText(R.string.Calculo_fallido);
                                     }
-
-
                                     break;
                                 case 1:
-
-                                    Toast.makeText(getContext(), "Cálculo con la velocidad", Toast.LENGTH_SHORT).show();
-
-
-
                                     CanalRect.setVrect(valorX);
-
                                     CanalRect.calcfromV();
-
                                     if (CanalRect.isSuccess()) {
-                                        String Resultados;
-
-                                        String StrGasto, StrVel, Strh, StrRug, StrBLibre, StrArea, StrFroude, StrFlujo;
-
-                                        StrGasto = "Gasto (l/s): " + String.format("%.2f", CanalRect.getgasto() * 1000) + " \n";
-                                        StrVel = "Velocidad (m/s): " + String.format("%.2f", CanalRect.getVrect()) + " \n";
-                                        Strh = "Tirante (m): " + String.format("%.3f", CanalRect.getTirante()) + " \n";
-                                        StrRug = "n Manning: " + String.format("%.3f", CanalRect.getRugRect()) + " \n";
-                                        StrBLibre = "Bordo Libre: "+String.format("%.2f", CanalRect.getBLibre()) + " \n";
-                                        StrArea = "Area (m2): " + String.format("%.3f", CanalRect.getArea()) + " \n";
-                                        StrFroude = "Froude: " + String.format("%.3f", CanalRect.getFroude()) + " \n";
-                                        StrFlujo = "Tipo de flujo: " + CanalRect.getTipoFlujo() + " \n";
-                                        Resultados = StrGasto + StrVel + StrArea + Strh + StrRug + StrBLibre + StrFroude + StrFlujo;
-                                        TXResults_rect.setText(Resultados);
-
+                                        setResultsToTextView();
                                     } else {
                                         //FALSE
                                         Toast.makeText(getContext(), R.string.Calculo_fallidoV, Toast.LENGTH_SHORT).show();
 
                                         TXResults_rect.setText(R.string.Calculo_fallidoV);
                                     }
-
-
-
                                     break;
                                 case 2:
-
-                                    //Toast.makeText(getContext(), "Cálculo con el tirante", Toast.LENGTH_SHORT).show();
-
                                     if(valorX>Hrect){
-
                                         Toast.makeText(getContext(), R.string.Calculo_fallidoH, Toast.LENGTH_SHORT).show();
-
                                     } else {
-
                                         CanalRect.setTirante(valorX);
-
                                         CanalRect.calcfromH();
-
-
                                         if (CanalRect.isSuccess()) {
-                                            String Resultados;
-                                            String StrGasto, StrVel, Strh, StrRug, StrBLibre, StrArea, StrFroude, StrFlujo;
-
-                                            StrGasto = "Gasto (l/s): " + String.format("%.2f", CanalRect.getgasto() * 1000) + " \n";
-                                            StrVel = "Velocidad (m/s): " + String.format("%.2f", CanalRect.getVrect()) + " \n";
-                                            Strh = "Tirante (m): " + String.format("%.3f", CanalRect.getTirante()) + " \n";
-                                            StrRug = "n Manning: " + String.format("%.3f", CanalRect.getRugRect()) + " \n";
-                                            StrBLibre = "Bordo Libre: "+String.format("%.2f", CanalRect.getBLibre()) + " \n";
-                                            StrArea = "Area (m2): " + String.format("%.3f", CanalRect.getArea()) + " \n";
-                                            StrFroude = "Froude: " + String.format("%.3f", CanalRect.getFroude()) + " \n";
-                                            StrFlujo = "Tipo de flujo: " + CanalRect.getTipoFlujo() + " \n";
-                                            Resultados = StrGasto + StrVel + StrArea + Strh + StrRug + StrBLibre + StrFroude + StrFlujo;
-                                            TXResults_rect.setText(Resultados);
-
+                                            setResultsToTextView();
                                         } else {
                                             //FALSE
                                             Toast.makeText(getContext(), R.string.Calculo_fallidoH, Toast.LENGTH_SHORT).show();
-
                                             TXResults_rect.setText(R.string.Calculo_fallidoH);
                                         }
-
-
                                     }
 
                                     break;
@@ -526,6 +428,23 @@ public class FragCanalRectangular extends Fragment {
 
         return v;
 
+    }
+
+    private void setResultsToTextView(){
+        String Resultados;
+        TXResults_rect.setText("");
+        String StrGasto, StrVel, Strh, StrRug, StrBLibre, StrArea, StrFroude, StrFlujo;
+
+        StrGasto = getResources().getString(R.string.res_flow) + " " + String.format("%.2f", CanalRect.getgasto() * 1000) + " \n";
+        StrVel = getResources().getString(R.string.res_vel) + " " + String.format("%.2f", CanalRect.getVrect()) + " \n";
+        Strh = getResources().getString(R.string.res_tirante)+ " " + String.format("%.3f", CanalRect.getTirante()) + " \n";
+        StrRug = getResources().getString(R.string.Text_MannRug) + " " + String.format("%.3f", CanalRect.getRugRect()) + " \n";
+
+        StrArea = getResources().getString(R.string.res_area) + String.format("%.3f", CanalRect.getArea()) + " \n";
+        StrFroude = "Froude: " + String.format("%.3f", CanalRect.getFroude()) + " \n";
+        StrFlujo = getResources().getString(R.string.Text_Regimen) +" " + CanalRect.getTipoFlujo() + " \n";
+        Resultados = StrGasto + StrVel + StrArea + Strh + StrRug  + StrFroude + StrFlujo;
+        TXResults_rect.setText(Resultados);
     }
 
 

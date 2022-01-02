@@ -1,6 +1,9 @@
-package com.perval.levi;
+package com.perval.levi.sections;
 
+import android.content.res.Resources;
 import android.util.Log;
+
+import com.perval.levi.R;
 
 public class Portal {
 
@@ -24,26 +27,34 @@ public class Portal {
     private double Rougpond;
     private double slope;
     private double Hrect;
-    private double Pmder, Pmizq;
-    private double nder, nizq;
-    private double Pmtop;
+
     private double AnchoSuperficie;
     private double Froude;
-    private String TipoFlujo;
+    private String TipoFlujo ="";
 
-    private double Qmax1, Qmax2, Vmax1, Vmax2;
+    private double  Vmax1, Vmax2, QmaxAbsolute;
+    private double tiranteQMaxAbs;
+    private double tiranteVMaxAbs;
+    private boolean qMaxWasCalculated = false;
+    private boolean vMaxWasCalculated = false;
+
+    private double vMaxAbsolute;
 
     private final double Pot23= (double)2/(double)3;
     private final double Pot12 = 0.5;
     private boolean Success= false;
     private boolean equalsides = false;
 
+    private Resources resources;
 
-    public void Portal(){
-
-
+    public Portal(Resources resources){
+        this.resources = resources;
     }
 
+    public Portal(){
+
+    }
+    
     public void seth1der(double h1der){
         this.h1der = h1der;
     }
@@ -116,7 +127,7 @@ public class Portal {
         this.area= area;
     }
 
-    public void setgasto(double gasto){
+    public void setGastoAsLPS(double gasto){
         this.gasto = gasto/1000;
     }
 
@@ -309,8 +320,6 @@ public class Portal {
         double pmcup;
         if(tirante <= Hrect){
             Pmi = Bottom +2*tirante;
-
-
         } else {
 
             pmcup = calcPmcupula(tirante);
@@ -405,135 +414,114 @@ public class Portal {
 
     public double Vmann(double tirante){
         double vdum;
-
         double pmdum;
         double adum;
         double rhdum;
-
         double rougi;
-
-
-
         adum = calcArea(tirante);
         pmdum = calcPm(tirante);
-
         rhdum = adum/pmdum;
-
         rougi = calcRugpond(tirante);
-
         vdum = (1/rougi)*Math.pow(rhdum,this.Pot23)*Math.pow(this.slope,this.Pot12);
-
         return vdum;
-
     }
 
-    public void calcfromQ(double gastox){
-        double tirante0 = 0.01;
+    public void calcFromQLimitSearch(double gastox){
+        Log.i("LogTest", "calcFromQLimitSearch, start");
+        double tirante0 = 0.001;
 
-        double tirante1 = HT - 0.01;
-        double Adummy0, Adummy1;
-        double Vdummy0, Vdummy1;
+        double tirante1;
+        double tirante2 = HT - 0.01;
+        double oldTirante1 = -9;
+        double Pm0, Pm1, Pm2;
+        double diferencia= 10;
 
-        double Q0, Q1;
-        double Rh0, Rh1;
-        double Pm0, Pm1;
-        double diferencia= 0;
+        calcQmaxAbs();
+        int counter = 0;
+        if(qMaxWasCalculated==false){
+            Log.i("LogTest", "qMaxWasCalculated is false");
+            return;
+        }
 
-        double Fx0, Fx1;
+        tirante2 = this.tiranteQMaxAbs;
+        Log.i("LogTest", "qMaxWasCalculated before calculation");
+        if(gastox> QmaxAbsolute){
 
-
-        //Fx0 = q(h0) - gasto
-
-        //Fx1 = q(h1) - gasto
-        double iterador = 0;
-        calcQmax();
-        if(gastox>Qmax1 || gastox >Qmax2){
-
+            Log.i("LogTest", "gastox < QmaxAbsolute");
             Success = false;
-
         } else {
-
-
+            Log.i("LogTest", "calcFromQLimitSearch starting calculation");
             do {
-                ++iterador;
+                Log.i("LogTest", "calcFromQLimitSearch, counter: "  + counter);
+                if(tirante0>tirante2){
+                    Success = false;
+                    break;
+                }
+                double Adummy0, Adummy1, Adummy2;
+                double Vdummy0, Vdummy1, Vdummy2;
+                double Q0, Q1, Q2;
+                double Rh0, Rh1;
 
-                //Calculo de Fx0
+                tirante1 = (tirante0 + tirante2) / 2;
+
                 Adummy0 = calcArea(tirante0);
-                Pm0=calcPm(tirante0);
-                Rh0 = Adummy0 /Pm0;
+                Pm0 = calcPm(tirante0);
                 Vdummy0 = Vmann(tirante0);
                 Q0 = Adummy0 * Vdummy0;
 
-                Fx0 = Q0 - gastox;
-
-
-                ///////////////
-                //Calculo de Fx1
-
                 Adummy1 = calcArea(tirante1);
                 Pm1 = calcPm(tirante1);
-                Rh1 = Adummy1 /Pm1;
                 Vdummy1 = Vmann(tirante1);
                 Q1 = Adummy1 * Vdummy1;
 
-                Fx1 = Q1 - gastox;
+                Adummy2 = calcArea(tirante2);
+                Pm2 = calcPm(tirante2);
+                Vdummy2 = Vmann(tirante2);
+                Q2 = Adummy2 * Vdummy2;
+                Log.i("LogTest", "lowebound: " + tirante0 + ", middle value: "+ tirante1 + ", upper value: "+ tirante2) ;
+                Log.i("LogTest", "Q(h0): " + Q0 + ", Q(h1): "+ Q1 + ", Q(h2): "+Q2) ;
+                if (gastox < Q1) {
+                    //The value is in the first middle (the lower)
+                    //Next Upper bound
 
 
-                //Calculo del siguiente valor de tirante
-                double Next;
+                    //Tirante 0 keeps the same value, just is updated the upper limit.
 
-                Next = tirante1  - ((tirante0 - tirante1)/(Fx0 - Fx1))*Fx1;
-
-                if(Next <0){
-                    Next = 0.01;
+                    oldTirante1 = tirante1;
+                    tirante2 = tirante1;
 
                 } else {
-                    //NADA
+                    //The value is in the second part (the upper)
+                    //Next lower bound
+                    //Tirante 2 keeps the same value, just is updated the lower bound.
+                    oldTirante1 = tirante1;
+                    tirante0 = tirante1;
                 }
 
+                diferencia = Math.abs(gastox - Q1);
+                counter++;
+            }while(diferencia>0.001);
 
-                tirante0 = tirante1;
-                tirante1 = Next;
-                diferencia = Math.abs(tirante1 - tirante0);
 
-                if(tirante0 == tirante1){
-                    tirante0 = 0.05*HT;
+            Log.i("LogTest", "It was passed the do while");
+            if(diferencia<0.002){
+                if(oldTirante1<0){
+                    Success = false;
+                } else {
+                    Success = true;
+                    this.setTirante(oldTirante1);
+                    area = calcArea(tirantehidraulico);
+                    Rougpond = calcRugpond(tirantehidraulico);
+                    velocity =  Vmann(tirantehidraulico);
+                    Pm = calcPm(tirantehidraulico);
+                    Rh = area /Pm;
+                    gasto = area * velocity;
+                    AnchoSuperficie = calcAnchoLibre(tirantehidraulico);
+                    Froude = calcFroude(velocity, AnchoSuperficie,area);
+                    calcFlujo(Froude);
                 }
-
-
-
-            } while (diferencia >0.001&&(iterador <50));
-
-            if((tirante1>HT&&(iterador>50)||tirante1>HT)||iterador>50){
-
-                Success = false;
-            } else {
-                Success = true;
-
-            }
-
-
-            if(Success){
-
-                tirantehidraulico = tirante1;
-                area = calcArea(tirantehidraulico);
-                Rougpond = calcRugpond(tirantehidraulico);
-
-                velocity =  Vmann(tirantehidraulico);
-                Pm = calcPm(tirantehidraulico);
-                Rh = area /Pm;
-                gasto = area * velocity;
-
-                AnchoSuperficie = calcAnchoLibre(tirantehidraulico);
-                Froude = calcFroude(velocity, AnchoSuperficie,area);
-                calcFlujo(Froude);
-
-
-            } else {
-                //nada
             }
         }
-
 
     }
 
@@ -564,87 +552,71 @@ public class Portal {
 
 
     public void calcfromV(double velx){
-        double tirante0 = 0.01;
+        calcVmaxAbs();
 
-        double tirante1 = HT - 0.01;
-        double Adummy0, Adummy1;
-        double Vdummy0, Vdummy1;
+        double tirante0 = 0.001;
 
-        double Q0, Q1;
-        double Rh0, Rh1;
-        double Pm0, Pm1;
-        double diferencia= 0;
+        double tirante1;
+        double tirante2;
 
-        double Fx0, Fx1;
+        double oldTirante;
+        double V0, V1, V2;
+
+        double diferencia= 10;
 
 
-        //Fx0 = q(h0) - gasto
 
-        //Fx1 = q(h1) - gasto
-
-        double iterador=0;
-
-        if(velx>Vmax1 || velx>Vmax2){
+        if(vMaxWasCalculated==false){
+            return;
+        }
+        tirante2= tiranteVMaxAbs;
+        if(velx>vMaxAbsolute){
             Success = false;
+            return;
 
         } else {
 
             do {
-                ++iterador;
-                //Calculo de Fx0
-                Adummy0 = calcArea(tirante0);
-                Pm0=calcPm(tirante0);
-                Rh0 = Adummy0 /Pm0;
-                Vdummy0 = Vmann(tirante0);
+
+                tirante1 = (tirante0+tirante2)/2;
+                V0 = Vmann(tirante0);
+                V1 = Vmann(tirante1);
+                V2 = Vmann(tirante2);
+
+                Log.i("TestLog", "CalcFromV");
+                Log.i("TestLog", "tirante0: " + tirante0 + ", tirante1: " + tirante1 +
+                        "tirante2: " + tirante2);
+
+                Log.i("TestLog", "V0: " + V0 + ", V1: " + V1 +
+                        "V2: " + V2);
 
 
-                Fx0 = Vdummy0 - velx;
-
-                ///////////////
-                //Calculo de Fx1
-
-                Adummy1 = calcArea(tirante1);
-                Pm1 = calcPm(tirante1);
-                Rh1 = Adummy1 /Pm1;
-                Vdummy1 = Vmann(tirante1);
-
-                Fx1 = Vdummy1 - velx;
-
-
-                //Calculo del siguiente valor de tirante
-                double Next;
-
-                Next = tirante1  - ((tirante0 - tirante1)/(Fx0 - Fx1))*Fx1;
-                if(Next <0){
-                    Next = 0.01;
+                if (velx < V1) {
+                    //The value is in the first middle (the lower)
+                    //Next Upper bound
+                    //Tirante 0 keeps the same value, just is updated the upper limit.
+                    oldTirante = tirante1;
+                    tirante2 = tirante1;
 
                 } else {
-                    //NADA
+                    //The value is in the second part (the upper)
+                    //Next lower bound
+                    //Tirante 2 keeps the same value, just is updated the lower bound.
+                    oldTirante = tirante1;
+                    tirante0 = tirante1;
                 }
 
+                diferencia = Math.abs(velx - V1);
+            } while (diferencia >=0.0005);
 
-                tirante0 = tirante1;
-                tirante1 = Next;
-                diferencia = Math.abs(tirante1 - tirante0);
-
-                if(tirante0 == tirante1){
-                    tirante0 = 0.5*HT;
-                }
-
-            } while (diferencia >0.001&&(iterador<50));
-
-
-            if(tirante1>HT){
-
+            if(tirante1>HT || tirante1<0){
                 Success = false;
-
-            } else {
-                Success = true;
+                return;
             }
 
-            if(Success){
-
-                tirantehidraulico = tirante1;
+            if(diferencia<=0.005){
+                Success = true;
+                tirantehidraulico = oldTirante;
                 area = calcArea(tirantehidraulico);
                 Rougpond = calcRugpond(tirantehidraulico);
                 velocity =  Vmann(tirantehidraulico);
@@ -654,12 +626,7 @@ public class Portal {
                 AnchoSuperficie = calcAnchoLibre(tirantehidraulico);
                 Froude = calcFroude(velocity, AnchoSuperficie,area);
                 calcFlujo(Froude);
-
-
-            } else {
-                //nada
             }
-
         }
 
     }
@@ -668,43 +635,94 @@ public class Portal {
         return this.Success;
     }
 
-    public void calcQmax(){
-        double A1, A2;
-        double V1, V2;
 
-        A1 = calcArea(HT);
-        Vmax1 = Vmann(HT);
 
-        A2 = calcArea(HT-0.01);
-        Vmax2 = Vmann(HT-0.01);
-        Qmax1 = A1*Vmax1;
-        Qmax2 = A2*Vmax2;
+    public void calcQmaxAbs(){
+        //This method calculates the maximum capacity of the tunnel
+        double tirante = this.Hrect;
+        double oldTirante = -9;
+        double deltaH = 0.01;
+        double oldQmax = 0;
+        double qMaxCurrent = 0;
+        //double diferencia = 10;
+        double areaQmax = -999;
+        double vQmax = -999;
+        boolean goToNexCalculation = true;
+        do{
+            areaQmax = calcArea(tirante);
+            vQmax = Vmann(tirante);
+            qMaxCurrent = areaQmax*vQmax;
+
+            if(qMaxCurrent<oldQmax ){
+                goToNexCalculation = false;
+            } else {
+                oldQmax = qMaxCurrent;
+                oldTirante = tirante;
+                tirante = tirante + deltaH;
+
+            }
+
+        }while (goToNexCalculation);
+
+        if(oldTirante<0){
+            return;
+        } else {
+            tiranteQMaxAbs = oldTirante;
+            areaQmax = calcArea(oldTirante);
+            vQmax = Vmann(oldTirante);
+            QmaxAbsolute = areaQmax * vQmax;
+            qMaxWasCalculated = true;
+        }
     }
 
+    public void calcVmaxAbs(){
+        //This method calculates the maximum capacity of the tunnel
+        double tirante = this.Hrect/2;
+        double oldTirante = -9;
+        double deltaH = 0.01;
+        double oldVmax = 0;
+        double vMaxCurrent = 0;
+        //double diferencia = 10;
+        double areaQmax = -999;
+        double vQmax = -999;
+        boolean goToNexCalculation = true;
+        do{
 
+            vMaxCurrent = Vmann(tirante);
+
+
+            if(vMaxCurrent<oldVmax ){
+                goToNexCalculation = false;
+            } else {
+                oldVmax = vMaxCurrent;
+                oldTirante = tirante;
+                tirante = tirante + deltaH;
+
+            }
+
+        }while (goToNexCalculation);
+
+        if(oldTirante<0){
+            return;
+        } else {
+
+
+            vMaxAbsolute = Vmann(oldTirante);
+            tiranteVMaxAbs = oldTirante;
+            vMaxWasCalculated = true;
+        }
+    }
 
     public double calcAnchoLibre(double tirantex){
         double ancholibre;
-
         if(tirantex<Hrect){
             ancholibre = Bottom;
         } else {
-
             tirantex = 0.5*Bottom -(tirantex - Hrect);
-
-
             double A = 1 - 2*tirantex/(Bottom);
-
             double theta = Math.acos(A);
-
-
             ancholibre = (Bottom) * Math.sin(theta);
-
-
-
         }
-
-
         return ancholibre;
     }
 
@@ -712,9 +730,7 @@ public class Portal {
     public double calcFroude(double velocity, double Tancho, double Areax){
 
         double Froudex;
-
         Froudex = velocity/(Math.pow((9.81*(Areax/Tancho)),0.5));
-
         return Froudex;
 
     }
@@ -723,14 +739,14 @@ public class Portal {
 
         if(Froudex ==1){
 
-            TipoFlujo = "Crítico";
+            TipoFlujo = resources.getString(R.string.critico);
         } else {
 
             if(Froudex<1){
-                TipoFlujo = "Subcrítico";
+                TipoFlujo = resources.getString(R.string.subcritico);
             } else {
 
-                TipoFlujo = "Supercrítico";
+                TipoFlujo = resources.getString(R.string.supercritico);
             }
         }
 

@@ -302,20 +302,19 @@
             <Button
                 android:id="@+id/Btn_select_manning"
                 android:layout_width="match_parent"
-                android:layout_marginStart="24dp"
-                android:layout_marginEnd="24dp"
                 android:layout_height="48dp"
-                android:background="@drawable/btn_blanco"
                 android:layout_below="@id/TV_ContSan3"
-                android:gravity="center_horizontal"
-                android:layout_marginTop="8dp"
-                android:textAlignment="center"
-                android:foregroundGravity="center_horizontal"
-
                 android:layout_centerHorizontal="true"
-                android:textColor="@color/azul_perval"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/btn_blanco"
+                android:foregroundGravity="center_horizontal"
+                android:gravity="center_horizontal|center_vertical"
+
                 android:text="@string/Text_Btn_Manning"
-                />
+                android:textAlignment="center"
+                android:textColor="@color/azul_perval" />
 
 
             <TextView

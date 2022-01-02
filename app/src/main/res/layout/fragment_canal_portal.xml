@@ -36,14 +36,14 @@
                     android:id="@+id/Image_Seccion_portal"
                     android:layout_width="180dp"
                     android:layout_height="170dp"
-                    android:layout_marginLeft="4dp"
                     android:layout_marginStart="4dp"
-                    android:contentDescription="@string/Cont_Seccion_portal"
+                    android:layout_marginLeft="4dp"
                     android:adjustViewBounds="true"
                     android:background="@drawable/border"
-                    android:transitionName="@string/Transicion_portal"
+                    android:contentDescription="@string/Cont_Seccion_portal"
                     android:scaleType="fitCenter"
-                    android:src="@drawable/portal3" />
+                    android:src="@drawable/portal3"
+                    android:transitionName="@string/Transicion_portal" />
 
 
 
@@ -108,17 +108,32 @@
                 android:layout_below="@id/TV_Rugosidad_portal">
 
 
+                <TextView
+                    android:id="@+id/TopText"
+                    android:layout_width="60dp"
+                    android:layout_height="48dp"
+
+
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:gravity="center"
+                    android:text="@string/Portal_top"
+                    android:textColor="@color/azul_perval"
+                    android:textSize="18sp" />
+
                 <EditText
                     android:id="@+id/ET_Rug_techo"
                     android:layout_width="80dp"
                     android:layout_height="48dp"
+                    android:layout_below="@+id/TopText"
                     android:layout_centerHorizontal="true"
-                    android:hint="@string/Hint_n_techo"
                     android:gravity="center"
-                    android:inputType="numberDecimal"
+                    android:hint="@string/Hint_n_techo"
                     android:imeOptions="actionDone"
-                    android:textSize="16sp"
+                    android:inputType="numberDecimal"
                     android:textColorHint="@color/Hint_Color"
+                    android:textSize="16sp"
 
                     />
 
@@ -149,7 +164,7 @@
                     android:id="@+id/TV_Tit_HMuro_izq"
                     android:layout_width="40dp"
                     android:layout_height="48dp"
-                    android:layout_below="@id/ET_Rug_techo"
+                    android:layout_below="@id/TV_Muro_izq"
                     android:text="h"
                     android:gravity="center"
                     android:textSize="18sp"
@@ -165,7 +180,7 @@
                     android:id="@+id/TV_Tit_NMuro_izq"
                     android:layout_width="40dp"
                     android:layout_height="48dp"
-                    android:layout_below="@id/ET_Rug_techo"
+                    android:layout_below="@id/TV_Muro_izq"
                     android:text="n"
                     android:gravity="center"
                     android:textSize="18sp"
@@ -275,7 +290,7 @@
                     android:id="@+id/TV_Tit_HMuro_der"
                     android:layout_width="40dp"
                     android:layout_height="48dp"
-                    android:layout_below="@id/ET_Rug_techo"
+                    android:layout_below="@id/TV_Muro_der"
                     android:text="h"
                     android:gravity="center"
                     android:textSize="18sp"
@@ -291,7 +306,7 @@
                     android:id="@+id/TV_Tit_NMuro_der"
                     android:layout_width="40dp"
                     android:layout_height="48dp"
-                    android:layout_below="@id/ET_Rug_techo"
+                    android:layout_below="@id/TV_Muro_der"
                     android:text="n"
                     android:gravity="center"
                     android:textSize="18sp"
@@ -398,13 +413,12 @@
                     android:layout_height="48dp"
                     android:layout_below="@id/TV_Portal_fondo"
                     android:layout_centerHorizontal="true"
-                    android:hint="n"
-                    android:textSize="16sp"
                     android:gravity="center"
-                    android:inputType="numberDecimal"
+                    android:hint="@string/Hint_n_base"
                     android:imeOptions="actionDone"
+                    android:inputType="numberDecimal"
                     android:textColorHint="@color/Hint_Color"
-
+                    android:textSize="16sp"
                     />
             </RelativeLayout>
 

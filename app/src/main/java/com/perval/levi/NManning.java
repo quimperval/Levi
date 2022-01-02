@@ -1,172 +1,52 @@
 package com.perval.levi;
 
+import android.content.Context;
+import android.content.res.Resources;
+import android.util.Log;
+
+import java.util.Arrays;
+
 public class NManning {
 
-    private String[][] listado = {
+    private Resources resources;
 
-            {"A","Conductos cerrados que fluyen parcialmente llenos","","",""},
-            {"A-1. ","Metal","","",""},
-            {"a.","Latón liso","0.009","0.010","0.013"},
-            {"b.","Acero ","","",""},
-            {"1","Estriado y soldado","0.010","0.012","0.014"},
-            {"2","Riveteado y en espiral","0.013","0.016","0.017"},
-            {"c. ","Hierro fundido","","",""},
-            {"1","Recubierto","0.010","0.013","0.014"},
-            {"2","No recubirto","0.011","0.014","0.016"},
-            {"d. ","Hierro forjado","","",""},
-            {"1","Negro","0.012","0.014","0.015"},
-            {"2","Galvanizado","0.013","0.016","0.017"},
-            {"e.","Metal corrugado","","",""},
-            {"1","Subdrenaje","0.017","0.019","0.021"},
-            {"2","Drenaje de aguas de lluvias","0.021","0.024","0.03"},
-            {"A-2","No metal","","",""},
-            {"a.","Lucita","0.008","0.009","0.010"},
-            {"b.","Vidrio","0.009","0.01","0.013"},
-            {"c. ","Cemento","","",""},
-            {"1","Superficie pulida","0.010","0.011","0.013"},
-            {"2","Mortero","0.011","0.013","0.015"},
-            {"d. ","Concreto","","",""},
-            {"1","Alcantarilla, recta y libre de basuras","0.010","0.011","0.013"},
-            {"2","Alcantarilla con curvas, conexiones y algo de basuras","0.011","0.013","0.014"},
-            {"3","Bien terminado","0.011","0.012","0.014"},
-            {"4","Alcantarillado de aguas residuales con pozos de inspección, entradas, etc. recto","0.013","0.015","0.017"},
-            {"5","Sin pulir, formaleta o encofrado metálico","0.012","0.013","0.014"},
-            {"6","Sin pulir, formaleta o encofrado en madera lisa","0.012","0.014","0.016"},
-            {"7","Sin pulir, formaleta o encofrado en madera rugosa","0.015","0.017","0.02"},
-            {"e. ","Madera","","",""},
-            {"1","Machihembrada","0.010","0.012","0.014"},
-            {"2","Lámina, tratada","0.015","0.017","0.020"},
-            {"f. ","Arcilla","","",""},
-            {"1","Canaleta común de baldosas","0.011","0.013","0.017"},
-            {"2","Alcantarilla vitrificada","0.011","0.014","0.017"},
-            {"3","Alcantarilla vitrificada con pozos de inspección, entradas, etc. ","0.013","0.015","0.017"},
-            {"4","Subdrenaje vitrificado con juntas abiertas","0.014","0.016","0.018"},
-            {"g. ","Mampostería en ladrillo","","",""},
-            {"1","Barnizada o lacada","0.011","0.013","0.015"},
-            {"2","Revestida con mortero de cemento","0.012","0.015","0.017"},
-            {"h. ","Alcantarillados sanitarios recubiertos con limos y babas de aguas residuales, con curvas y conexiones","0.012","0.013","0.016"},
-            {"i","Alcantarillado con batea pavimentada, con fondo liso","0.016","0.019","0.020"},
-            {"j.","Mampostería de piedra, cementada","0.018","0.025","0.03"},
-            {"B","Canales revestidos o desarmables","","",""},
-            {"B-1","Metal","","",""},
-            {"a.","Superficie lisa de acero","","",""},
-            {"1","Sin pintar","0.011","0.012","0.014"},
-            {"2","Pintada","0.012","0.013","0.017"},
-            {"b","Corrugado","0.021","0.025","0.03"},
-            {"B-2","No metal","","",""},
-            {"a.","Cemento","","",""},
-            {"1","Superficie pulida","0.010","0.011","0.013"},
-            {"2","Mortero","0.011","0.013","0.015"},
-            {"b","Madera","","",""},
-            {"1","Cepillada, sin tratar","0.010","0.012","0.014"},
-            {"2","Cepillada, creosotada","0.011","0.012","0.015"},
-            {"3","Sin cepillar","0.011","0.013","0.015"},
-            {"4","Láminas con listones","0.012","0.015","0.018"},
-            {"5","Forrada con papel impermeabilizante","0.010","0.014","0.017"},
-            {"c. ","Concreto","","",""},
-            {"1","Terminado con llana metálica (palustre)","0.011","0.013","0.015"},
-            {"2","Terminado con llana de madera","0.013","0.015","0.016"},
-            {"3","Pulido, con gravas en el fondo","0.015","0.017","0.02"},
-            {"4","Sin pulir","0.014","0.017","0.020"},
-            {"5","Lanzado, sección buena. ","0.016","0.019","0.023"},
-            {"6","Lanzado, sección ondulada","0.018","0.022","0.025"},
-            {"7","Sobre roca bien excavacada","0.017","0.020",""},
-            {"8","Sobre roca irregularmente excavada","0.022","0.027",""},
-            {"d. ","Fondo de concreto terminado con llana de madera y con lados de","","",""},
-            {"1","Piedra labrada, en mortero","0.015","0.017","0.020"},
-            {"2","Piedra sin seleccionar, sobre mortero","0.017","0.020","0.024"},
-            {"3","Mampostería de piedra cementada, recubierta","0.016","0.020","0.024"},
-            {"4","Mampostería de piedra cementada","0.020","0.025","0.030"},
-            {"5","Piedra suelta o riprap","0.023","0.030","0.035"},
-            {"e.","Fondo de gravas con lados de ","","",""},
-            {"1","Concreto encofrado","0.017","0.020","0.025"},
-            {"2","Piedra sin seleccionar, sobre mortero","0.020","0.023","0.026"},
-            {"3","Piedra suelta o riprap","0.023","0.033","0.036"},
-            {"f. ","Ladrillo","","",""},
-            {"1","Barnizado o lacado","0.011","0.013","0.015"},
-            {"2","En mortero de cemento","0.012","0.015","0.018"},
-            {"g. ","Mampostería","","",""},
-            {"1","Piedra partida cementada","0.017","0.025","0.030"},
-            {"2","Piedra suelta","0.023","0.032","0.035"},
-            {"h. ","Bloques de piedra labrados","0.013","0.015","0.017"},
-            {"i. ","Asfalto","","",""},
-            {"1","Liso","0.013","0.013",""},
-            {"2","Rugoso","0.016","0.016",""},
-            {"j. ","Revestimiento vegetal","0.030","….","0.500"},
-            {"C","Excavado o dragado","","",""},
-            {"a.","En tierra, recto y uniforme","0.016","0.018","0.02"},
-            {"1","Limpio, después de exposición a la intemperie","0.018","0.022","0.025"},
-            {"2","Con gravas, sección uniforme, limpio","0.022","0.025","0.03"},
-            {"3","Con pastos cortos, algunas malezas","0.022","0.027","0.033"},
-            {"b","En tierra, serpenteante y lento","","",""},
-            {"1","Sin vegetación","0.023","0.025","0.030"},
-            {"2","Pastos, algunas malezas","0.025","0.030","0.033"},
-            {"3","Malezas densas o plantas acuáticas en canales profundos","0.030","0.035","0.040"},
-            {"4","Fondo en tierra con lados en piedra","0.028","0.030","0.035"},
-            {"5","Fondo pedregoso y bancas con malezas","0.025","0.035","0.040"},
-            {"6","Fondo en cantos rodados y lados limpios","0.030","0.040","0.050"},
-            {"c","Excavado con pala o dragado","","",""},
-            {"1","Sin vegetación","0.025","0.028","0.033"},
-            {"2","Matorrales ligeros en las bancas","0.035","0.050","0.06"},
-            {"d. ","Cortes en roca","","",""},
-            {"1","Lisos y uniformes","0.025","0.035","0.040"},
-            {"2","Afilados e irregulares","0.035","0.040","0.050"},
-            {"e.","Canales sin mantenimiento, malezas y matorrales sin cortar","","",""},
-            {"1","Malezas densas, tan altas como la profundidad de flujo","0.050","0.08","0.12"},
-            {"2","Fondo limpio, matorrales en los lados","0.040","0.050","0.08"},
-            {"3","Igual al nivel máximo de flujo","0.045","0.070","0.110"},
-            {"4","Matorrales densos, nivel alto","0.080","0.100","0.140"},
-            {"D. ","Corrientes naturales","","",""},
-            {"D-1","Corrientes menores (ancho superficial en nivel creciente <100 pies)","","",""},
-            {"a.","Corrientes en planicies","","",""},
-            {"1","Limpias, rectas, máximo nivel, sin montículos ni pozos profundos","0.025","0.030","0.033"},
-            {"2","Igual que el anterior, pero con más piedras y malezas","0.030","0.035","0.040"},
-            {"3","Limpio, serpenteante, algunos pozos y bancos de arena.","0.033","0.040","0.045"},
-            {"4","Igual que el anterior, pero con algunos matorrales y piedras","0.035","0.045","0.05"},
-            {"5","Igual al anterior, niveles bajos, pendientes y secciones más ineficaces. ","0.040","0.048","0.055"},
-            {"6","Igual al 4 pero con más piedras","0.045","0.050","0.06"},
-            {"","Tramos lentos, con malezas y pozos profundos","0.050","0.070","0.08"},
-            {"7","Tramos con muchas malezas, pozos profundos o canales de crecientes con muchos árboles con matorrales bajos","0.075","0.1","0.15"},
-            {"b.","Corrientes montañosas, sin vegetación en el canal, bancas usualmente empinadas, árboles y matorrales a lo largo de las bancas sumergidas en niveles altos. ","","",""},
-            {"1","Fondo: gravas, cantos rodados y algunas rocas","0.030","0.040","0.050"},
-            {"2","Fondo: cantos rodados con rocas grandes","0.040","0.050","0.070"},
-            {"D-2","Planicies de inundación","","",""},
-            {"a.","Pastizales, sin matorrales","","",""},
-            {"1","Pasto corto","0.025","0.030","0.035"},
-            {"2","Pasto alto","0.030","0.035","0.050"},
-            {"b","Áreas cultivadas","","",""},
-            {"1","Sin cultivo","0.020","0.030","0.040"},
-            {"2","Cultivos en línea maduros","0.025","0.035","0.045"},
-            {"3","Campos de cultivo maduros","0.030","0.040","0.050"},
-            {"c","Matorrales","","",""},
-            {"1","Matorrales dispersos, mucha maleza","0.035","0.050","0.070"},
-            {"2","Pocos matorrales y árboles, en invierno","0.035","0.050","0.060"},
-            {"3","Pocos matorrales y árboles, en verano","0.040","0.060","0.080"},
-            {"4","Matorrales medios a densos, en invierno","0.045","0.070","0.110"},
-            {"5","Matorrales medios a densos, en verano","0.070","0.100","0.160"},
-            {"d. ","Árboles","","",""},
-            {"1","Sauces densos, rectos y en verano","0.110","0.150","0.200"},
-            {"2","Terreno limpino, con troncos sin retoños","0.030","0.040","0.050"},
-            {"3","Igual que el anterior, pero con una gran cantidad de retoños","0.050","0.060","0.080"},
-            {"4","Gran cantidad de árboles, algunos troncos caídos, con poco crecimiento de matorrales, nivel del agua por debajo de las ramas","0.08","0.1","0.12"},
-            {"5","Igual que el anterior, pero con nivel de creciente por encima de las ramas. ","0.100","0.120","0.160"},
-            {"D-3","Corientes mayores (ancho superficial en nivel de creciente>100 pies). El valor de n es menor que el correspondiente a corrientes menores con descripción similar, debido a que las bancas ofrecen resistencia menos efectiva. ","","",""},
-            {"a.","Sección regular, sin cantos rodados ni matorrales. ","0.025","….","0.060"},
-            {"b.","Sección irregular y rugosa. ","0.035","….","0.100"},
-
-    };
+    private String[][] listado;
 
     public NManning(){
 
-
     };
+
+    public NManning(Resources resources){
+        this.resources = resources;
+    }
 
     public String getvalue(int row, int col){
         return listado[row][col];
     }
 
     public String[][] getListado(){
+        //Log.i("nManning", "method: getListado");
+        String[] startArray;
+        startArray = resources.getStringArray(R.array.manning_values);
+        //Log.i("nManning", Arrays.toString(startArray));
+        listado = new String[startArray.length][5];
+
+        //Log.i("nManning", "Array length: " + startArray.length);
+
+        for(int i=0; i<startArray.length;i++){
+            //Log.i("nManning", "counter: " + i);
+            listado[i] = startArray[i].split("\\|");
+
+            for(int j=0; j<listado[i].length; j++){
+                listado[i][j] = listado[i][j].replace("_", "");
+            }
+
+            //Log.i("nManning", Arrays.toString(listado[i]));
+
+        }
+
         return listado;
+
     }
 
 }

@@ -22,6 +22,11 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.perval.levi.ayuda.EulaActivity;
 import com.perval.levi.ayuda.Help;
+import com.perval.levi.tuberias.Acero;
+import com.perval.levi.tuberias.PPR;
+import com.perval.levi.tuberias.PVCIngles;
+import com.perval.levi.tuberias.PVCMetrico;
+import com.perval.levi.tuberias.Tuberia;
 import com.perval.levi.tuberias.Pead;
 
 import java.text.NumberFormat;
@@ -484,7 +489,7 @@ public class FlujoAPresion extends AppCompatActivity {
                         break;
                     case 4:
                         //Acero
-                        TXRD.setText("Cédula");
+                        TXRD.setText(getResources().getString(R.string.label_Cedula));
                         Material = 4;
                         adapter_RD = ArrayAdapter.createFromResource(getBaseContext(), R.array.listAcero, android.R.layout.simple_spinner_item);
                         adapter_RD.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -835,7 +840,7 @@ public class FlujoAPresion extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);
+        inflater.inflate(R.menu.menu_presion, menu);
         return true;
     }
 
@@ -861,6 +866,12 @@ public class FlujoAPresion extends AppCompatActivity {
                 Intent Eula_Intent = new Intent(this, EulaActivity.class );
                 startActivity(Eula_Intent);
                 overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
+                return true;
+            case R.id.simbologia:
+                Intent Symbol_Intent = new Intent(this, Symbology.class );
+                Symbol_Intent.putExtra("option", "Presión");
+                startActivity(Symbol_Intent);
+                //overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
                 return true;
             default:
                 return super.onOptionsItemSelected(item);

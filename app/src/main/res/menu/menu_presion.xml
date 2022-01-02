@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     >
-    <item android:id="@+id/Act_gravedad" android:title="@string/Tit_Manning"></item>
-    <item android:id="@+id/ayuda" android:title="Ayuda"></item>
-    <item android:id="@+id/contacto" android:title="Acerca de"></item>
+    <item android:id="@+id/simbologia" android:title="@string/menu_simbologia"></item>
+    <item android:id="@+id/ayuda" android:title="@string/menu_ayuda"></item>
+    <item android:id="@+id/contacto" android:title="@string/Acerca_de"></item>
 </menu>

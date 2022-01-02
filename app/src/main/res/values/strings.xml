@@ -1,87 +1,92 @@
 <resources>
     <string name="app_name">Levi</string>
-    <string name="Tit_presion">Flujo a presión</string>
-    <string name="Tit_gravedad">Flujo a \nsuperficie \nlibre</string>
-    <string name="title_activity_help">Ayuda</string>
-    <string name="title_activity_contacto">Contacto</string>
+    <string name="Tit_presion">Pressurized flow</string>
+    <string name="Tit_gravedad">Free surface flow</string>
+    <string name="title_activity_help">Help</string>
+    <string name="title_activity_contacto">Contact</string>
 
-    <string name="Seccion_canal">Sección</string>
+    <string name="Seccion_canal">Section</string>
+
+    <string name="my_credits" translatable="false">Joaquín Pérez Valera. \njoaquinperezvalera@gmail.com</string>
 
     <string name="adMobId">ca-app-pub-9916459118611631~2051967328</string>
 
     <string name="UnitId">ca-app-pub-9916459118611631/8078408912</string>
 
-    <string name="Tit_seccion_Circular">Sección circular</string>
-    <string name="Tit_seccion_Rectangular">Sección rectangular</string>
-    <string name="Tit_seccion_trapecial">Sección trapecial</string>
-    <string name="Tit_seccion_irregular">Sección irregular</string>
-    <string name="Tit_seccion_portal">Sección portal</string>
-    <string name="Text_tipo_secciont_Rect">Tipo de sección</string>
-    <string name="Rect_dimensiones">Dimensiones \nBxH</string>
-    <string name="Text_fondo">Ancho de \nfondo \n(B)</string>
-    <string name="Text_altura">Altura \nlibre \n(H)</string>
+    <string name="Tit_seccion_Circular">Circular section</string>
+    <string name="Tit_seccion_Rectangular">Rectangular section</string>
+    <string name="Tit_seccion_trapecial">Trapezoidal</string>
+    <string name="Tit_seccion_irregular">Irregular section</string>
+    <string name="Tit_seccion_portal">Tunnel Section</string>
+    <string name="Text_tipo_secciont_Rect">Type of section</string>
+    <string name="Rect_dimensiones">Dimensions \nBxH</string>
+    <string name="Text_fondo">Bottom \nwidth \n(B)</string>
+    <string name="Text_altura">Height \n(H)</string>
 
-    <string name="Tit_ayuda">Ayuda</string>
-    <string name="Tit_Contacto">Acerca de</string>
-    <string name="Contactar">Contactar</string>
+    <string name="Tit_ayuda">Help</string>
+    <string name="Tit_Contacto">About</string>
+    <string name="Contactar">Contact</string>
     <string name="label_material">Material</string>
-    <string name="label_RD">RD</string>
-    <string name="label_diam">DN/Dint  \n(in/mm)</string>
-    <string name="label_calc">Calcular</string>
-    <string name="help">Ayuda</string>
+    <string name="label_RD">DR</string>
+    <string name="label_Cedula">Schedule</string>
+    <string name="label_diam">DN/Dint</string>
+    <string name="label_calc">Calculate</string>
+    <string name="help">Help</string>
     <string name="tuberias">Calcular Tuberías</string>
-    <string name="Tit_Darcy">Flujo a presión</string>
-    <string name="Tit_Manning">Flujo a superficie libre</string>
-    <string name="Text_Pendiente">Pendiente \nm/1000m</string>
+    <string name="Tit_Darcy">Pressurized flow</string>
+    <string name="Tit_Manning">Free surface flow</string>
+    <string name="Text_Pendiente">Slope \nm/1000m</string>
+    <string name="Text_Freeboard">Freeboard</string>
+    <string name="Text_MannRug">n Manning</string>
+    <string name="Tit_rugosidad_trapecial">Roughness</string>
+    <string name="Text_H_trapecial">Height \nfree (m)</string>
+    <string name="Text_H_portal">Height \nHt (m)</string>
+    <string name="Text_Regimen">Flow regime: </string>
 
-    <string name="Tit_rugosidad_trapecial">Rugosidad</string>
-    <string name="Text_H_trapecial">Altura \nlibre (m)</string>
-    <string name="Text_H_portal">Altura \nHt (m)</string>
-
-    <string name="Text_B_trapecial">Ancho \ndel fondo</string>
-    <string name="Text_talud_izq">Talud \nIzq. k:1</string>
-    <string name="Text_talud_der">Talud \nDer. k:1</string>
-    <string name="Hint_altura_trap">Altura (m)</string>
-    <string name="Hint_ancho_trap">Ancho (m)</string>
-    <string name="Hint_talud">Talud</string>
-    <string name="Hint">Talud</string>
-    <string name="Text_TVRug_fondo">Fondo</string>
-    <string name="Text_TVRug_Tder">Talud \nDer.</string>
-    <string name="Text_TVRug_Tizq">Talud \nIzq.</string>
+    <string name="Text_B_trapecial">Bottom</string>
+    <string name="Text_talud_izq">Slope \nLeft. k:1</string>
+    <string name="Text_talud_der">Slope \nRight. k:1</string>
+    <string name="Hint_altura_trap">Height (m)</string>
+    <string name="Hint_ancho_trap">Width (m)</string>
+    <string name="Hint_talud">Slope</string>
+    <string name="Hint">Slope</string>
+    <string name="Text_TVRug_fondo">Bottom</string>
+    <string name="Text_TVRug_Tder">Slope \nRight.</string>
+    <string name="Text_TVRug_Tizq">Slope \nLeft</string>
     <string name="Hint_rugosidad">Manning</string>
 
-    <string name="Text_B_portal">Ancho (2R) \n(m)</string>
-    <string name="Text_H_muro">Altura de parted \n(m)</string>
-    <string name="Hint_techo">Techo</string>
+    <string name="Text_B_portal">Width (2R) \n(m)</string>
+    <string name="Text_H_muro">Wall height \n(m)</string>
+    <string name="Hint_techo">Ceiling</string>
     <string name="Hint_Muro_izq_tramo1">n1</string>
     <string name="Hint_Muro_izq_tramo2">n2</string>
     <string name="Hint_Muro_der_tramo1">n1</string>
     <string name="Hint_Muro_der_tramo2">n2</string>
-    <string name="Text_Portal_fondo">Fondo</string>
-    <string name="Text_M_izq">Muro \nIzquierdo</string>
-    <string name="Text_M_der">Muro \nDerecho</string>
-    <string name="Hint_n_techo">n Techo</string>
-
-    <string name="Hint_pendiente">Pendiente</string>
-    <string name="Hint_variable">Variable</string>
-    <string name="Tit_dim_trapecial">Dimensiones</string>
-
+    <string name="Text_Portal_fondo">Bottom</string>
+    <string name="Text_M_izq">Wall \nleft</string>
+    <string name="Text_M_der">Wall \nRight</string>
+    <string name="Hint_n_techo" translatable="false">na</string>
+    <string name="Hint_n_base" >nb</string>
+    <string name="Portal_top" >Arc</string>
+    <string name="Hint_pendiente">Slope</string>
+    <string name="Hint_variable">Flow</string>
+    <string name="Tit_dim_trapecial">Dimensions</string>
+    <string name="menu_simbologia">Symbology</string>
+    <string name="menu_ayuda">Help</string>
+    <string name="menu_ejemplo">Example</string>
+    <string name="menu_licencia">Licence</string>
     <string name="Acerca_de">Levi</string>
-    <string name="Acerca_de_Levi">Levi es una app cuyo propósito es facilitar cálculos
-        hidraulicos de flujo en conductos, utilizando información real de tuberías y sus materiales. \n \nLa
-        hemos denominado Levi en honor al Ing. Enzo Levi, un pilar en la investigación
-        hidráulica en México.</string>
+    <string name="Acerca_de_Levi"> Levi is an app intended to help to perform simple hydraulic calculations, using information of commercial
+        pipes and materials. It is named Levi, honoring Engineer Enzo Levi.</string>
 
-    <string name="Tit_creditos">Créditos</string>
+    <string name="Tit_creditos">Credits</string>
 
-    <string name="Perval_SAS">Copyright (C) 2019 PERVAL Ingeniería S.A.S de C.V.\nTodos los derechos reservados.</string>
-
-    <string name="ETNumberWarn">Define un valor para realizar los cálculos</string>
-    <string name="ETPositiveWarn">Define un valor positivo para realizar los cálculos</string>
-    <string name="Gasto">Gasto (l/s)</string>
-    <string name="Velocidad">Velocidad (m/s)</string>
-    <string name="Perdidas">Pérdidas (m/km)</string>
-    <string name="Rugosidad">Rugosidad (mm)</string>
+    <string name="ETNumberWarn">Define a value to make the calculations</string>
+    <string name="ETPositiveWarn">Define a positive value to make the calculations</string>
+    <string name="Gasto">Flow (l/s)</string>
+    <string name="Velocidad">Velocity (m/s)</string>
+    <string name="Perdidas">Headloss (m/km)</string>
+    <string name="Rugosidad">Roughness (mm)</string>
     <string name="Reynolds">Reynolds</string>
 
 
@@ -89,36 +94,36 @@
         <item>Circular</item>
         <item>Trapezoidal</item>
         <item>Rectangular</item>
-        <item>Arco de medio punto</item>
+        <item>Segmental tunnel</item>
         <item>Irregular</item>
     </string-array>
 
     <string-array name="material_canales">
         <item>PVC</item>
-        <item>PEAD</item>
-        <item>Concreto</item>
+        <item>HDPE</item>
+        <item>Concrete</item>
     </string-array>
 
     <string-array name="canal_rect">
-        <item>Cajón prefabricado</item>
-        <item>Sección personalizada</item>
+        <item>Precast box</item>
+        <item>Tailored section</item>
     </string-array>
 
 
     <string-array name="lista_materiales">
-        <item>PVC Serie Métrica</item>
-        <item>PVC Serie Inglesa</item>
-        <item>PEAD</item>
+        <item>PVC Metric series</item>
+        <item>PVC English series</item>
+        <item>HDPE</item>
         <item>PPR</item>
-        <item>Acero</item>
+        <item>Steel</item>
     </string-array>
 
 
     <string-array name="Tuberias_sanitarias">
-        <item>PVC Sanitario</item>
-        <item>Concreto Simple</item>
-        <item>Concreto Reforzado</item>
-        <item>PEAD Sanitario</item>
+        <item>PVC wastewater</item>
+        <item>Concrete</item>
+        <item>Reinforced concrete</item>
+        <item>HDPE wastewater</item>
         <item>Duromaxx</item>
         <item>Ultraflo 12 Galv</item>
         <item>Ultraflo 14 Galv</item>
@@ -139,7 +144,7 @@
     <string-array name="unidades_san">
         <item>Q (l/s)</item>
         <item>Vel (m/s)</item>
-        <item>Tirante (m)</item>
+        <item>Hyd. Depth (m)</item>
     </string-array>
 
 
@@ -193,16 +198,16 @@
         <item>STD</item>
     </string-array>
 
-    <string name="Tit_MatDesc">Materiales</string>
-    <string name="MatDescription">PVC Serie Métrica - Tuberías
-        de PVC fabricadas bajo la norma NMX-E-145/1.\n \nPVC Serie
-        Inglesa - Tuberías de PVC fabricadas
-        bajo la norma ASTM D-2241 o NMX-E224.\n \nPPR  - Tuberías de
-        polipropileno fabricadas en cumplimiento con la NMX-E-226/2
-        CNCP.\n \nAcero - Tuberías de acero fabricadas bajo la norma  ASTM A 53. \n
+    <string name="Tit_MatDesc">Materials</string>
+    <string name="MatDescription">PVC Metric Series- PVC
+        made under the norm NMX-E-145/1.\n \nPVC English
+        Series - PVC pipes made under the norm
+         ASTM D-2241 o NMX-E224.\n \nPPR  - PPR pipes
+        made under the norm NMX-E-226/2
+        CNCP.\n \nSteel - Steel pipes made under the norm  ASTM A 53. \n
     </string>
 
-    <string name="Tit_Recursos">Recursos: </string>
+    <string name="Tit_Recursos">Resources: </string>
     <string name="LinkPVCMetric">https://www.tuberiadepvc.mx/Tuberia-Hidraulica-de-PVC-Serie-Metrica.html</string>
     <string name="LinkPVCIng">https://www.tuberiadepvc.mx/Tuberia-Hidraulica-de-PVC-Serie-Inglesa.html</string>
     <string name="LinkPEAD">https://www.tuberiamoreno.com/productos/hidraulico/tuberia-de-polietileno-de-alta-densidad-pead-4608-4710-rd-7-0-rd-7-3-rd-9-rd-11-dr-13-5-rd-15-5-rd-17-rd-21-rd-26-rd-32-5-rd-41</string>
@@ -216,20 +221,20 @@
     <string name="LinkUltraFlo">https://www.firheg.com</string>
 
 
-    <string name="Tit_Hidraulica">Hidráulica</string>
-    <string name="Subtit_presion">Flujo a presión</string>
+    <string name="Tit_Hidraulica">Hydraulics</string>
+    <string name="Subtit_presion">Pressurized flow</string>
 
-    <string name="Cont_presion1">Las pérdidas de carga en tubos a presión se calculan
-    con la ecuación de Darcy-Weisbach:</string>
+    <string name="Cont_presion1">Headlosses in pressurized pipes are calculated using the Darcy-Weisbach
+        equation:</string>
 
-    <string name="Cont_presion2">donde: \nh - pérdidas de energía debidas a la fricción en tubería, m; \nv - velocidad de flujo en m/s; \ng -  aceleración
-        gravitatoria, 9.81 m/s²; \nL - longitud de la tubería, en metros; \nD - Diámetro de la tubería en metros; \nf - factor
-        de fricción de Darcy, que se obtiene con la ecuación de Swamee-Jain</string>
-    <string name="Cont_presion3">k - rugosidad del material, en metros; \nRe - Número de reynolds (Adimensional)</string>
+    <string name="Cont_presion2">where: \nh - friction losses in the pipe, m; \nv - flow velocity en m/s; \ng -  acceleration due to gravity, 9.81 m/s²;
+        \nL - pipe length, in meters; \nD - Pipe diameter, in meters; \nf - Darcy\'s friction factor
+        , calculated with Swamee-Jain equation</string>
+    <string name="Cont_presion3">k - material roughness, in meters; \nRe - Reynolds numbers (No dimensions)</string>
 
-    <string name="Cont_presion4"> es la viscosidad cinemática, 0.00000104 m²/s</string>
+    <string name="Cont_presion4"> kinematic viscosity, 0.00000104 m²/s</string>
 
-    <string name="Cont_presion5">Para obtener las pérdidas por cada kilómetro se considera L = 1,000 m.</string>
+    <string name="Cont_presion5">To calculate the headloss per kilometer it is considered L = 1,000 m.</string>
 
 
     <string name="Formula_Swamee">$$f = \\frac{0.25}{[log_{10}(\\frac{k/D}{3.7}+
@@ -244,77 +249,400 @@
     </string>
 
 
-    <string name="title_activity_flujo_apresion">FlujoAPresion</string>
+    <string name="title_activity_flujo_apresion">Pressurized flow</string>
 
-    <string name="title_activity_flujo_acanal">FlujoACanal</string>
+    <string name="title_activity_flujo_acanal">Open channel flow</string>
 
 
-    <string name="Subtit_gravedad">Flujo a gravedad</string>
+    <string name="Subtit_gravedad">Open channel flow</string>
 
-    <string name="Cont_gravedad1">El flujo a gravedad se calculó con la ecuación de Manning, como se muestra a continuación</string>
+    <string name="Cont_gravedad1">Hydraulic variables for open channel flow are calculated using the Manning\'s equation, as shown below</string>
     <string name="Formula_Manning">
                 $$v =  \\frac{1}{n} R_h^{\\frac{2}{3}} S^{\\frac{1}{2}}$$
 
     </string>
 
-    <string name="Cont_gravedad2">donde \nn - coeficiente de rugosidad de Manning; \nRh - Radio hidráulico, m;\nS - pendiente hidráulica\n</string>
+    <string name="Cont_gravedad2">where \nn - Manning\'s roughness coefficient; \nRh - Hydraulic Radius, m;\nS - Hydraulic slope\n</string>
     <string name="Formula_Rh">
                 $$R_h =  \\frac{A}{Pm}$$
 
     </string>
-    <string name="Cont_gravedad3">A - Área hidráulica - m2;\nPm - Perímetro mojado, m.</string>
+    <string name="Cont_gravedad3">A - Flow area - m2;\nPm - Wetted perimeter, m.</string>
 
-    <string name="Cont_gravedad_4">El número de Froude se ha calculado con la ecuación</string>
+    <string name="Cont_gravedad_4">Froude\'s number is calculated using the equation</string>
 
     <string name="Formula_Froude">
                 $$F =  \\frac{velocidad}{(g*D)^{0.5}}$$
     </string>
 
-    <string name="Cont_gravedad_5">Donde: \ng - constante de aceleración, 9.81 m/s2;
-        \nD - profundidad hidráulica (D=A/T); \nA- área hidráulica y \nT- el ancho libre de la superficie del agua.\n
-        Si el Número de Froude es menor a 1 el régimen será de tipo subcrítico; si es igual a 1 será de tipo crítico y si es mayor a 1 será de tipo supercrítico.
+    <string name="Cont_gravedad_5">Where: \ng - acceleration due to gravity, 9.81 m/s2;
+        \nD - Hydraulic depth (D=A/T); \nA- Flow area y \nT- top width.\n
+        If Froude\'s number is less than 1 the flow is subcritical; equal to 1 it is critical and greater than 1 the flow is supercritical.
     </string>
 
 
-    <string name="Text_Btn_Manning">Selección del coeficiente de Manning</string>
+    <string name="Text_Btn_Manning">Selection of Manning\'s coefficient</string>
 
 
-    <string name="Calculo_fallido">La tubería, con la pendiente indicada, no tiene la capacidad para conducir el gasto deseado. Prueba con otro diámetro para garantizar flujo a superficie libre.</string>
+    <string name="Calculo_fallido">The pipe with the assigned slope has not the required capacity to convey the flow.
+         Try with a greater diameter to have a free surface flow.</string>
 
-    <string name="Calculo_fallidoV">La tubería, con la pendiente indicada, no tiene la capacidad para conducir flujo con la velocidad deseada. Prueba con otras dimensiones para garantizar flujo a superficie libre.</string>
-    <string name="Calculo_fallidoH">El tirante indicado es mayor a la altura disponible.</string>
+    <string name="Calculo_fallidoV">The pipe with the assigned slope has not the required capacity to convey the flow.
+         Try with a greater diameter to have a free surface flow.</string>
+    <string name="Calculo_fallidoH">Hydraulic depth is greater than the available height.</string>
 
-    <string name="Toast_add_slope">El campo pendiente está vacío o es negativo, asignar un valor a la pendiente.</string>
-    <string name="Toast_add_values">Asigne valores a todas las variables.</string>
-    <string name="Toast_add_variable">Asignar un valor válido de calculo.</string>
-    <string name="Toast_h_mayoraD">Asignar un tirante menor al diámetro</string>
-    <string name="Toast_h_mayoraHT">Asignar un tirante menor a la altura total</string>
+    <string name="Toast_add_slope">The missing field is empty or is negative, set a value for the slope.</string>
+    <string name="Toast_add_values">Set values for all the variables.</string>
+    <string name="Toast_add_variable">Set a valid value.</string>
+    <string name="Toast_h_mayoraD">Set a hydraulic depth less than diameter</string>
+    <string name="Toast_h_mayoraHT">Set a hydraulic depth less than total height</string>
 
-    <string name="TextPVCMEtric">Tubería de PVC Serie Métrica</string>
-    <string name="TextPVCInglesa">Tubería de PVC Serie Inglesa</string>
-    <string name="TextPEADHid">Tubería de PEAD - hidráulica</string>
-    <string name="TextPPR">Tubería de Polipropileno (PPR)</string>
-    <string name="TextAcero">Tubería de Acero</string>
-    <string name="TextPVCSan">Tubería de PVC Sanitario</string>
-    <string name="TextPEADSan">Tubería de PEAD sanitario</string>
-    <string name="TextConcSimple">Tubería de concreto simple y reforzado</string>
+    <string name="TextPVCMEtric">PVC Metric series - freshwater</string>
+    <string name="TextPVCInglesa">PVC English series - freshwater</string>
+    <string name="TextPEADHid">HDPE - hydraulic</string>
+    <string name="TextPPR">PPR pipes</string>
+    <string name="TextAcero">Steel pipe</string>
+    <string name="TextPVCSan">PVC wastewater</string>
+    <string name="TextPEADSan">HDPE wastewater</string>
+    <string name="TextConcSimple">Concrete and reinforced concrete pipes</string>
 
-    <string name="TextCajones">Cajones de concreto reforzado</string>
-    <string name="TextCajonesG">Cajones de grandes dimensiones</string>
+    <string name="TextCajones">Reinforced concrete precast box</string>
+    <string name="TextCajonesG">Large size precast concrete boxes</string>
 
-    <string name="Tit_Clave_manning">Clave</string>
-    <string name="Tit_Desc_manning">Descripción</string>
-
-    <string name="Tit_table_manning">n de Manning</string>
-
-    <string name="Cont_BotonPerval">Ir a Perval</string>
-    <string name="Cont_BotonContactar">Contactar</string>
-    <string name="Cont_Resultados">Resultados</string>
-    <string name="Cont_Seccion_portal">Imagen de portal</string>
+    <string name="Tit_Clave_manning">Top</string>
+    <string name="Tit_Desc_manning">Description</string>
+    <string name="Tit_table_manning">Manning\'s n</string>
+    <string name="Cont_BotonContactar">Contact</string>
+    <string name="Cont_Resultados">Results</string>
+    <string name="Cont_Seccion_portal">Segmented tunnel</string>
 
     <string name="Transicion_portal">Transicion_imagen_portal</string>
 
-    <string name="Warning_hdif">Las alturas de los muros derechos e izquierdo deben ser iguales.</string>
+    <string name="Warning_hdif">Height of right and left walls should be equal</string>
+    <string name="maxflowText">The maximum flow is: </string>
 
+    <string name="subcritico">Subcritical</string>
+    <string name="critico">Critical</string>
+    <string name="supercritico">Supercritical</string>
+
+    <!-- RESULTS DATA -->
+
+    <string name="res_flow">Flow (l/s): </string>
+    <string name="res_vel">Velocity (m/s): </string>
+    <string name="res_tirante">Hyd. depth (m): </string>
+    <string name="res_manning">n Manning: </string>
+    <string name="res_area">Area (m2): </string>
+    <string name="res_froude">Froude: </string>
+    <string name="res_tipo_flujo">Flux type: </string>
+    <string name="res_qmax_full">Qmax full capacity (l/s): </string>
+    <string name="res_q_0.8D">Q with hyd. Depth = 0.8D (l/s): </string>
+
+
+    <!--SIMBOLOGIA PRESION-->
+    <string name="symbol_RD" >DR - Dimension Ratio</string>
+    <string name="symbol_DN" >DN - Nominal diameter</string>
+    <string name="symbol_Dint" >Dint - Internal diameter</string>
+    <string name="symbol_Q" >Q - flow</string>
+    <string name="symbol_Vel" >Vel - Velocity, m/s</string>
+    <string name="symbol_Hl" >Hl - Head loss, m/1000m</string>
+    <string name="symbol_ls" >l/s - liters per second</string>
+    <string name="symbol_ms" >m/s - meters per second</string>
+    <string name="symbol_PPR" >PPR - Polypropylene</string>
+    <string name="symbol_in" >in - Inches</string>
+
+    <!--SIMBOLOGIA CIRCULAR-->
+
+    <!--SIMBOLOGIA RECTANGULAR-->
+    <string name="symbol_Rect_B" >B - Bottom width, inner, in meters</string>
+    <string name="symbol_Rect_H" >H - Height, inner, in meters</string>
+
+    <!--SIMBOLOGIA TRAPECIAL-->
+    <string name="symbol_Trap_k" >k:1 - Slope, horizontal:vertical</string>
+    <string name="symbol_Trap_Base" >Bottom - Bottom width, in meters</string>
+
+
+    <!--SIMBOLOGIA PORTAL-->
+    <string name="symbol_PORTAL_R" translatable="false">R - radius of the tunnel\'s top, in meters</string>
+    <string name="symbol_PORTAL_H" translatable="false">H - Total height in meters of the rectangular part of the tunnel.</string>
+    <string name="symbol_PORTAL_H1" translatable="false">h1 - Wall\'s height in meters of the rectangular part of the tunnel with Manning\'s coefficient n1</string>
+    <string name="symbol_PORTAL_H2" translatable="false">h2 - Wall\'s height in meters of the rectangular part of the tunnel with Manning\'s coefficient n2</string>
+    <string name="symbol_PORTAL_n1" translatable="false">n1 - Manning\'s value assigned to h1 of the wall</string>
+    <string name="symbol_PORTAL_n2" translatable="false">n2 - Manning\'s value assigned to h1 of the wall</string>
+    <string name="symbol_PORTAL_nteto" translatable="false">nt - Manning\'s value assigned to ceiling of the tunnel</string>
+    <string name="symbol_PORTAL_nb" translatable="false">nb - Manning\'s value assigned to bottom of the tunnel</string>
+
+
+    <!--EJEMPLOS DE USO-->
+    <!--CIRCULAR-->
+    <string name="tit_ejemplo_uso" >Usage example</string>
+    <string name="uso_circular1" >For calculations using the option with circular pipes,
+    for example if you know the diameter,  60in fow a HDPE PIPE, with internal diameter of 1501 mm,
+        the flow (250 liters per second - l/s) and the slope 1 meter per kilometer (1000 m).
+        \nBelow the steps:\n
+        \nFirst select the material, then select the diameter of 60in.
+        \nSecond: set the flow,  250, in the required field.
+        \nThird: set the units to l/s.
+        \nFourth: add the value of the slope, in this case type just 1, as it is the 1 meter.
+        per kilometer. Internally the app will calculate the slope to have the value 0.001 for using it in the
+        Manning\'s equation. \n
+        \nThe results will be the below:\n
+        \nFlow (m3/s): 0.250
+        \nRoughness: 0.009
+        \nSlope: 1.0 (0.001)
+        \nArea (m2): 0.2307
+        \nVelocity (m/s): 1.08
+        \nHydraulic depth (m): 0.282\n
+    </string>
+
+
+    <string name="uso_rectangular">
+        For example, for using a predefined section of a concrete box,
+        knowing the slope (2 meters each 1000 meters) and the flow (2000 l/s), for a box with 2m width x 1m height:\n
+        \nFirst:  select the option Precast box,
+        \nSecond: select the dimension, 2000mmx1000mm
+        \nThird: set the slope as 2, as it is 2 m per 1000m. Internally the app will convert it to 0.002.
+        \nFourth: set the flow, 2000.
+        \nFifth: set the units as l/s.\n
+        \nThe results will be the below:
+        \nFlow (m3/s): 2.000
+        \nVelocity (m/s): 1.752
+        \nHydraulic Area (m2): 1.142
+        \nHydraulic Depth (m): 0.571
+        \nFroude number: 0.74
+        \nFlow type: Subcritical
+    </string>
+
+    <!-- USO TRAPECIAL-->
+    <string name="uso_trapecial" translatable="false">
+        A usage case for a trapezoidal channel, with a bottom of 1 m, and slopes 1:1, with n=0.013 in the bottom and
+        and the slopes, with a flow of 1000 l/s you follow the below steps to get the hydraulic variables:\n
+        \nFirst:  Define the available height in the channel, in the corresponding box, in meters, in this case 1.
+        \nSecond: Define the bottom width in the channel, in the corresponding box, in meters, as 1.
+        \nThird: Define the slope in the right and left sides, you will define the horizontal relation of the slope, as 1.
+        \nFourth: Define the Manning\'s roughness for the bottom, right and left slope, as 0.013.
+        \nFifth: Set the flow to 1000.
+        \nSixth: set the units as l/s.
+        \nThe results will be the below:
+        \nFlow (m3/s): 1.000
+        \nVelocity (m/s): 1.63
+        \nHydraulic Area (m2): 0.854
+        \nHydraulic Depth (m): 0.55
+        \nFroude number: 0.59
+        \nFlow type: Subcritical
+    </string>
+
+    <string name="uso_tunnel" >
+        A usage case for a tunnel working as a channel,
+        with 5m in the base width,  5m as height for the rectangular portion of the channel
+        and the arc with Radius=2.5 (D=5m). The slope considered will be 1 m per 1000m.\n
+        \nConsiderations:
+        \na) The bottom has a roughness equal to 0.013.
+        \nb) The first 2m of the walls have a roughness equal to 0.013
+        \nc) Starting at height=2m and to height=5m (total=3m) the walls have a roughness equal to 0.017
+        \nc) The arc has a roughness equal to 0.025.
+
+        \n\nThe steps you should follow to set the geometry are:
+
+        \nFirst:  Set the width to 5m (the radius will be 2.5m automatically).
+        \nSecond: Set the bottom\'s roughness as 0.013.
+        \nThird: Set the roughness for the lower part of the walls, right and left.
+        In this case the h1 will be 2 for both sides, and the n1 will be 0.013 in both sides.
+        \nFourth: Set the roughness for the upper part of the walls, right and left.
+        In this case h2 will be 3, and n2 will be 0.017 for both sides.
+        \nFifth: Set the roughness for the arc, 0.025.
+        \nSixth: Set the slope as 1, the app will calculate internally the 0.001 value for the slopes.
+        \n\nThe app will calculate the average roughness based on the hydraulic depth and how many
+        meters of the wet perimeter
+        are related to each roughness, you could set different
+        roughness values and it will weigh the average: \n
+        n = sum(ni*li)/lt
+        \nWhere ni is the roughness associated to the length i of the walls or bottom width,
+        lt - total length.
+        \n\nFor example, with a flow of 5000 l/s you will have the below results:
+        \nFlow (m3/s): 5.000
+        \nVelocity (m/s): 1.56
+        \nRoughness: 0.013
+        \nHydraulic Area (m2): 3.214
+        \nHydraulic Depth (m): 0.643
+        \nFroude\'s number: 0.619
+
+        \n\nFor example, with a flow of 30000 l/s you will have the below results:
+        \nFlow (m3/s): 30.000
+        \nVelocity (m/s): 2.68
+        \nRoughness: 0.0132
+        \nHydraulic Area (m2): 11.206
+        \nFroude\'s number: 0.571
+
+        \n\nFor example, with a flow of 80000 l/s you will have the below results:
+        \nFlow (m3/s): 80.000
+        \nVelocity (m/s): 2.99
+        \nRoughness: 0.0151
+        \nHydraulic Area (m2): 26.716
+        \nHydraulic Depth (m): 5.344
+        \nFroude\'s number: 0.412
+
+        \n\nFor example, with a flow of 85000 l/s you will have the below results:
+        \nFlow (m3/s): 85.000
+        \nVelocity (m/s): 2.92
+        \nRoughness: 0.0157
+        \nHydraulic Area (m2): 29.065
+        \nHydraulic Depth (m): 5.828
+        \nFroude\'s number: 0.376
+
+    </string>
+
+    <string-array name="manning_values">
+        <item>A|Closed Conduits flowing partly full|_|_|_</item>
+        <item>A-1|Metal|_|_|_</item>
+        <item>a.|Brass, smooth|0.009|0.010|0.013</item>
+        <item>b.|Steel|_|_|_</item>
+        <item>b.1|Lockbar and welded|0.010|0.012|0.014</item>
+        <item>b.2|Riveted and spiral|0.013|0.013|0.017</item>
+        <item>c.|Cast iron|_|_|_</item>
+        <item>c.1|Coated|0.010|0.013|0.014</item>
+        <item>c.2|Uncoated|0.011|0.014|0.016</item>
+        <item>d.|Wrought iron|_|_|_</item>
+        <item>d.1|Black|0.012|0.014|0.014</item>
+        <item>d.2|Galvanized|0.013|0.016|0.017</item>
+        <item>e.|Corrugated metal|_|_|_</item>
+        <item>e.1|Subdrain|0.017|0.019|0.021</item>
+        <item>e.2|Storm drain|0.021|0.024|0.030</item>
+        <item>A.2|Nonmetal|_|_|_</item>
+        <item>a.|Lucite|0.008|0.009|0.010</item>
+        <item>b.|Glass|0.009|0.010|0.013</item>
+        <item>c.|Cement|_|_|_</item>
+        <item>c.1|Neat, surface|0.010|0.011|0.013</item>
+        <item>c.2|Mortar|0.011|0.013|0.015</item>
+        <item>d.|Concrete|_|_|_</item>
+        <item>d.1|Culvert, straight and free of debris|0.010|0.011|0.013</item>
+        <item>d.2|Culvert with bends, connections, and some debris|0.011|0.013|0.014</item>
+        <item>d.3|Finished|0.011|0.012|0.014</item>
+        <item>d.4|Sewer with manholes, inlet, ets., straight|0.013|0.015|0.017</item>
+        <item>d.5|Unfinished, steel form|0.012|0.013|0.014</item>
+        <item>d.6|Unfinished, smooth wood form|0.012|0.014|0.016</item>
+        <item>d.7|Unfinished, rought wood form|0.015|0.017|0.020</item>
+        <item>e.|Wood|_|_|_</item>
+        <item>e.1|Stave|0.010|0.012|0.014</item>
+        <item>e.2|Laminated, treated|0.015|0.017|0.020</item>
+        <item>f.|Clay|_|_|_</item>
+        <item>f.1|Common drainage tile|0.011|0.013|0.017</item>
+        <item>f.2|Vitrified sewer|0.011|0.014|0.017</item>
+        <item>f.3|Vitrified sewer with manholes, inlet, etc.|0.013|0.015|0.017</item>
+        <item>f.4|Vitrified subbdrain with open joint|0.014|0.016|0.018</item>
+        <item>g.|Brickwork|_|_|_</item>
+        <item>g.1|Glazed|0.011|0.013|0.015</item>
+        <item>g.2|Lined with cement mortar|0.012|0.015|0.017</item>
+        <item>h.|Sanitary sewers coated with sewage slimes, with bends and connections|0.012|0.013|0.016</item>
+        <item>i.|Paved invert, sewer, smooth bottom|0.016|0.019|0.020</item>
+        <item>j.|Rubble masonry, cemented|0.018|0.025|0.030</item>
+        <item>B.|Lined or Built-up channels|_|_|_</item>
+        <item>B.1|Metal|_|_|_</item>
+        <item>a|Smooth steel surface|_|_|_</item>
+        <item>a.1|Unpainted|0.011|0.012|0.014</item>
+        <item>a.2|Painted|0.012|0.013|0.017</item>
+        <item>b.|Corrugated|0.021|0.025|0.030</item>
+        <item>B-2|Nonmetal_|_|_|_</item>
+        <item>a.|Cement|_|_|_</item>
+        <item>a.1|Neat, surface|0.010|0.011|0.013</item>
+        <item>a.2|Mortar|0.011|0.013|0.015</item>
+        <item>b.|Wood|_|_|_</item>
+        <item>b.1|Planned, untreated|0.010|0.012|0.014</item>
+        <item>b.2|Planed, creosoted|0.011|0.012|0.015</item>
+        <item>b.3|Unplaned|0.011|0.013|0.015</item>
+        <item>b.4|Plank with battens|0.012|0.015|0.018</item>
+        <item>b.5|Lined with roofing paper|0.010|0.014|0.017</item>
+        <item>c.|Concrete|_|_|_</item>
+        <item>c.1|Trowel finish|0.011|0.013|0.015</item>
+        <item>c.2|Float finish|0.013|0.015|0.016</item>
+        <item>c.3|Finished, with gravel on bottom|0.015|0.017|0.020</item>
+        <item>c.4|Unfinished|0.014|0.017|0.020</item>
+        <item>c.5|Gunite, good section|0.016|0.019|0.023</item>
+        <item>c.6|Gunite, wavy section|0.018|0.022|0.025</item>
+        <item>c.7|On good excavated rock|0.017|0.020|_</item>
+        <item>c.8|On irregular excavated rock|0.022|0.027|_</item>
+        <item>d.|Concrete bottom float finished with sides of|_|_|_</item>
+        <item>d.1|Dressed stone in mortar|0.015|0.017|0.020</item>
+        <item>d.2|Random stone in mortar|0..017|0.020|0.024</item>
+        <item>d.3|Cement rubble masonry, plastered|0.016|0.020|0.024</item>
+        <item>d.4|Cement rubble masonry|0.020|0.025|0.030</item>
+        <item>d.5|Dry rubble or riprap|0.020|0.030|0.035</item>
+        <item>e.|Gravel bottom with sides of|_|_|_</item>
+        <item>e.1|Formed concrete|0.017|0.020|0.025</item>
+        <item>e.2|Random stone in mortar|0.020|0.023|0.0226</item>
+        <item>e.3|Dry rubble or riprap|0.023|0.033|0.036</item>
+        <item>f.|Brick|_|_|_</item>
+        <item>f.1|Glazed|0.011|0.013|0.015</item>
+        <item>f.2|In cement mortar|0.012|0.015|0.018</item>
+        <item>g.|Masonry|_|_|_</item>
+        <item>g.1|Cemented rubble|0.017|0.025|0.030</item>
+        <item>g.2|Dry rubble|0.023|0.032|0.035</item>
+        <item>h.|Dressed ashlar|0.013|0.015|0.017</item>
+        <item>i.|Asphalt|_|_|_</item>
+        <item>i.1|Smooth|0.013|0.013|_</item>
+        <item>i.2|Rough|0.016|0.016|_</item>
+        <item>j.|Vegetal lining|0.030|....|0.500</item>
+        <item>C.|Excavated or dredged|_|_|_</item>
+        <item>a.|Earth, straight and uniform|_|_|_</item>
+        <item>a.1|Clean, recently completed|0.016|0.018|0.020</item>
+        <item>a.2|Clean, after weathering|0.018|0.022|0.025</item>
+        <item>a.3|Gravel, uniform section, clean|0.022|0.025|0.030</item>
+        <item>a.4|With short grass few weeds|0.022|0.027|0.033</item>
+        <item>b.|Earth, winding and sluggish|_|_|_</item>
+        <item>b.1|No vegetation|0.023|0.025|0.030</item>
+        <item>b.2|Grass, some weeds|0.025|0.030|0.033</item>
+        <item>b.3|Dense weeds or aquatic plants in deep channels|0.030|0.035|0.040</item>
+        <item>b.4|Earth bottom and rubble sides|0.028|0.030|0.035</item>
+        <item>b.5|Stony bottom and weedy banks|0.025|0.035|0.040</item>
+        <item>b.6|Cobble bottom and clean sides|0.030|0.040|0.050</item>
+        <item>c.|Dragline-excavated or dredged|_|_|_</item>
+        <item>c.1|No vegetation|0.025|0.028|0.033</item>
+        <item>c.2|Light brush on banks|0.035|0.050|0.060</item>
+        <item>d.|Rock cuts|_|_|_</item>
+        <item>d.1|Smooth and uniform|0.025|0.035|0.040</item>
+        <item>d.2|Jagged and irregular|0.035|0.040|0.050</item>
+        <item>e.|Channels not maintained, weeds and brush uncut|_|_|_</item>
+        <item>e.1|Dense weeds, high as flow depth|0.050|0.080|0.120</item>
+        <item>e.2|Clean bottom, brush on sides|0.040|0.050|0.080</item>
+        <item>e.3|Same, highest stage of flow|0.045|0.070|0.110</item>
+        <item>e.4|Dense brush, high stage|0.080|0.100|0.140</item>
+        <item>D.|Natural streams|_|_|_</item>
+        <item>D.1|Minor streams (top width at flood stage &lt; 100 ft)|_|_|_</item>
+        <item>a.|Streams on plain|_|_|_</item>
+        <item>a.1|Clean, straight, full stage, no rifts or deep pools|0.025|0.030|0.033</item>
+        <item>a.2|Same as above, but more stones and weeds|0.030|0.035|0.040</item>
+        <item>a.3|Clean, winding, some pools and schoals|0.033|0.040|0.045</item>
+        <item>a.4|Same as above, but some weeds and stones|0.035|0.048|0.055</item>
+        <item>a.5|Same as above, lower stages, more ineffective slopes and sections|0.040|0.045|0.050</item>
+        <item>a.6|Same as 4, but more stones|0.045|0.050|0.060</item>
+        <item>a.7|Sluggish reaches, weedy, deep pools|0.050|0.070|0.080</item>
+        <item>a.8|Very weedy reaches, deep pools, or floodways with heavy stand of timber and underbrush|0.075|0.100|0.150</item>
+        <item>b.|Mountain streams, no vegetaation in channel, banks usually steep, trees and brush along banks submerged at high stages|_|_|_</item>
+        <item>b.1|Bottom: gravels, cobbles, and few boulders|0.030|0.040|0.050</item>
+        <item>b.2|Bottom: cobbles with large boulders|0.040|0.050|0.070</item>
+        <item>D.2|Flood plains|_|_|_</item>
+        <item>a.|Pasture no brush|_|_|_</item>
+        <item>a.1|Short grass|0.025|0.030|0.035</item>
+        <item>a.2|High grass|0.030|0.035|0.050</item>
+        <item>b.|Cultivated areas|_|_|_</item>
+        <item>b.1|No crop|0.020|0.030|0.040</item>
+        <item>b.2|Mature row crops|0.025|0.035|0.045</item>
+        <item>b.3|Mature field crops|0.030|0.040|0.050</item>
+        <item>c.|Brush|_|_|_</item>
+        <item>c.1|Scattered brush, heavy weeds|0.035|0.050|0.070</item>
+        <item>c.2|Light brush and trees, in winter|0.035|0.050|0.060</item>
+        <item>c.3|Light brush and trees, in summer|0.040|0.060|0.080</item>
+        <item>c.4|Medium to dense brush, in winter|0.045|0.070|0.110</item>
+        <item>c.5|Medium to dense brush, in summer|0.070|0.100|0.160</item>
+        <item>d.|Trees|_|_|_</item>
+        <item>d.1|Dense willows, summer straight|0.110|0.150|0.200</item>
+        <item>d.2|Cleared land with tree stumps, no sprouts|0.030|0.040|0.050</item>
+        <item>d.3|Same as above, but with heavy growth of sprouts|0.050|0.060|0.080</item>
+        <item>d.4|Heavy stand of timber, a few down trees, little undergrowth, flood stage below branches|0.080|0.100|0.120</item>
+        <item>d.5|Same as above, but with flood stage reaching branches|0.100|0.120|0.160</item>
+        <item>D.3|Major streams (top width at flood stage >100ft). The n value is less than that for minor streams of similar description, because banks offer less effective resistance.|_|_|_</item>
+        <item>a.|Regular section with no boulders or brush|0.025|...|0.060</item>
+        <item>b.|Irregular and rough section|0.035|...|0.100</item>
+
+    </string-array>
 
 </resources>

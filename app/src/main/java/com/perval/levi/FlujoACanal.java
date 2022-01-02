@@ -14,12 +14,17 @@ import androidx.viewpager.widget.ViewPager;
 import com.google.android.material.tabs.TabLayout;
 import com.perval.levi.ayuda.EulaActivity;
 import com.perval.levi.ayuda.Help;
+import com.perval.levi.fragments.FragCanalCircular;
+import com.perval.levi.fragments.FragCanalPortal;
+import com.perval.levi.fragments.FragCanalRectangular;
+import com.perval.levi.fragments.FragCanalTrapecial;
 
 public class FlujoACanal extends AppCompatActivity implements TabLayout.OnTabSelectedListener{
     Toolbar toolbarCanal;
     TabLayout tabLayout;
     ViewPager viewPager;
-
+    PagerAdapter adapter;
+    String selectedPosition;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,7 +50,7 @@ public class FlujoACanal extends AppCompatActivity implements TabLayout.OnTabSel
         //find view pager
         viewPager = (ViewPager) findViewById(R.id.VPager_flujocanal);
 
-        PagerAdapter adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
+        adapter = new PagerAdapter(getSupportFragmentManager(), tabLayout.getTabCount());
 
         viewPager.setAdapter(adapter);
 
@@ -54,6 +59,29 @@ public class FlujoACanal extends AppCompatActivity implements TabLayout.OnTabSel
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
                 tabLayout.setScrollPosition(position,0, true);
+                switch (position){
+                    case 0:
+                        FragCanalCircular tab0 = new FragCanalCircular();
+                        selectedPosition = "Circular";
+                        break;
+                    case 1:
+                        FragCanalRectangular tab1 = new FragCanalRectangular();
+                        selectedPosition = "Rectangular";
+
+                        break;
+                    case 2:
+                        FragCanalTrapecial tab2 = new FragCanalTrapecial();
+                        selectedPosition = "Trapecial";
+                        break;
+                    case 3:
+                        FragCanalPortal tab3 = new FragCanalPortal();
+                        selectedPosition =  "Portal";
+                        break;
+                    default:
+                        break;
+
+                }
+
                 tabLayout.setSelected(true);
             }
 
@@ -99,7 +127,7 @@ public class FlujoACanal extends AppCompatActivity implements TabLayout.OnTabSel
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.menu_main, menu);
+        inflater.inflate(R.menu.menu_canal, menu);
         return true;
     }
 
@@ -125,6 +153,11 @@ public class FlujoACanal extends AppCompatActivity implements TabLayout.OnTabSel
                 startActivity(Eula_Intent);
                 overridePendingTransition(R.anim.bottom_in, R.anim.bottom_out);
                 return true;
+            case R.id.simbologia:
+                Intent Symbol_Intent = new Intent(this, Symbology.class );
+                String mOption = this.selectedPosition;
+                Symbol_Intent.putExtra("option", mOption);
+                startActivity(Symbol_Intent);
             default:
                 return super.onOptionsItemSelected(item);
         }
@@ -142,6 +175,10 @@ public class FlujoACanal extends AppCompatActivity implements TabLayout.OnTabSel
 
     @Override
     public void onTabReselected(TabLayout.Tab tab) {
+
+    }
+
+    private void setSelectedPosition(String position){
 
     }
 

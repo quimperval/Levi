@@ -1,8 +1,10 @@
-package com.perval.levi;
+package com.perval.levi.tuberias;
 
 import android.content.res.Resources;
 import android.util.Log;
 import android.widget.Toast;
+
+import com.perval.levi.R;
 
 import java.util.ArrayList;
 import java.math.*;
@@ -55,12 +57,28 @@ public class TuberiaSanitaria {
 
     private double Diametro;
 
+    //Variables for Qmax
+    private double QMAX_CrossAreaX = -99;
+    private double QMAX_PmX = -99;
+    private double QMAX_RhX = -99;
+    private double QMAX_velocityX = -99;
+    private double QMAX_gastoX = -99;
+
+    private Resources resources;
+
+    private boolean isTest = false;
+
+    public TuberiaSanitaria(Resources resources){
+        this.resources = resources;
+    }
 
     public TuberiaSanitaria(){
 
-
     }
 
+    public TuberiaSanitaria(boolean isTest){
+        this.isTest = isTest;
+    }
 
 
     public void setTirante(double tirante){
@@ -75,7 +93,7 @@ public class TuberiaSanitaria {
         this.velocity = velocity;
     }
 
-    public void setGasto(double gasto){
+    public void setGastoLPS(double gasto){
         this.gasto = gasto/1000;
     }
 
@@ -310,7 +328,7 @@ public class TuberiaSanitaria {
             } while (diferencia >0.0001&contador<100);
 
 
-            double Qdeh1 = CalcQfromH(h1);
+            double Qdeh1 = CalcQfromH(h1, false);
 
             if(Math.abs(Qdeh1-gasto)<0.05){
 
@@ -324,7 +342,10 @@ public class TuberiaSanitaria {
                 gasto = velocity*CrossArea;
                 AnchoSuperficie = calcAnchoSuperficie(tirantehidraulico);
                 Froude = calcFroude(velocity,AnchoSuperficie, CrossArea);
-                calcFlujo(Froude);
+                if(isTest==false){
+                    calcFlujo(Froude);
+                }
+
                 Success = true;
 
             } else {
@@ -397,7 +418,10 @@ public class TuberiaSanitaria {
             AnchoSuperficie = calcAnchoSuperficie(tirantehidraulico);
 
             Froude = calcFroude(velocity,AnchoSuperficie, CrossArea);
-            calcFlujo(Froude);
+            if(isTest==false){
+                calcFlujo(Froude);
+            }
+
 
         }
 
@@ -418,12 +442,15 @@ public class TuberiaSanitaria {
             AnchoSuperficie = calcAnchoSuperficie(tirantehidraulico);
 
             Froude = calcFroude(velocity,AnchoSuperficie, CrossArea);
-            calcFlujo(Froude);
+            if(isTest==false){
+                calcFlujo(Froude);
+            }
+
 
 
     }
 
-    public double CalcQfromH(double tirante){
+    public double CalcQfromH(double tirante, boolean isQmax){
 
 
 
@@ -433,6 +460,13 @@ public class TuberiaSanitaria {
         double velocityX = Vmanning(RhX);
         double gastoX = CrossAreaX*velocityX;
 
+        if(isQmax){
+            this.QMAX_CrossAreaX = CrossAreaX;
+            this.QMAX_PmX = PmX;
+            this.QMAX_RhX = RhX;
+            this.QMAX_velocityX = velocityX;
+            this.QMAX_gastoX = gastoX;
+        }
 
         return gastoX;
 
@@ -506,14 +540,14 @@ public class TuberiaSanitaria {
 
         if(Froudex ==1){
 
-            tipoFlujo = "Crítico";
+            tipoFlujo = resources.getString(R.string.critico);
         } else {
 
             if(Froudex<1){
-                tipoFlujo = "Subcrítico";
+                tipoFlujo = resources.getString(R.string.subcritico);
             } else {
 
-                tipoFlujo = "Supercrítico";
+                tipoFlujo = resources.getString(R.string.supercritico);
             }
         }
 
@@ -550,9 +584,9 @@ public class TuberiaSanitaria {
 
     public void CalcQmax(){
 
-        Qmax1 = CalcQfromH(Diametro);
-        Qmax2 = CalcQfromH(0.8*Diametro);
-        Qmed =  CalcQfromH(0.5*Diametro);
+        Qmax1 = CalcQfromH(Diametro, true);
+        Qmax2 = CalcQfromH(0.8*Diametro, false);
+        Qmed =  CalcQfromH(0.5*Diametro, false);
 
         QMAX = calcQmaxTuberia();
         hQMAX = calcHQmaxTuberia();
@@ -753,4 +787,43 @@ public class TuberiaSanitaria {
         return Success;
     }
 
+    public double getQMAX_CrossAreaX() {
+        return QMAX_CrossAreaX;
+    }
+
+    public void setQMAX_CrossAreaX(double QMAX_CrossAreaX) {
+        this.QMAX_CrossAreaX = QMAX_CrossAreaX;
+    }
+
+    public double getQMAX_PmX() {
+        return QMAX_PmX;
+    }
+
+    public void setQMAX_PmX(double QMAX_PmX) {
+        this.QMAX_PmX = QMAX_PmX;
+    }
+
+    public double getQMAX_vRhX() {
+        return QMAX_RhX;
+    }
+
+    public void setQMAX_vRhX(double QMAX_vRhX) {
+        this.QMAX_RhX = QMAX_RhX;
+    }
+
+    public double getQMAX_velocityX() {
+        return QMAX_velocityX;
+    }
+
+    public void setQMAX_velocityX(double QMAX_velocityX) {
+        this.QMAX_velocityX = QMAX_velocityX;
+    }
+
+    public double getQMAX_gastoX() {
+        return QMAX_gastoX;
+    }
+
+    public void setQMAX_gastoX(double QMAX_gastoX) {
+        this.QMAX_gastoX = QMAX_gastoX;
+    }
 }

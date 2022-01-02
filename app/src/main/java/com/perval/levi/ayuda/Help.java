@@ -2,11 +2,13 @@ package com.perval.levi.ayuda;
 
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,6 +28,7 @@ import com.perval.levi.R;
 import org.w3c.dom.Text;
 
 import java.net.URL;
+import java.util.Arrays;
 
 public class Help extends AppCompatActivity {
 
@@ -43,11 +46,6 @@ public class Help extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         botonmanning = (Button) findViewById(R.id.Btn_select_manning);
-
-
-
-
-
         Formula_3 = findViewById(R.id.TV_Hid_ContD);
         texto1 = "&#x3BD; -"+ getString(R.string.Cont_presion4);
         Formula_3.setText(Html.fromHtml(texto1));
@@ -58,9 +56,6 @@ public class Help extends AppCompatActivity {
                 showPopupWindow(view);
             }
         });
-
-
-
 
     }
 
@@ -122,12 +117,18 @@ public class Help extends AppCompatActivity {
 
         View popupView = inflater.inflate(R.layout.table_manning, null);
 
-        PopupWindow popupWindow = new PopupWindow(popupView,
-                ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
 
+
+
+
+        PopupWindow popupWindow = new PopupWindow(popupView,
+                ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+
+        //popupWindow.showAtLocation(anchorView,Gravity.CENTER, 0,0 );
 
         TableLayout stk = popupWindow.getContentView().findViewById(R.id.TLayout_Manning);
 
+        stk.setGravity(Gravity.CENTER_HORIZONTAL);
 
         TableRow tbrow0 = new TableRow(this);
 
@@ -135,6 +136,7 @@ public class Help extends AppCompatActivity {
         tv0.setText(" ID ");
         tv0.setBackgroundColor(getResources().getColor(R.color.Fondo_gris));
         tv0.setTextColor(getResources().getColor(R.color.azul_perval));
+
         tv0.setGravity(Gravity.LEFT);
 
         tbrow0.addView(tv0);
@@ -171,87 +173,94 @@ public class Help extends AppCompatActivity {
 
         stk.addView(tbrow0);
 
-        NManning man = new NManning();
+        NManning man = new NManning(getApplication().getResources());
         String[][] listadox = man.getListado();
 
         int rows = listadox.length;
         int cols = listadox[0].length;
+        int i=0;
+        try{
+            for (i = 0; i < rows; i++) {
 
-        for(int i = 0; i<rows; i++){
+                if (listadox[i][2].equals("")) {
+                    TableRow tbrow = new TableRow(this);
 
-            if(listadox[i][2].equals("")){
-                TableRow tbrow = new TableRow(this);
+                    TextView tvc1 = new TextView(this);
+                    tvc1.setText(listadox[i][0]);
+                    tvc1.setTextColor(getResources().getColor(R.color.azul_perval));
+                    tvc1.setBackgroundColor(getResources().getColor(R.color.Gris_2));
+                    tvc1.setGravity(Gravity.CENTER);
+                    tbrow.addView(tvc1);
 
-                TextView tvc1 = new TextView(this);
-                tvc1.setText(listadox[i][0]);
-                tvc1.setTextColor(getResources().getColor(R.color.azul_perval));
-                tvc1.setBackgroundColor(getResources().getColor(R.color.Gris_2));
-                tvc1.setGravity(Gravity.CENTER);
-                tbrow.addView(tvc1);
+                    TextView tvc2 = new TextView(this);
 
-                TextView tvc2 = new TextView(this);
+                    tvc2.setText(listadox[i][1]);
+                    tvc2.setTextColor(getResources().getColor(R.color.azul_perval));
+                    tvc2.setGravity(Gravity.LEFT);
+                    tvc2.setWidth(260);
+                    tvc2.setBackgroundColor(getResources().getColor(R.color.Gris_2));
 
-                tvc2.setText(listadox[i][1]);
-                tvc2.setTextColor(getResources().getColor(R.color.azul_perval));
-                tvc2.setGravity(Gravity.LEFT);
-                tvc2.setWidth(260);
-                tvc2.setBackgroundColor(getResources().getColor(R.color.Gris_2));
+                    tbrow.addView(tvc2);
 
-                tbrow.addView(tvc2);
-
-                stk.addView(tbrow);
-
-
-
-            } else {
+                    stk.addView(tbrow);
 
 
-                TableRow tbrow = new TableRow(this);
+                } else {
 
-                TextView tvc1 = new TextView(this);
-                tvc1.setText(listadox[i][0]);
-                tvc1.setTextColor(getResources().getColor(R.color.azul_perval));
-                tvc1.setGravity(Gravity.CENTER);
-                tbrow.addView(tvc1);
 
-                TextView tvc2 = new TextView(this);
+                    TableRow tbrow = new TableRow(this);
 
-                tvc2.setText(listadox[i][1]);
-                tvc2.setTextColor(getResources().getColor(R.color.azul_perval));
-                tvc2.setGravity(Gravity.LEFT);
-                tvc2.setWidth(260);
-                tbrow.addView(tvc2);
+                    TextView tvc1 = new TextView(this);
+                    tvc1.setText(listadox[i][0]);
+                    tvc1.setTextColor(getResources().getColor(R.color.azul_perval));
+                    tvc1.setGravity(Gravity.CENTER);
+                    tbrow.addView(tvc1);
 
-                TextView tvc3 = new TextView(this);
+                    TextView tvc2 = new TextView(this);
 
-                tvc3.setText(listadox[i][2]);
-                tvc3.setTextColor(getResources().getColor(R.color.azul_perval));
-                tvc3.setGravity(Gravity.CENTER);
-                tbrow.addView(tvc3);
+                    tvc2.setText(listadox[i][1]);
+                    tvc2.setTextColor(getResources().getColor(R.color.azul_perval));
+                    tvc2.setGravity(Gravity.LEFT);
+                    tvc2.setWidth(260);
+                    tbrow.addView(tvc2);
 
-                TextView tvc4 = new TextView(this);
+                    TextView tvc3 = new TextView(this);
 
-                tvc4.setText(listadox[i][3]);
-                tvc4.setTextColor(getResources().getColor(R.color.azul_perval));
-                tvc4.setGravity(Gravity.CENTER);
-                tbrow.addView(tvc4);
+                    tvc3.setText(listadox[i][2]);
+                    tvc3.setTextColor(getResources().getColor(R.color.azul_perval));
+                    tvc3.setGravity(Gravity.CENTER);
+                    tbrow.addView(tvc3);
 
-                TextView tvc5 = new TextView(this);
+                    TextView tvc4 = new TextView(this);
 
-                tvc5.setText(listadox[i][4]);
-                tvc5.setTextColor(getResources().getColor(R.color.azul_perval));
-                tvc5.setGravity(Gravity.CENTER);
-                tbrow.addView(tvc5);
+                    tvc4.setText(listadox[i][3]);
+                    tvc4.setTextColor(getResources().getColor(R.color.azul_perval));
+                    tvc4.setGravity(Gravity.CENTER);
+                    tbrow.addView(tvc4);
 
-                stk.addView(tbrow);
+                    TextView tvc5 = new TextView(this);
 
+                    tvc5.setText(listadox[i][4]);
+
+
+                    tvc5.setTextColor(getResources().getColor(R.color.azul_perval));
+                    tvc5.setGravity(Gravity.CENTER);
+                    tbrow.addView(tvc5);
+
+                    stk.addView(tbrow);
+
+
+                }
 
 
             }
-
-
-
+        }catch (ArrayIndexOutOfBoundsException ex){
+            Log.i("nManning", "listado[i].length:" + listadox[i].length);
+            Log.i("nManning", Arrays.toString(listadox[i]));
+            ex.printStackTrace();
+            return;
         }
+
 
 
 

@@ -1,6 +1,12 @@
-package com.perval.levi;
+package com.perval.levi.sections;
 
+import android.content.Context;
+import android.content.res.Resources;
 import android.util.Log;
+
+import androidx.annotation.StringRes;
+
+import com.perval.levi.R;
 
 public class CanalTrapecial {
 
@@ -38,8 +44,13 @@ public class CanalTrapecial {
 
 
     private boolean Success = false;
+    private Resources resources;
 
-    public void CanalRectangular(){
+    public CanalTrapecial(Resources resources) {
+        this.resources = resources;
+    }
+
+    public CanalTrapecial(){
 
     }
 
@@ -565,14 +576,14 @@ public class CanalTrapecial {
 
         if(Froudex ==1){
 
-            TipoFlujo = "Crítico";
+            TipoFlujo = resources.getString(R.string.critico);
         } else {
 
             if(Froudex<1){
-                TipoFlujo = "Subcrítico";
+                TipoFlujo = resources.getString(R.string.subcritico);
             } else {
 
-                TipoFlujo = "Supercrítico";
+                TipoFlujo = resources.getString(R.string.supercritico);
             }
         }
 

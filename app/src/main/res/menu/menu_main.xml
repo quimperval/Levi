@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     >
-    <item android:id="@+id/ayuda" android:title="Ayuda"></item>
-    <item android:id="@+id/contacto" android:title="Acerca de"></item>
-    <item android:id="@+id/licencia" android:title="Licencia"></item>
+    <item android:id="@+id/ayuda" android:title="@string/menu_ayuda"></item>
+    <item android:id="@+id/contacto" android:title="@string/Acerca_de"></item>
+    <item android:id="@+id/licencia" android:title="@string/menu_licencia"></item>
 </menu>
